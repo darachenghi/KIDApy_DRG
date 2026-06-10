@@ -9,7 +9,7 @@ import networkx as nx
 
 from parser import Network, load_abundances
 from solver import QuadraticSolver
-from kida_drg_3 import DRG
+from DRG_dense import DRG
 
 #Path and settings
 HERE = Path(__file__).resolve().parent

@@ -306,6 +306,15 @@ class Network:
         self.species_map = {s: i for i, s in enumerate(self.species)}
         return sorted(passive)
 
+    def reaction_rates(self, env: dict) -> list[float]:
+        T = float(env["T"])
+        nH = float(env["nH"])
+        Av = float(env["Av"])
+        uv_flux = float(env["uv_flux"])
+        Tcap_2body = bool(env.get("Tcap_2body", True))
+        reactions = self.reactions
+        return [self._calculate_rate(rxn, T, nH, Av, uv_flux, Tcap_2body) for rxn in reactions]
+    
     # ------------------------------------------------------------------
     # Private helpers
     # ------------------------------------------------------------------

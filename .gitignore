@@ -2,5 +2,4 @@
 *.npy
 *.csv
 *comparison.txt
-
-__pycache__
+.venv/
