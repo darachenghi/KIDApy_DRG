@@ -22,9 +22,7 @@ class DRG:
         for t in range(t_steps):
             concs = y[:,t]
             R_mat = self._point_build_R_mat(reactions, species_map, k,concs, dropped)
-            nnz_rows, nnz_col = np.nonzero(R_mat)
-
-            max_R_mat[nnz_rows, nnz_col] = np.maximum(max_R_mat[nnz_rows,nnz_col],R_mat[nnz_rows,nnz_col])
+            max_R_mat = max_R_mat.maximum(R_mat)
 
         self.R_mat = max_R_mat
         return self.R_mat
