@@ -9,7 +9,7 @@ import networkx as nx
 
 from parser import Network, load_abundances
 from solver import QuadraticSolver
-from DRG_sparse import DRG
+from DRG_union import DRG
 
 #Path and settings
 HERE = Path(__file__).resolve().parent
@@ -77,6 +77,7 @@ print(f'Number of species in reduced network: {len(drg.reduced_species)}')
 print(f'Species in Reduced Network: {drg.reduced_species}')
 
 #Plotting the Directed Graph
+'''
 G =  drg.Graph
 pos = nx.circular_layout(G)
 labels = {net.species_map[i]: i for i in net.species_map.keys()}
@@ -85,3 +86,4 @@ nx.draw(G, pos,labels = labels, with_labels=True, node_color='lightblue',
         node_size=700, arrowstyle='-|>', arrowsize=15)
 plt.title("Directed Graph")
 plt.savefig("Nelson Directed Graph")
+'''
