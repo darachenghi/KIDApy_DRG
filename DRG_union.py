@@ -3,7 +3,7 @@ from collections import Counter
 import networkx as nx
 import scipy.sparse as sp
 
-class DRG:
+class DRG_u:
     def __init__(self):
         self.reduced_species = []
         self.reached_species_indices = []
@@ -25,7 +25,7 @@ class DRG:
         for s in source_indices:
             if s in reached_species_indices:
                 continue
-            
+
             reached_species = list(nx.dfs_preorder_nodes(G,s))
             reached_species_indices.update(reached_species)
 
@@ -85,7 +85,10 @@ class DRG:
 
         n_species = len(species_map)
         den_vec = np.zeros(n_species)
-        num_mat = sp.dok_matrix((n_species,n_species), dtype=float)
+
+        rows = []
+        col = []
+        data = []
 
         for i, reaction in enumerate(reactions):
             reactant_counts = Counter(reaction["reactants"])
@@ -125,12 +128,13 @@ class DRG:
                     if idx_a == idx_b:
                         continue
 
-                    num_mat[idx_a, idx_b] += rate_prod
+                    rows.append(idx_a)
+                    col.append(idx_b)
+                    data.append(rate_prod)
         
-        num_mat  = num_mat.tocsr()
+        num_mat  = sp.coo_matrix((data,(rows,col)), shape = (n_species,n_species), dtype = float)
+        num_mat.sum_duplicates()
+
         R_mat = num_mat.copy()
-
-        nonzero, _ = R_mat.nonzero()
-        R_mat.data /= den_vec[nonzero]
-
+        R_mat.data /= den_vec[R_mat.row]
         return R_mat
