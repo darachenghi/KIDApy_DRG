@@ -9,7 +9,7 @@ import networkx as nx
 
 from parser import Network, load_abundances
 from solver import QuadraticSolver
-from DRG_union import DRG
+from DRG_union import DRG_u
 
 #Path and settings
 HERE = Path(__file__).resolve().parent
@@ -69,7 +69,7 @@ print(f'Source Species: {sources}')
 print(f'Tolerance: {eps}')
 
 #Reduce Network
-drg = DRG()
+drg = DRG_u()
 drg.reduce_net(net.reactions, net.species_map,reaction_rates, y, source_indices,dropped,eps = eps)
 
 print(f'Number of reactions in reduced network: {len(drg.reduced_rxns)}')
