@@ -7,10 +7,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
+import time
 
 from parser import Network, load_abundances
 from solver import QuadraticSolver
-from DRG_union import DRG 
+from DRG_union import DRG_u
+from DRG_dense import DRG_d
+from DRG_sparse import DRG_s
 
 # Paths and settings
 
@@ -74,10 +77,40 @@ reaction_rates = net.reaction_rates(env)
 #Sources
 sources = ['CO']
 source_indices = [net.species_map[i] for i in sources]
-eps = 0.5
+eps = 0.1
 
-#DRG 
-drg = DRG()
-drg.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
-print(f'Numbers of reactions in reduced networks: {len(drg.reduced_rxns)}')
-print(f'Number of species in reduced network: {len(drg.reduced_species)}')
+#DRG Union
+start_u = time.perf_counter()
+drg_u = DRG_u()
+drg_u.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
+end_u = time.perf_counter()
+time_u = end_u -start_u
+
+print("\nDRG Union:")
+print(f'Numbers of reactions in reduced networks: {len(drg_u.reduced_rxns)}')
+print(f'Number of species in reduced network: {len(drg_u.reduced_species)}')
+print(f'Time {time_u} seconds')
+
+#DRG Dense
+start_d = time.perf_counter()
+drg_d = DRG_d()
+drg_d.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
+end_d = time.perf_counter()
+time_d = end_d -start_d
+
+print("\nDRG Dense:")
+print(f'Numbers of reactions in reduced networks: {len(drg_d.reduced_rxns)}')
+print(f'Number of species in reduced network: {len(drg_d.reduced_species)}')
+print(f'Time: {time_d} seconds')
+
+#DRG Sparse
+start_s = time.perf_counter()
+drg_s = DRG_s()
+drg_s.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
+end_s = time.perf_counter()
+time_s = end_s -start_s
+
+print("\nDRG Sparse:")
+print(f'Numbers of reactions in reduced networks: {len(drg_s.reduced_rxns)}')
+print(f'Number of species in reduced network: {len(drg_s.reduced_species)}')
+print(f'Time: {time_s} seconds')

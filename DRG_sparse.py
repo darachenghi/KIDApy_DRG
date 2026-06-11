@@ -3,7 +3,7 @@ from collections import Counter
 import networkx as nx
 import scipy.sparse as sp
 
-class DRG:
+class DRG_s:
     def __init__(self):
         self.R_mat = None
         self.A_mat = None
@@ -16,7 +16,7 @@ class DRG:
     def build_R_mat(self, reactions: list, species_map: dict, k: list, y, dropped = None):
         '''Builds coefficient matrix, takes make r_{ab} value over trajectory'''
         n_species = len(species_map)
-        max_R_mat = sp.csr_matrix((n_species,n_species), dtype=  float)
+        max_R_mat = sp.coo_matrix((n_species,n_species))
 
         t_steps = int(y[0].shape[0])
         for t in range(t_steps):
@@ -95,7 +95,10 @@ class DRG:
 
         n_species = len(species_map)
         den_vec = np.zeros(n_species)
-        num_mat = sp.dok_matrix((n_species,n_species), dtype=float)
+
+        rows = []
+        col = []
+        data = []
 
         for i, reaction in enumerate(reactions):
             reactant_counts = Counter(reaction["reactants"])
@@ -135,12 +138,14 @@ class DRG:
                     if idx_a == idx_b:
                         continue
 
-                    num_mat[idx_a, idx_b] += rate_prod
+                    rows.append(idx_a)
+                    col.append(idx_b)
+                    data.append(rate_prod)
         
-        num_mat  = num_mat.tocsr()
-        R_mat = num_mat.copy()
+        num_mat  = sp.coo_matrix((data,(rows,col)), shape = (n_species,n_species), dtype = float)
+        num_mat.sum_duplicates()
 
-        nonzero, _ = R_mat.nonzero()
-        R_mat.data /= den_vec[nonzero]
+        R_mat = num_mat.copy()
+        R_mat.data /= den_vec[R_mat.row]
 
         return R_mat
