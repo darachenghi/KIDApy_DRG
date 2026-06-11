@@ -23,6 +23,9 @@ class DRG:
         G = nx.from_scipy_sparse_array(A_mat, create_using=nx.DiGraph)
 
         for s in source_indices:
+            if s in reached_species_indices:
+                continue
+            
             reached_species = list(nx.dfs_preorder_nodes(G,s))
             reached_species_indices.update(reached_species)
 

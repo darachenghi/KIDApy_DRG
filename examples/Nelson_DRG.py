@@ -61,9 +61,9 @@ t,y = solver.solve(
 reaction_rates = net.reaction_rates(env)
 
 #Search Parameters
-sources = ['He']
+sources = ['CO']
 source_indices = [net.species_map[i] for i in sources]
-eps = 0.8
+eps = 0.2
 
 print(f'Source Species: {sources}')
 print(f'Tolerance: {eps}')
