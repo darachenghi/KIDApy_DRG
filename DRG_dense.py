@@ -3,7 +3,7 @@ from collections import Counter
 import networkx as nx
 
 
-class DRG:
+class DRG_d:
     def __init__(self):
         self.R_mat = None
         self.A_mat = None
