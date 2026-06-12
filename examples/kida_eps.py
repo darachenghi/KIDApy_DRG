@@ -1,4 +1,3 @@
-
 import sys
 from pathlib import Path
 
@@ -7,10 +6,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
+import json
 
 from parser import Network, load_abundances
 from solver import QuadraticSolver
-from DRG_dense import DRG 
+from DRG_union import DRG_u
+from DRG_dense import DRG_d
+from DRG_sparse import DRG_s
 
 # Paths and settings
 
@@ -72,12 +74,21 @@ t, y = solver.solve(
 reaction_rates = net.reaction_rates(env)
 
 #Sources
-sources = ['CO']
+sources = ['CO', 'C', 'C+', 'O+']
 source_indices = [net.species_map[i] for i in sources]
-eps = 0.5
 
-#DRG 
-drg = DRG()
-drg.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
-print(f'Numbers of reactions in reduced networks: {len(drg.reduced_rxns)}')
-print(f'Number of species in reduced network: {len(drg.reduced_species)}')
+#DRG Union
+drg_s = DRG_s()
+
+epsilons = [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.01]
+species = []
+reactions = []
+
+for e in epsilons:
+    drg_s.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = e)
+    species.append(drg_s.reduced_species)
+    reactions.append(drg_s.reduced_rxns)
+
+data = {"epsilons": epsilons, "species": species, "reactions": reactions}
+with open("kida_eps_results_max.json", "w") as f:
+    json.dump(data, f, indent = 2)
