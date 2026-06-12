@@ -15,5 +15,5 @@ for file in files:
 plt.xlabel("Epsilon")
 plt.ylabel("Number of Species")
 plt.legend(["Union", "Max"])
-plt.title("DRG Reducetion of KIDA Network")
+plt.title("DRG Reduction of KIDA Network")
 plt.savefig("kida_eps")
