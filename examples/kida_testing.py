@@ -74,9 +74,9 @@ t, y = solver.solve(
 reaction_rates = net.reaction_rates(env)
 
 #Sources
-sources = ['CO']
+sources = ['CO', 'C', 'C+', 'O+']
 source_indices = [net.species_map[i] for i in sources]
-eps = 0.2
+eps = 0.01
 
 #DRG Union
 start_u = time.perf_counter()
