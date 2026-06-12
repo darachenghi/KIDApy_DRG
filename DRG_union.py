@@ -1,66 +1,56 @@
 import numpy as np
 from collections import Counter
 import networkx as nx
+import scipy.sparse as sp
 
-
-class DRG_d:
+class DRG_u:
     def __init__(self):
-        self.R_mat = None
-        self.A_mat = None
-        self.Graph = None
         self.reduced_species = []
         self.reached_species_indices = []
         self.reduced_rxns = []
         self.reduced_rxns_indices = []
-
-    def build_R_mat(self, reactions: list, species_map: dict, k: list, y, dropped = None):
-        '''Builds coefficient matrix, takes make r_{ab} value over trajectory'''
-        n_species = len(species_map)
-        max_R_mat = np.zeros((n_species, n_species))
-
-        t_steps = int(y[0].shape[0])
-        for t in range(t_steps):
-            concs = y[:,t]
-            R_mat = self._point_build_R_mat(reactions, species_map, k,concs, dropped)
-            nnz_rows, nnz_col = np.nonzero(R_mat)
-
-            max_R_mat[nnz_rows, nnz_col] = np.maximum(max_R_mat[nnz_rows,nnz_col],R_mat[nnz_rows,nnz_col])
-
-        self.R_mat = max_R_mat
-        return self.R_mat
-
-    def build_A_mat(self, eps = 0.1):
-        '''Builds adjacency matrix from R_mat'''
-        A_mat = (np.abs(self.R_mat) >= eps).astype(int)
-        self.A_mat = A_mat
-        return self.A_mat
     
-    def dfs(self, source_indices: list):
+    def build_A_mat(self, R_mat,eps = 0.1):
+        '''Builds adjacency matrix from R_mat'''
+        A_mat = R_mat.copy()
+        A_mat.data = (np.abs(A_mat.data)>= eps).astype(int)
+        A_mat.eliminate_zeros()
+        return A_mat
+    
+    def dfs(self, A_mat, source_indices: list):
         '''Conducts depth first search of directed graph, given source term'''
         reached_species_indices = set()
-        G = nx.from_numpy_array(self.A_mat, create_using=nx.DiGraph)
+        G = nx.from_scipy_sparse_array(A_mat, create_using=nx.DiGraph)
 
         for s in source_indices:
+            if s in reached_species_indices:
+                continue
+
             reached_species = list(nx.dfs_preorder_nodes(G,s))
             reached_species_indices.update(reached_species)
 
-        self.Graph = G
         reached_species_indices = list(reached_species_indices)
         return reached_species_indices
     
     def reduce_net(self, reactions: list, 
                    species_map: dict, 
                    k: list, 
-                   concs, 
+                   y, 
                    source_indices:list,
                    dropped = None ,
                    eps = 0.1):
         
         '''Reduces reaction network with DRG method'''
-            
-        self.build_R_mat(reactions, species_map, k, concs, dropped)
-        self.build_A_mat(eps)
-        reached_species_indices = self.dfs(source_indices)
+
+        reached_species_indices = set()
+        t_steps = int(y[0].shape[0])
+
+        for t in range(t_steps):
+            concs = y[:,t]
+            R_mat = self._point_build_R_mat(reactions, species_map, k,concs, dropped)
+            A_mat = self.build_A_mat(R_mat, eps )
+            reached_species_idx = self.dfs(A_mat, source_indices)
+            reached_species_indices.update(reached_species_idx)
 
         index_to_species = {idx:species for species,idx in species_map.items()}
         reached_species = [index_to_species[i] for i in reached_species_indices]
@@ -79,7 +69,7 @@ class DRG_d:
         self.reduced_rxns = reduced_rxns
         self.reduced_rxns_indices = reduced_rxns_indices
         return self.reduced_rxns
-
+    
     def _point_build_R_mat(self, reactions: list, 
                     species_map: dict, 
                     k: list, 
@@ -87,7 +77,6 @@ class DRG_d:
                     dropped = None):
         
         '''Builds coefficient matrix at a single state'''
-
         if dropped is None:
             dropped = []
 
@@ -96,7 +85,10 @@ class DRG_d:
 
         n_species = len(species_map)
         den_vec = np.zeros(n_species)
-        num_mat = np.zeros((n_species, n_species))
+
+        rows = []
+        col = []
+        data = []
 
         for i, reaction in enumerate(reactions):
             reactant_counts = Counter(reaction["reactants"])
@@ -136,13 +128,13 @@ class DRG_d:
                     if idx_a == idx_b:
                         continue
 
-                    num_mat[idx_a, idx_b] += rate_prod
+                    rows.append(idx_a)
+                    col.append(idx_b)
+                    data.append(rate_prod)
+        
+        num_mat  = sp.coo_matrix((data,(rows,col)), shape = (n_species,n_species), dtype = float)
+        num_mat.sum_duplicates()
 
-        R_mat = np.zeros((n_species, n_species))
-
-        nonzero_den = den_vec != 0
-        R_mat[nonzero_den, :] = (
-            num_mat[nonzero_den, :] / den_vec[nonzero_den, None]
-        )
-
+        R_mat = num_mat.copy()
+        R_mat.data /= den_vec[R_mat.row]
         return R_mat

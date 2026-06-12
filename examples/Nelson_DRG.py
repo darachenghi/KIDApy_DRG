@@ -9,7 +9,7 @@ import networkx as nx
 
 from parser import Network, load_abundances
 from solver import QuadraticSolver
-from DRG_sparse import DRG
+from DRG_union import DRG_u
 
 #Path and settings
 HERE = Path(__file__).resolve().parent
@@ -61,15 +61,15 @@ t,y = solver.solve(
 reaction_rates = net.reaction_rates(env)
 
 #Search Parameters
-sources = ['He']
+sources = ['CO']
 source_indices = [net.species_map[i] for i in sources]
-eps = 0.8
+eps = 0.2
 
 print(f'Source Species: {sources}')
 print(f'Tolerance: {eps}')
 
 #Reduce Network
-drg = DRG()
+drg = DRG_u()
 drg.reduce_net(net.reactions, net.species_map,reaction_rates, y, source_indices,dropped,eps = eps)
 
 print(f'Number of reactions in reduced network: {len(drg.reduced_rxns)}')
@@ -77,6 +77,7 @@ print(f'Number of species in reduced network: {len(drg.reduced_species)}')
 print(f'Species in Reduced Network: {drg.reduced_species}')
 
 #Plotting the Directed Graph
+'''
 G =  drg.Graph
 pos = nx.circular_layout(G)
 labels = {net.species_map[i]: i for i in net.species_map.keys()}
@@ -85,3 +86,4 @@ nx.draw(G, pos,labels = labels, with_labels=True, node_color='lightblue',
         node_size=700, arrowstyle='-|>', arrowsize=15)
 plt.title("Directed Graph")
 plt.savefig("Nelson Directed Graph")
+'''

@@ -1,0 +1,116 @@
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+import matplotlib.pyplot as plt
+import numpy as np
+import networkx as nx
+import time
+
+from parser import Network, load_abundances
+from solver import QuadraticSolver
+from DRG_union import DRG_u
+from DRG_dense import DRG_d
+from DRG_sparse import DRG_s
+
+# Paths and settings
+
+HERE = Path(__file__).resolve().parent
+REPO_ROOT = HERE.parent
+NETWORK_PATH    = REPO_ROOT / "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
+ABUNDANCES_PATH = REPO_ROOT / "networks" / "kida.uva.2024" / "abundances.in"
+SAVE_DIR = HERE / "data" / "kida_uva_2024_point2"
+SAVE_DIR.mkdir(parents=True, exist_ok=True)
+
+YEAR = 3600 * 24 * 365.25
+ATOL = 1e-20
+RTOL = 1e-3
+
+# Load network
+net = Network(grains=True)
+net.load_from_disk(str(NETWORK_PATH))
+dropped = net.drop_passive_species()
+
+# Initial conditions
+
+abund = load_abundances(str(ABUNDANCES_PATH))
+x0 = np.zeros(len(net.species), dtype=np.float64)
+for name, val in abund.items():
+    if name in net.species_map:
+        x0[net.species_map[name]] = val
+
+print("\nNetwork")
+print(f"  species  = {len(net.species)}")
+print(f"  reactions = {len(net.reactions)}")
+
+
+# Environment
+
+env = dict(
+    T       = 10.0,    # gas temperature [K]
+    nH      = 1e4,     # total H number density [cm⁻³]
+    Av      = 10.0,    # visual extinction [mag]
+    uv_flux = 1.0,     # FUV field scaling (1 = standard Draine field)
+)
+
+A, B = net.get_operators(env)
+
+# Integrate
+
+t_eval = np.logspace(0, np.log10(1e6 * YEAR), 200)
+
+solver = QuadraticSolver()
+t, y = solver.solve(
+    A, B,
+    t_span=(t_eval[0], t_eval[-1]),
+    x0=x0,
+    atol=ATOL,
+    rtol=RTOL,
+    t_eval=t_eval,
+)
+
+#Getting Reaction rates (k)
+reaction_rates = net.reaction_rates(env)
+
+#Sources
+sources = ['CO']
+source_indices = [net.species_map[i] for i in sources]
+eps = 0.1
+
+#DRG Union
+start_u = time.perf_counter()
+drg_u = DRG_u()
+drg_u.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
+end_u = time.perf_counter()
+time_u = end_u -start_u
+
+print("\nDRG Union:")
+print(f'Numbers of reactions in reduced networks: {len(drg_u.reduced_rxns)}')
+print(f'Number of species in reduced network: {len(drg_u.reduced_species)}')
+print(f'Time {time_u} seconds')
+
+#DRG Dense
+start_d = time.perf_counter()
+drg_d = DRG_d()
+drg_d.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
+end_d = time.perf_counter()
+time_d = end_d -start_d
+
+print("\nDRG Dense:")
+print(f'Numbers of reactions in reduced networks: {len(drg_d.reduced_rxns)}')
+print(f'Number of species in reduced network: {len(drg_d.reduced_species)}')
+print(f'Time: {time_d} seconds')
+
+#DRG Sparse
+start_s = time.perf_counter()
+drg_s = DRG_s()
+drg_s.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
+end_s = time.perf_counter()
+time_s = end_s -start_s
+
+print("\nDRG Sparse:")
+print(f'Numbers of reactions in reduced networks: {len(drg_s.reduced_rxns)}')
+print(f'Number of species in reduced network: {len(drg_s.reduced_species)}')
+print(f'Time: {time_s} seconds')
