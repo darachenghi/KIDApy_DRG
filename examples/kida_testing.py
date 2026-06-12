@@ -6,7 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
-import time
+import json
 
 from parser import Network, load_abundances
 from solver import QuadraticSolver
@@ -76,16 +76,16 @@ reaction_rates = net.reaction_rates(env)
 #Sources
 sources = ['CO', 'C', 'C+', 'O+']
 source_indices = [net.species_map[i] for i in sources]
-eps = 0.01
+eps = 0.1
 
 #DRG Union
-start_u = time.perf_counter()
 drg_u = DRG_u()
 drg_u.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
-end_u = time.perf_counter()
-time_u = end_u -start_u
 
-print("\nDRG Union:")
-print(f'Numbers of reactions in reduced networks: {len(drg_u.reduced_rxns)}')
-print(f'Number of species in reduced network: {len(drg_u.reduced_species)}')
-print(f'Time {time_u} seconds')
+reactions = drg_u.reduced_rxns
+
+data = {"method": "union", "epsilon": eps, "reactions": reactions, 
+        "species": net.species_map, "rates": reaction_rates, "initial abundances": x0.tolist()}
+
+with open("kida_reduced.json", "w") as f:
+    json.dump(data, f, indent = 2)
