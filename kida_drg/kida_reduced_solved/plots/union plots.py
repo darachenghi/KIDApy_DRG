@@ -13,7 +13,7 @@ species = ["C", "CO", "O", "O+"]
 
 for s in species:
     plt.figure()
-    df = pd.read_csv("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved/kida_uva_2024_point.csv")
+    df = pd.read_csv("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/examples/data/kida_uva_2024_point/kida_uva_2024_point.csv")
     plt.plot(df["t"]/YEAR, df[s])
 
     for f in files:

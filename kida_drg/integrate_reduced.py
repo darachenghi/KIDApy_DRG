@@ -18,7 +18,7 @@ ATOL = 1e-20
 RTOL = 1e-3
 
 
-network_path = Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved/kida_reduced_net_eps0.01_max.json")
+network_path = Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/reduced_net/kida_reduced_net_eps0.01_max.json")
 with open(network_path) as f:
     data = json.load(f)
 
@@ -30,7 +30,7 @@ x0 = np.array(data["initial abundances"])
 asb = assembly()
 A,B = asb.get_operators(reactions, species_map, rates)
 
-t_eval = np.logspace(0, np.log10(1e6 * YEAR), 300)
+t_eval = np.logspace(0, np.log10(1e6 * YEAR), 1000)
 
 solver = QuadraticSolver()
 t, y = solver.solve(
@@ -42,6 +42,6 @@ t, y = solver.solve(
     t_eval=t_eval,
 )
 
-out_root =Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved/kida_reduced_eps0.01_max")
+out_root =Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved/kida_reduced_eps0.01_max_new2")
 solver.save(out_root, t, y, col_names= species_map.keys())
 print(f"  saved = {out_root}.csv")
