@@ -6,6 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
+import json
 
 from parser import Network, load_abundances
 from solver import QuadraticSolver
@@ -16,7 +17,7 @@ HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parent
 NETWORK_PATH    = REPO_ROOT / "networks" / "nelson" / "gas_reactions.in"
 ABUNDANCES_PATH = REPO_ROOT / "networks" / "nelson" / "abundances.in"
-SAVE_DIR = HERE / "data" / "nelson_point_test"
+SAVE_DIR = HERE /"nelson_point_test"
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
 YEAR = 3600 * 24 * 365.25
@@ -61,7 +62,7 @@ t,y = solver.solve(
 reaction_rates = net.reaction_rates(env)
 
 #Search Parameters
-sources = ['CO']
+sources = ['CO', 'e-']
 source_indices = [net.species_map[i] for i in sources]
 eps = 0.2
 
@@ -87,3 +88,12 @@ nx.draw(G, pos,labels = labels, with_labels=True, node_color='lightblue',
 plt.title("Directed Graph")
 plt.savefig("Nelson Directed Graph")
 '''
+reactions = drg.reduced_rxns
+
+reduced_folder = HERE
+file_path = reduced_folder/"nelson_reduced_net_eps0.2_max.json"
+data = {"method": "max", "epsilon": eps, "reactions": reactions, 
+        "species": net.species_map, "rates": reaction_rates, "initial abundances": x0.tolist()}
+
+with open(file_path, "w") as f:
+    json.dump(data, f, indent = 2)
