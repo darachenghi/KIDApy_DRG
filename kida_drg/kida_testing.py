@@ -20,8 +20,6 @@ HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parent
 NETWORK_PATH    = REPO_ROOT / "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
 ABUNDANCES_PATH = REPO_ROOT / "networks" / "kida.uva.2024" / "abundances.in"
-SAVE_DIR = HERE / "data" / "kida_uva_2024_point_fullorder"
-SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
 YEAR = 3600 * 24 * 365.25
 ATOL = 1e-20

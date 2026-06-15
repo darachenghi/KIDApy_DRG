@@ -17,8 +17,6 @@ HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parent
 NETWORK_PATH    = REPO_ROOT / "networks" / "nelson" / "gas_reactions.in"
 ABUNDANCES_PATH = REPO_ROOT / "networks" / "nelson" / "abundances.in"
-SAVE_DIR = HERE /"nelson_point_test"
-SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
 YEAR = 3600 * 24 * 365.25
 ATOL = 1e-20
@@ -64,18 +62,39 @@ reaction_rates = net.reaction_rates(env)
 #Search Parameters
 sources = ['CO', 'e-']
 source_indices = [net.species_map[i] for i in sources]
-eps = 0.2
+eps = [0.1, 0.2, 0.3, 0.4, 0.5,0.6,0.7, 0.8, 0.9]
+species_eps = []
 
 print(f'Source Species: {sources}')
-print(f'Tolerance: {eps}')
 
 #Reduce Network
 drg = DRG_u()
-drg.reduce_net(net.reactions, net.species_map,reaction_rates, y, source_indices,dropped,eps = eps)
 
-print(f'Number of reactions in reduced network: {len(drg.reduced_rxns)}')
-print(f'Number of species in reduced network: {len(drg.reduced_species)}')
-print(f'Species in Reduced Network: {drg.reduced_species}')
+for e in eps:
+    drg.reduce_net(net.reactions, net.species_map,reaction_rates, y, source_indices,dropped,eps = e)
+    reactions = drg.reduced_rxns
+    species = drg.reduced_species
+    n_species = len(drg.reduced_species)
+    species_eps.append(species)
+    print(f'Tolerance: {e}')
+    print(f'Number of reactions in reduced network: {len(drg.reduced_rxns)}')
+    print(f'Number of species in reduced network: {n_species}')
+
+    reduced_folder = HERE
+    file_name = f"nelson_reduced_net_eps{e}.json"
+    file_path = reduced_folder/file_name
+    data = {"method": "union", "epsilon": e, "reactions": reactions, 
+            "species": net.species_map, "rates": reaction_rates, "initial abundances": x0.tolist()}
+    with open(file_path, "w") as f:
+        json.dump(data, f, indent = 2)
+
+data_eps = {"epsilon": eps, "species": species_eps}
+eps_folder = HERE
+file_name_eps = "nelson_eps_results_union.json"
+file_path_eps = eps_folder/file_name_eps
+
+with open(file_path_eps, "w") as f_eps:
+    json.dump(data_eps, f_eps, indent = 2)
 
 #Plotting the Directed Graph
 '''
@@ -88,12 +107,3 @@ nx.draw(G, pos,labels = labels, with_labels=True, node_color='lightblue',
 plt.title("Directed Graph")
 plt.savefig("Nelson Directed Graph")
 '''
-reactions = drg.reduced_rxns
-
-reduced_folder = HERE
-file_path = reduced_folder/"nelson_reduced_net_eps0.2_max.json"
-data = {"method": "max", "epsilon": eps, "reactions": reactions, 
-        "species": net.species_map, "rates": reaction_rates, "initial abundances": x0.tolist()}
-
-with open(file_path, "w") as f:
-    json.dump(data, f, indent = 2)

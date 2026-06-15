@@ -287,7 +287,7 @@ class QuadraticSolver:
         header = ["t"] + list(col_names)
 
         root = os.path.splitext(path)[0] or path
-        np.save(root + ".npy", out)
+        #np.save(root + ".npy", out)
         np.savetxt(root + ".csv", out, delimiter=",",
                    header=",".join(header), comments="")
         return out, header
