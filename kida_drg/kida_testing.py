@@ -20,7 +20,7 @@ HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parent
 NETWORK_PATH    = REPO_ROOT / "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
 ABUNDANCES_PATH = REPO_ROOT / "networks" / "kida.uva.2024" / "abundances.in"
-SAVE_DIR = HERE / "data" / "kida_uva_2024_point2"
+SAVE_DIR = HERE / "data" / "kida_uva_2024_point_fullorder"
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
 YEAR = 3600 * 24 * 365.25
@@ -79,13 +79,17 @@ source_indices = [net.species_map[i] for i in sources]
 eps = 0.1
 
 #DRG Union
-drg_u = DRG_u()
-drg_u.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
+drg_s = DRG_s()
+drg_s.reduce_net(net.reactions, net.species_map, reaction_rates, y, source_indices, dropped, eps = eps)
 
-reactions = drg_u.reduced_rxns
+reactions = drg_s.reduced_rxns
 
-data = {"method": "union", "epsilon": eps, "reactions": reactions, 
+#Saving Data
+
+reduced_folder = Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved")
+file_path = reduced_folder/"kida_reduced_net_eps0.1_max.json"
+data = {"method": "max", "epsilon": eps, "reactions": reactions, 
         "species": net.species_map, "rates": reaction_rates, "initial abundances": x0.tolist()}
 
-with open("kida_reduced.json", "w") as f:
+with open(file_path, "w") as f:
     json.dump(data, f, indent = 2)

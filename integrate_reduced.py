@@ -12,16 +12,14 @@ from parser import load_abundances
 from assembly import assembly
 from solver import QuadraticSolver
 
-HERE = Path(__file__).resolve().parent
-REPO_ROOT = HERE.parent
-SAVE_DIR = HERE / "data" / "kida_reduced_solved"
-SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
 YEAR = 3600 * 24 * 365.25
 ATOL = 1e-20
 RTOL = 1e-3
 
-with open("kida_reduced.json") as f:
+
+network_path = Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved/kida_reduced_net_eps0.01_max.json")
+with open(network_path) as f:
     data = json.load(f)
 
 reactions = data["reactions"]
@@ -44,7 +42,6 @@ t, y = solver.solve(
     t_eval=t_eval,
 )
 
-out_root = str(SAVE_DIR / "kida_uva_2024_point")
+out_root =Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved/kida_reduced_eps0.01_max")
 solver.save(out_root, t, y, col_names= species_map.keys())
-print(f"\n  saved = {out_root}.npy")
 print(f"  saved = {out_root}.csv")
