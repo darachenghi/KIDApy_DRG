@@ -11,6 +11,7 @@ import json
 from parser import Network, load_abundances
 from solver import QuadraticSolver
 from DRG_union import DRG_u
+from DRG_subset import DRG_sub
 
 #Path and settings
 HERE = Path(__file__).resolve().parent
@@ -62,36 +63,37 @@ reaction_rates = net.reaction_rates(env)
 #Search Parameters
 sources = ['CO', 'e-']
 source_indices = [net.species_map[i] for i in sources]
-eps = [0.1, 0.2, 0.3, 0.4, 0.5,0.6,0.7, 0.8, 0.9]
+eps = [0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 species_eps = []
 
 print(f'Source Species: {sources}')
 
 #Reduce Network
-drg = DRG_u()
+drg = DRG_sub()
 
 for e in eps:
     drg.reduce_net(net.reactions, net.species_map,reaction_rates, y, source_indices,dropped,eps = e)
     reactions = drg.reduced_rxns
     species = drg.reduced_species
-    n_species = len(drg.reduced_species)
+    n_species = len(drg.skeletal_species)
     species_eps.append(species)
+
     print(f'Tolerance: {e}')
     print(f'Number of reactions in reduced network: {len(drg.reduced_rxns)}')
     print(f'Number of species in reduced network: {n_species}')
 
-    reduced_folder = HERE
-    file_name = f"nelson_reduced_net_eps{e}.json"
-    file_path = reduced_folder/file_name
-    data = {"method": "union", "epsilon": e, "reactions": reactions, 
-            "species": net.species_map, "rates": reaction_rates, "initial abundances": x0.tolist()}
+    reduced_folder = "/oden/cheng/Downloads/code/DRG/KIDApy_DRG/nelson_drg/reduced_net"
+    file_name = f"nelson_reduced_net_eps{e}_sub.json"
+    file_path = f"{reduced_folder}/{file_name}"
+    data = {"method": "subset", "epsilon": e, "reactions": reactions, 
+            "species": drg.skeletal_species, "rates": drg.skeletal_rates}
     with open(file_path, "w") as f:
         json.dump(data, f, indent = 2)
 
 data_eps = {"epsilon": eps, "species": species_eps}
-eps_folder = HERE
-file_name_eps = "nelson_eps_results_union.json"
-file_path_eps = eps_folder/file_name_eps
+eps_folder = "/oden/cheng/Downloads/code/DRG/KIDApy_DRG/nelson_drg/epsilon"
+file_name_eps = "nelson_eps_results_sub.json"
+file_path_eps = f'{eps_folder}/{file_name_eps}'
 
 with open(file_path_eps, "w") as f_eps:
     json.dump(data_eps, f_eps, indent = 2)

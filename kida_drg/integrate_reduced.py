@@ -12,36 +12,54 @@ from parser import load_abundances
 from assembly import assembly
 from solver import QuadraticSolver
 
+HERE = Path(__file__).resolve().parent
+SAVE_DIR = HERE / "kida_reduced_solved" 
+SAVE_DIR.mkdir(parents=True, exist_ok=True)
+ABUNDANCES_PATH = "/oden/cheng/Downloads/code/DRG/KIDApy_DRG/networks/kida.uva.2024/abundances.in"
 
 YEAR = 3600 * 24 * 365.25
 ATOL = 1e-20
 RTOL = 1e-3
 
+eps = [ 0.01, 0.1, 0.2, 0.4, 0.5]
+t_eval = np.logspace(0, np.log10(1e6 * YEAR), 300)
 
-network_path = Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/reduced_net/kida_reduced_net_eps0.01_max.json")
-with open(network_path) as f:
-    data = json.load(f)
+for e in eps:
+    file_name = f"kida_reduced_net_eps{e}_sub.json"
+    file_path = HERE/"reduced_net"/file_name
 
-reactions = data["reactions"]
-species_map = data["species"]
-rates = data["rates"]
-x0 = np.array(data["initial abundances"]) 
+    with open(file_path) as f:
+        data = json.load(f)
 
-asb = assembly()
-A,B = asb.get_operators(reactions, species_map, rates)
+    reactions = data["reactions"]
+    species = data["species"]
+    species_map = {species:i for i, species in enumerate(species)}
+    rates = data["rates"]
 
-t_eval = np.logspace(0, np.log10(1e6 * YEAR), 1000)
+    abund = load_abundances(str(ABUNDANCES_PATH))
+    abund["e-"] = sum(val for name,val in abund.items() if name.endswith("+"))
+    x0 = np.zeros(len(species), dtype=np.float64)
+    for name, val in abund.items():
+        if name in species_map:
+            x0[species_map[name]] = val
 
-solver = QuadraticSolver()
-t, y = solver.solve(
-    A, B,
-    t_span=(t_eval[0], t_eval[-1]),
-    x0=x0,
-    atol=ATOL,
-    rtol=RTOL,
-    t_eval=t_eval,
-)
+    asb = assembly()
+    A,B = asb.get_operators(reactions, species_map, rates)
 
-out_root =Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved/kida_reduced_eps0.01_max_new2")
-solver.save(out_root, t, y, col_names= species_map.keys())
-print(f"  saved = {out_root}.csv")
+    print(f'Epsilon: {e}')
+    print(f"  A shape = {A.shape}, nnz = {A.nnz}")
+    print(f"  B shape = {B.shape}, nnz = {B.nnz}")
+
+    solver = QuadraticSolver()
+    t, y = solver.solve(
+        A, B,
+        t_span=(t_eval[0], t_eval[-1]),
+        x0=x0,
+        atol=ATOL,
+        rtol=RTOL,
+        t_eval=t_eval,
+    )
+
+    out_root = str(SAVE_DIR/f"{str(e).replace('.', 'p')}eps_sub")
+    solver.save(out_root, t, y, col_names= species_map.keys())
+    print(f"  saved = {out_root}.csv")

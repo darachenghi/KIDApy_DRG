@@ -1,7 +1,7 @@
 import json
 import matplotlib.pyplot as plt
 
-files = ["/oden/cheng/Downloads/code/DRG/KIDApy_DRG/nelson_drg/nelson_eps_results_union.json"]
+files = ["/oden/cheng/Downloads/code/DRG/KIDApy_DRG/nelson_drg/epsilon/nelson_eps_results_sub.json"]
 plt.figure()
 
 for file in files:
@@ -16,5 +16,6 @@ for file in files:
 plt.xlabel("Epsilon")
 plt.ylabel("Number of Species")
 plt.title("DRG Reduction of Nelson Network")
-plt.savefig("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/nelson_drg/nelson_eps")
+plt.savefig("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/nelson_drg/epsilon/nelson_eps")
+
 
