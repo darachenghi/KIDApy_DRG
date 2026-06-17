@@ -4,7 +4,7 @@ from pathlib import Path
 
 YEAR = 3600 * 24 * 365.25
 folder_path = "/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved"
-eps = ['0p01','0p1', '0p2', '0p5', '0p5']
+eps = ['0p01','0p1', '0p2','0p5']
 
 species = ["CO", "C+", "O+", "O"]
 
@@ -21,7 +21,7 @@ for s in species:
     plt.loglog()
     plt.xlabel("Time (Years)")
     plt.ylabel('Abundance per H')
-    plt.legend(["full order", "eps = 0.01", "eps = 0.1", "eps = 0.2", "eps = 0.4", "eps = 0.5"])
+    plt.legend(["full order, 578 species", "eps = 0.01, 363 species", "eps = 0.1, 125 species", "eps = 0.2, 51 species", "eps = 0.5, 15 species"])
     plt.title(f'{s}')
     folder = Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/kida_drg/kida_reduced_solved")
     file = folder/f'{s} Concentration Comparison'

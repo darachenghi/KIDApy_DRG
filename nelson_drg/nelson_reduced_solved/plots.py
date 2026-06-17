@@ -21,7 +21,7 @@ for s in species:
     plt.loglog()
     plt.xlabel("Time (Years)")
     plt.ylabel('Abundance per H')
-    plt.legend(["full order", "eps = 0.1", "eps = 0.2", "eps = 0.7"])
+    plt.legend(["full order, 14 species", "eps = 0.1, 12 species", "eps = 0.2, 11 species", "eps = 0.7, 9 species"])
     plt.title(f'{s}')
     folder = Path("/oden/cheng/Downloads/code/DRG/KIDApy_DRG/nelson_drg/nelson_reduced_solved")
     file = folder/f'{s} Concentration Comparison'
