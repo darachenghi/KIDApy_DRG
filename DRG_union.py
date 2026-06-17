@@ -65,7 +65,8 @@ class DRG_u:
                 reduced_rxns.append(reaction)
                 reduced_rxns_indices.append(idx)
 
-        self.reduced_species = reached_species
+        self.reached_species_indices = reached_species_indices
+        self.reduced_species = sorted(reached_species)
         self.reduced_rxns = reduced_rxns
         self.reduced_rxns_indices = reduced_rxns_indices
         return self.reduced_rxns
@@ -132,7 +133,7 @@ class DRG_u:
                     col.append(idx_b)
                     data.append(rate_prod)
         
-        num_mat  = sp.coo_matrix((data,(rows,col)), shape = (n_species,n_species), dtype = float)
+        num_mat  = sp.coo_matrix((data,(rows,col)), shape = (n_species,n_species), dtype = np.float64)
         num_mat.sum_duplicates()
 
         R_mat = num_mat.copy()

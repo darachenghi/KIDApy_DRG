@@ -1,0 +1,9939 @@
+{
+  "method": "subset",
+  "epsilon": 0.2,
+  "reactions": [
+    {
+      "reactants": [
+        "He"
+      ],
+      "products": [
+        "He+",
+        "e-"
+      ],
+      "alpha": 0.5,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 3
+    },
+    {
+      "reactants": [
+        "O"
+      ],
+      "products": [
+        "O+",
+        "e-"
+      ],
+      "alpha": 2.8,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 5
+    },
+    {
+      "reactants": [
+        "CO"
+      ],
+      "products": [
+        "C",
+        "O"
+      ],
+      "alpha": 5.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 6
+    },
+    {
+      "reactants": [
+        "CO"
+      ],
+      "products": [
+        "CO+",
+        "e-"
+      ],
+      "alpha": 3.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 7
+    },
+    {
+      "reactants": [
+        "H2"
+      ],
+      "products": [
+        "H",
+        "H"
+      ],
+      "alpha": 0.1,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 8
+    },
+    {
+      "reactants": [
+        "H2"
+      ],
+      "products": [
+        "H2+",
+        "e-"
+      ],
+      "alpha": 0.93,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 11
+    },
+    {
+      "reactants": [
+        "CH+"
+      ],
+      "products": [
+        "H",
+        "C+"
+      ],
+      "alpha": 137.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 33
+    },
+    {
+      "reactants": [
+        "O2"
+      ],
+      "products": [
+        "O",
+        "O"
+      ],
+      "alpha": 781.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 43
+    },
+    {
+      "reactants": [
+        "OH"
+      ],
+      "products": [
+        "H",
+        "O"
+      ],
+      "alpha": 475.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 45
+    },
+    {
+      "reactants": [
+        "CCH"
+      ],
+      "products": [
+        "H",
+        "C2"
+      ],
+      "alpha": 1110.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 58
+    },
+    {
+      "reactants": [
+        "C3"
+      ],
+      "products": [
+        "C",
+        "C2"
+      ],
+      "alpha": 6880.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 61
+    },
+    {
+      "reactants": [
+        "C3"
+      ],
+      "products": [
+        "C3+",
+        "e-"
+      ],
+      "alpha": 89.3,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 62
+    },
+    {
+      "reactants": [
+        "CH2"
+      ],
+      "products": [
+        "CH2+",
+        "e-"
+      ],
+      "alpha": 500.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 67
+    },
+    {
+      "reactants": [
+        "CH2"
+      ],
+      "products": [
+        "C",
+        "H2"
+      ],
+      "alpha": 290.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 68
+    },
+    {
+      "reactants": [
+        "H2O"
+      ],
+      "products": [
+        "H",
+        "OH"
+      ],
+      "alpha": 760.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 71
+    },
+    {
+      "reactants": [
+        "H2O"
+      ],
+      "products": [
+        "O",
+        "H2"
+      ],
+      "alpha": 220.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 72
+    },
+    {
+      "reactants": [
+        "C4"
+      ],
+      "products": [
+        "C",
+        "C3"
+      ],
+      "alpha": 750.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 113
+    },
+    {
+      "reactants": [
+        "C4"
+      ],
+      "products": [
+        "C2",
+        "C2"
+      ],
+      "alpha": 250.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 114
+    },
+    {
+      "reactants": [
+        "C4H"
+      ],
+      "products": [
+        "H",
+        "C4"
+      ],
+      "alpha": 6080.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 137
+    },
+    {
+      "reactants": [
+        "C"
+      ],
+      "products": [
+        "C+",
+        "e-"
+      ],
+      "alpha": 260.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 207
+    },
+    {
+      "reactants": [
+        "Cl"
+      ],
+      "products": [
+        "Cl+",
+        "e-"
+      ],
+      "alpha": 47.3,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 208
+    },
+    {
+      "reactants": [
+        "C2"
+      ],
+      "products": [
+        "C",
+        "C"
+      ],
+      "alpha": 183.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 215
+    },
+    {
+      "reactants": [
+        "C2"
+      ],
+      "products": [
+        "C2+",
+        "e-"
+      ],
+      "alpha": 246.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 216
+    },
+    {
+      "reactants": [
+        "CH"
+      ],
+      "products": [
+        "C",
+        "H"
+      ],
+      "alpha": 1080.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 218
+    },
+    {
+      "reactants": [
+        "CH"
+      ],
+      "products": [
+        "CH+",
+        "e-"
+      ],
+      "alpha": 578.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 219
+    },
+    {
+      "reactants": [
+        "O"
+      ],
+      "products": [
+        "O+",
+        "e-"
+      ],
+      "alpha": 2.7,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 249
+    },
+    {
+      "reactants": [
+        "CO+"
+      ],
+      "products": [
+        "C+",
+        "O"
+      ],
+      "alpha": 77.3,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 253
+    },
+    {
+      "reactants": [
+        "OH+"
+      ],
+      "products": [
+        "H",
+        "O+"
+      ],
+      "alpha": 8.57,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 258
+    },
+    {
+      "reactants": [
+        "CH2+"
+      ],
+      "products": [
+        "CH+",
+        "H"
+      ],
+      "alpha": 88.8,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 261
+    },
+    {
+      "reactants": [
+        "HCO+"
+      ],
+      "products": [
+        "CO+",
+        "H"
+      ],
+      "alpha": 3.35,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 264
+    },
+    {
+      "reactants": [
+        "HCl+"
+      ],
+      "products": [
+        "Cl+",
+        "H"
+      ],
+      "alpha": 96.6,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 265
+    },
+    {
+      "reactants": [
+        "CO"
+      ],
+      "products": [
+        "C",
+        "O"
+      ],
+      "alpha": 46.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 268
+    },
+    {
+      "reactants": [
+        "C2+"
+      ],
+      "products": [
+        "C",
+        "C+"
+      ],
+      "alpha": 1e-11,
+      "beta": 0.0,
+      "gamma": 1.7,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 316
+    },
+    {
+      "reactants": [
+        "C2H+"
+      ],
+      "products": [
+        "H",
+        "C2+"
+      ],
+      "alpha": 1e-11,
+      "beta": 0.0,
+      "gamma": 2.0,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 321
+    },
+    {
+      "reactants": [
+        "CH2+"
+      ],
+      "products": [
+        "H",
+        "CH+"
+      ],
+      "alpha": 1.41e-10,
+      "beta": 0.0,
+      "gamma": 2.727,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 322
+    },
+    {
+      "reactants": [
+        "CH3+"
+      ],
+      "products": [
+        "H2",
+        "CH+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 1.7,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 323
+    },
+    {
+      "reactants": [
+        "CH3+"
+      ],
+      "products": [
+        "H",
+        "CH2+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 1.7,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 324
+    },
+    {
+      "reactants": [
+        "O-"
+      ],
+      "products": [
+        "O",
+        "e-"
+      ],
+      "alpha": 2.4e-07,
+      "beta": 0.0,
+      "gamma": 0.9,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 327
+    },
+    {
+      "reactants": [
+        "C"
+      ],
+      "products": [
+        "C+",
+        "e-"
+      ],
+      "alpha": 3.39e-10,
+      "beta": 0.0,
+      "gamma": 3.756,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 331
+    },
+    {
+      "reactants": [
+        "Cl"
+      ],
+      "products": [
+        "Cl+",
+        "e-"
+      ],
+      "alpha": 4.73e-11,
+      "beta": 0.0,
+      "gamma": 4.301,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 332
+    },
+    {
+      "reactants": [
+        "C2"
+      ],
+      "products": [
+        "C",
+        "C"
+      ],
+      "alpha": 2.35e-10,
+      "beta": 0.0,
+      "gamma": 3.038,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 338
+    },
+    {
+      "reactants": [
+        "C2"
+      ],
+      "products": [
+        "C2+",
+        "e-"
+      ],
+      "alpha": 4.09e-10,
+      "beta": 0.0,
+      "gamma": 3.038,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 339
+    },
+    {
+      "reactants": [
+        "CH"
+      ],
+      "products": [
+        "C",
+        "H"
+      ],
+      "alpha": 9.14e-10,
+      "beta": 0.0,
+      "gamma": 2.117,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 341
+    },
+    {
+      "reactants": [
+        "CH"
+      ],
+      "products": [
+        "CH+",
+        "e-"
+      ],
+      "alpha": 7.65e-10,
+      "beta": 0.0,
+      "gamma": 2.117,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 342
+    },
+    {
+      "reactants": [
+        "CO"
+      ],
+      "products": [
+        "C",
+        "O"
+      ],
+      "alpha": 2.43e-10,
+      "beta": 0.0,
+      "gamma": 3.876,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 345
+    },
+    {
+      "reactants": [
+        "H2"
+      ],
+      "products": [
+        "H",
+        "H"
+      ],
+      "alpha": 5.68e-11,
+      "beta": 0.0,
+      "gamma": 4.183,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 348
+    },
+    {
+      "reactants": [
+        "O2"
+      ],
+      "products": [
+        "O",
+        "O"
+      ],
+      "alpha": 7.71e-10,
+      "beta": 0.0,
+      "gamma": 2.45,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 360
+    },
+    {
+      "reactants": [
+        "OH"
+      ],
+      "products": [
+        "H",
+        "O"
+      ],
+      "alpha": 3.79e-10,
+      "beta": 0.0,
+      "gamma": 2.656,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 362
+    },
+    {
+      "reactants": [
+        "OH"
+      ],
+      "products": [
+        "OH+",
+        "e-"
+      ],
+      "alpha": 1.6e-12,
+      "beta": 0.0,
+      "gamma": 3.1,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 363
+    },
+    {
+      "reactants": [
+        "CCH"
+      ],
+      "products": [
+        "H",
+        "C2"
+      ],
+      "alpha": 1.58e-09,
+      "beta": 0.0,
+      "gamma": 2.665,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 370
+    },
+    {
+      "reactants": [
+        "CCH"
+      ],
+      "products": [
+        "C2H+",
+        "e-"
+      ],
+      "alpha": 1e-11,
+      "beta": 0.0,
+      "gamma": 2.0,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 371
+    },
+    {
+      "reactants": [
+        "C3"
+      ],
+      "products": [
+        "C",
+        "C2"
+      ],
+      "alpha": 4.97e-09,
+      "beta": 0.0,
+      "gamma": 2.391,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 375
+    },
+    {
+      "reactants": [
+        "C3"
+      ],
+      "products": [
+        "C3+",
+        "e-"
+      ],
+      "alpha": 1.36e-10,
+      "beta": 0.0,
+      "gamma": 2.391,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 376
+    },
+    {
+      "reactants": [
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "CH"
+      ],
+      "alpha": 5.75e-10,
+      "beta": 0.0,
+      "gamma": 2.352,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 377
+    },
+    {
+      "reactants": [
+        "CH2"
+      ],
+      "products": [
+        "CH2+",
+        "e-"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 2.3,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 378
+    },
+    {
+      "reactants": [
+        "H2O"
+      ],
+      "products": [
+        "H",
+        "OH"
+      ],
+      "alpha": 5.9e-10,
+      "beta": 0.0,
+      "gamma": 2.535,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 380
+    },
+    {
+      "reactants": [
+        "H2O"
+      ],
+      "products": [
+        "H2O+",
+        "e-"
+      ],
+      "alpha": 3.1e-11,
+      "beta": 0.0,
+      "gamma": 3.9,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 381
+    },
+    {
+      "reactants": [
+        "H2O"
+      ],
+      "products": [
+        "O",
+        "H2"
+      ],
+      "alpha": 1.8e-10,
+      "beta": 0.0,
+      "gamma": 3.134,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 382
+    },
+    {
+      "reactants": [
+        "C4"
+      ],
+      "products": [
+        "C2",
+        "C2"
+      ],
+      "alpha": 1.275e-09,
+      "beta": 0.0,
+      "gamma": 2.3,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 408
+    },
+    {
+      "reactants": [
+        "C4"
+      ],
+      "products": [
+        "C",
+        "C3"
+      ],
+      "alpha": 7.225e-09,
+      "beta": 0.0,
+      "gamma": 2.3,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 409
+    },
+    {
+      "reactants": [
+        "c-C3H2"
+      ],
+      "products": [
+        "H2",
+        "C3"
+      ],
+      "alpha": 6.95e-10,
+      "beta": 0.0,
+      "gamma": 2.263,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 425
+    },
+    {
+      "reactants": [
+        "C4H"
+      ],
+      "products": [
+        "C2",
+        "CCH"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 1.7,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 429
+    },
+    {
+      "reactants": [
+        "C4H"
+      ],
+      "products": [
+        "H",
+        "C4"
+      ],
+      "alpha": 3.66e-09,
+      "beta": 0.0,
+      "gamma": 2.361,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 430
+    },
+    {
+      "reactants": [
+        "C4H-"
+      ],
+      "products": [
+        "C4H",
+        "e-"
+      ],
+      "alpha": 1.8e-09,
+      "beta": 0.0,
+      "gamma": 2.0,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 470
+    },
+    {
+      "reactants": [
+        "C4-"
+      ],
+      "products": [
+        "C4",
+        "e-"
+      ],
+      "alpha": 1.4e-09,
+      "beta": 0.0,
+      "gamma": 2.0,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 485
+    },
+    {
+      "reactants": [
+        "CO+"
+      ],
+      "products": [
+        "C+",
+        "O"
+      ],
+      "alpha": 1.04e-10,
+      "beta": 0.0,
+      "gamma": 2.892,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 614
+    },
+    {
+      "reactants": [
+        "HCl+"
+      ],
+      "products": [
+        "Cl+",
+        "H"
+      ],
+      "alpha": 1.09e-10,
+      "beta": 0.0,
+      "gamma": 3.009,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 617
+    },
+    {
+      "reactants": [
+        "HCO+"
+      ],
+      "products": [
+        "CO+",
+        "H"
+      ],
+      "alpha": 5.39e-12,
+      "beta": 0.0,
+      "gamma": 3.667,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 620
+    },
+    {
+      "reactants": [
+        "C+",
+        "CH"
+      ],
+      "products": [
+        "H",
+        "C2+"
+      ],
+      "alpha": 0.43,
+      "beta": 1.37e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 621
+    },
+    {
+      "reactants": [
+        "C+",
+        "O2"
+      ],
+      "products": [
+        "CO",
+        "O+"
+      ],
+      "alpha": 4.53e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 300.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 630
+    },
+    {
+      "reactants": [
+        "C+",
+        "O2"
+      ],
+      "products": [
+        "O",
+        "CO+"
+      ],
+      "alpha": 3.42e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 300.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 631
+    },
+    {
+      "reactants": [
+        "C+",
+        "OH"
+      ],
+      "products": [
+        "H",
+        "CO+"
+      ],
+      "alpha": 1.0,
+      "beta": 9.15e-10,
+      "gamma": 5.5,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 632
+    },
+    {
+      "reactants": [
+        "C+",
+        "CCH"
+      ],
+      "products": [
+        "H",
+        "C3+"
+      ],
+      "alpha": 0.96,
+      "beta": 1.73e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 641
+    },
+    {
+      "reactants": [
+        "C+",
+        "CCH"
+      ],
+      "products": [
+        "H",
+        "C3+"
+      ],
+      "alpha": 0.96,
+      "beta": 1.73e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 641
+    },
+    {
+      "reactants": [
+        "C+",
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.34e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 647
+    },
+    {
+      "reactants": [
+        "C+",
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.34e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 647
+    },
+    {
+      "reactants": [
+        "C+",
+        "H2O"
+      ],
+      "products": [
+        "H",
+        "HCO+"
+      ],
+      "alpha": 0.331,
+      "beta": 1.03e-09,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 649
+    },
+    {
+      "reactants": [
+        "C+",
+        "H2O"
+      ],
+      "products": [
+        "H",
+        "HOC+"
+      ],
+      "alpha": 0.669,
+      "beta": 1.03e-09,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 650
+    },
+    {
+      "reactants": [
+        "C+",
+        "c-C3H2"
+      ],
+      "products": [
+        "H2",
+        "C4+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.66e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 692
+    },
+    {
+      "reactants": [
+        "C+",
+        "c-C3H2"
+      ],
+      "products": [
+        "H",
+        "C4H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.66e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 693
+    },
+    {
+      "reactants": [
+        "CO+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "HOC+"
+      ],
+      "alpha": 7.5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 805
+    },
+    {
+      "reactants": [
+        "CO+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "HCO+"
+      ],
+      "alpha": 7.5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 806
+    },
+    {
+      "reactants": [
+        "CH2",
+        "O"
+      ],
+      "products": [
+        "H",
+        "H",
+        "CO"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 822
+    },
+    {
+      "reactants": [
+        "CH2",
+        "O"
+      ],
+      "products": [
+        "CO",
+        "H2"
+      ],
+      "alpha": 4e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 823
+    },
+    {
+      "reactants": [
+        "C3",
+        "O"
+      ],
+      "products": [
+        "C2",
+        "CO"
+      ],
+      "alpha": 5e-12,
+      "beta": 0.0,
+      "gamma": 900.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 845
+    },
+    {
+      "reactants": [
+        "C4",
+        "O"
+      ],
+      "products": [
+        "CO",
+        "C3"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.17,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 863
+    },
+    {
+      "reactants": [
+        "CH",
+        "O2"
+      ],
+      "products": [
+        "CO",
+        "OH"
+      ],
+      "alpha": 3.8e-11,
+      "beta": -0.48,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 920
+    },
+    {
+      "reactants": [
+        "C3",
+        "CH"
+      ],
+      "products": [
+        "H",
+        "C4"
+      ],
+      "alpha": 3.96e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 934
+    },
+    {
+      "reactants": [
+        "C3",
+        "CH"
+      ],
+      "products": [
+        "C2",
+        "CCH"
+      ],
+      "alpha": 4e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 935
+    },
+    {
+      "reactants": [
+        "C2",
+        "CH"
+      ],
+      "products": [
+        "H",
+        "C3"
+      ],
+      "alpha": 6.3e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 939
+    },
+    {
+      "reactants": [
+        "C2",
+        "CH"
+      ],
+      "products": [
+        "C",
+        "CCH"
+      ],
+      "alpha": 3.7e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 940
+    },
+    {
+      "reactants": [
+        "OH",
+        "OH"
+      ],
+      "products": [
+        "O",
+        "H2O"
+      ],
+      "alpha": 1.65e-12,
+      "beta": 1.14,
+      "gamma": 50.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 980
+    },
+    {
+      "reactants": [
+        "CH2",
+        "OH"
+      ],
+      "products": [
+        "CH",
+        "H2O"
+      ],
+      "alpha": 1.44e-11,
+      "beta": 0.5,
+      "gamma": 3000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 983
+    },
+    {
+      "reactants": [
+        "CH",
+        "CO+"
+      ],
+      "products": [
+        "C",
+        "HCO+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.14e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1010
+    },
+    {
+      "reactants": [
+        "CO+",
+        "OH"
+      ],
+      "products": [
+        "O",
+        "HCO+"
+      ],
+      "alpha": 0.5,
+      "beta": 7.45e-10,
+      "gamma": 5.5,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1012
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CO+"
+      ],
+      "products": [
+        "C2",
+        "HCO+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.35e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 1013
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CO+"
+      ],
+      "products": [
+        "C2",
+        "HCO+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.35e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1013
+    },
+    {
+      "reactants": [
+        "CH2",
+        "CO+"
+      ],
+      "products": [
+        "CH",
+        "HCO+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.12e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 1014
+    },
+    {
+      "reactants": [
+        "CH2",
+        "CO+"
+      ],
+      "products": [
+        "CH",
+        "HCO+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.12e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1014
+    },
+    {
+      "reactants": [
+        "CO+",
+        "H2O"
+      ],
+      "products": [
+        "OH",
+        "HCO+"
+      ],
+      "alpha": 0.341,
+      "beta": 8.37e-10,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1015
+    },
+    {
+      "reactants": [
+        "C",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "CH+"
+      ],
+      "alpha": 2.4e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1029
+    },
+    {
+      "reactants": [
+        "H2+",
+        "O"
+      ],
+      "products": [
+        "H",
+        "OH+"
+      ],
+      "alpha": 1.5e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1031
+    },
+    {
+      "reactants": [
+        "C2",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "C2H+"
+      ],
+      "alpha": 1.1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1032
+    },
+    {
+      "reactants": [
+        "CH",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 2.59e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1033
+    },
+    {
+      "reactants": [
+        "CO",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "HCO+"
+      ],
+      "alpha": 0.786,
+      "beta": 2.39e-09,
+      "gamma": 0.251,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1035
+    },
+    {
+      "reactants": [
+        "H2",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "H3+"
+      ],
+      "alpha": 2.1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1036
+    },
+    {
+      "reactants": [
+        "H2+",
+        "OH"
+      ],
+      "products": [
+        "H",
+        "H2O+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.81e-09,
+      "gamma": 5.5,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1041
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "C2H2+"
+      ],
+      "alpha": 0.5,
+      "beta": 3.62e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 1042
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "C2H2+"
+      ],
+      "alpha": 0.5,
+      "beta": 3.62e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1042
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "CH3+"
+      ],
+      "alpha": 0.5,
+      "beta": 2.58e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 1043
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "CH3+"
+      ],
+      "alpha": 0.5,
+      "beta": 2.58e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1043
+    },
+    {
+      "reactants": [
+        "H2+",
+        "H2O"
+      ],
+      "products": [
+        "H",
+        "H3O+"
+      ],
+      "alpha": 0.466,
+      "beta": 2.07e-09,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1046
+    },
+    {
+      "reactants": [
+        "H2",
+        "HCl+"
+      ],
+      "products": [
+        "H",
+        "H2Cl+"
+      ],
+      "alpha": 1.3e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1056
+    },
+    {
+      "reactants": [
+        "He+",
+        "c-C3H2"
+      ],
+      "products": [
+        "C",
+        "H",
+        "He",
+        "C2H+"
+      ],
+      "alpha": 0.28,
+      "beta": 2.64e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1093
+    },
+    {
+      "reactants": [
+        "He+",
+        "c-C3H2"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C2",
+        "CH+"
+      ],
+      "alpha": 0.16,
+      "beta": 2.64e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1094
+    },
+    {
+      "reactants": [
+        "He+",
+        "c-C3H2"
+      ],
+      "products": [
+        "H",
+        "H",
+        "He",
+        "C3+"
+      ],
+      "alpha": 0.14,
+      "beta": 2.64e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1095
+    },
+    {
+      "reactants": [
+        "He+",
+        "c-C3H2"
+      ],
+      "products": [
+        "H",
+        "He",
+        "CH",
+        "C2+"
+      ],
+      "alpha": 0.14,
+      "beta": 2.64e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1096
+    },
+    {
+      "reactants": [
+        "He+",
+        "c-C3H2"
+      ],
+      "products": [
+        "H",
+        "He",
+        "CCH",
+        "C+"
+      ],
+      "alpha": 0.13,
+      "beta": 2.64e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1097
+    },
+    {
+      "reactants": [
+        "He+",
+        "c-C3H2"
+      ],
+      "products": [
+        "He",
+        "C2",
+        "H2",
+        "C+"
+      ],
+      "alpha": 0.08,
+      "beta": 2.64e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1098
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "C2",
+        "C2H+"
+      ],
+      "alpha": 0.04,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 1108
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "C2",
+        "C2H+"
+      ],
+      "alpha": 0.04,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1108
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C4+"
+      ],
+      "alpha": 0.01,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 1109
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C4+"
+      ],
+      "alpha": 0.01,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1109
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "H",
+        "He",
+        "C3+"
+      ],
+      "alpha": 0.46,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 1110
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "H",
+        "He",
+        "C3+"
+      ],
+      "alpha": 0.46,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1110
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C3",
+        "C+"
+      ],
+      "alpha": 0.29,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 1111
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C3",
+        "C+"
+      ],
+      "alpha": 0.29,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1111
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C2",
+        "C2+"
+      ],
+      "alpha": 0.16,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 1112
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C2",
+        "C2+"
+      ],
+      "alpha": 0.16,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1112
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "He",
+        "C3H+"
+      ],
+      "alpha": 0.04,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 1113
+    },
+    {
+      "reactants": [
+        "C4H",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "He",
+        "C3H+"
+      ],
+      "alpha": 0.04,
+      "beta": 3.26e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1113
+    },
+    {
+      "reactants": [
+        "C2",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "He",
+        "C+"
+      ],
+      "alpha": 1.6e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1263
+    },
+    {
+      "reactants": [
+        "CH",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.95e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1265
+    },
+    {
+      "reactants": [
+        "CO",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "O",
+        "C+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.75e-09,
+      "gamma": 0.251,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1269
+    },
+    {
+      "reactants": [
+        "He+",
+        "O2"
+      ],
+      "products": [
+        "He",
+        "O",
+        "O+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1286
+    },
+    {
+      "reactants": [
+        "He+",
+        "OH"
+      ],
+      "products": [
+        "H",
+        "He",
+        "O+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.35e-09,
+      "gamma": 5.5,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1287
+    },
+    {
+      "reactants": [
+        "CCH",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "CH",
+        "C+"
+      ],
+      "alpha": 0.03,
+      "beta": 2.65e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 1302
+    },
+    {
+      "reactants": [
+        "CCH",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "CH",
+        "C+"
+      ],
+      "alpha": 0.03,
+      "beta": 2.65e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1302
+    },
+    {
+      "reactants": [
+        "CCH",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C2+"
+      ],
+      "alpha": 0.16,
+      "beta": 2.65e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 1303
+    },
+    {
+      "reactants": [
+        "CCH",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "C2+"
+      ],
+      "alpha": 0.16,
+      "beta": 2.65e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1303
+    },
+    {
+      "reactants": [
+        "CCH",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "He",
+        "CH+"
+      ],
+      "alpha": 0.18,
+      "beta": 2.65e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 1304
+    },
+    {
+      "reactants": [
+        "CCH",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "He",
+        "CH+"
+      ],
+      "alpha": 0.18,
+      "beta": 2.65e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1304
+    },
+    {
+      "reactants": [
+        "CCH",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "H",
+        "He",
+        "C+"
+      ],
+      "alpha": 0.56,
+      "beta": 2.65e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 1305
+    },
+    {
+      "reactants": [
+        "CCH",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "H",
+        "He",
+        "C+"
+      ],
+      "alpha": 0.56,
+      "beta": 2.65e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1305
+    },
+    {
+      "reactants": [
+        "C3",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "C2",
+        "C+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1312
+    },
+    {
+      "reactants": [
+        "C3",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "He",
+        "C2+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1313
+    },
+    {
+      "reactants": [
+        "CH2",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "H2",
+        "C+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.93e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 1317
+    },
+    {
+      "reactants": [
+        "CH2",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "H2",
+        "C+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.93e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1317
+    },
+    {
+      "reactants": [
+        "CH2",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "CH+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.93e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 1318
+    },
+    {
+      "reactants": [
+        "CH2",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "CH+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.93e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1318
+    },
+    {
+      "reactants": [
+        "H2O",
+        "He+"
+      ],
+      "products": [
+        "H",
+        "He",
+        "OH+"
+      ],
+      "alpha": 0.333,
+      "beta": 1.54e-09,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1324
+    },
+    {
+      "reactants": [
+        "C4",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "C3",
+        "C+"
+      ],
+      "alpha": 4.42e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1396
+    },
+    {
+      "reactants": [
+        "C4",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "C2",
+        "C2+"
+      ],
+      "alpha": 3.22e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1397
+    },
+    {
+      "reactants": [
+        "C4",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "He",
+        "C3+"
+      ],
+      "alpha": 1.23e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1398
+    },
+    {
+      "reactants": [
+        "C4",
+        "He+"
+      ],
+      "products": [
+        "C",
+        "He",
+        "C2",
+        "C+"
+      ],
+      "alpha": 2.01e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1399
+    },
+    {
+      "reactants": [
+        "C",
+        "C2H+"
+      ],
+      "products": [
+        "H",
+        "C3+"
+      ],
+      "alpha": 8.58e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1442
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "O"
+      ],
+      "products": [
+        "C",
+        "HCO+"
+      ],
+      "alpha": 3.3e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1446
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "CH"
+      ],
+      "products": [
+        "H",
+        "C3H+"
+      ],
+      "alpha": 0.55,
+      "beta": 1.17e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1447
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "CH"
+      ],
+      "products": [
+        "H2",
+        "C3+"
+      ],
+      "alpha": 0.27,
+      "beta": 1.17e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1448
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "CH"
+      ],
+      "products": [
+        "C",
+        "C2H2+"
+      ],
+      "alpha": 0.07,
+      "beta": 1.17e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1449
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "C2H2+"
+      ],
+      "alpha": 1.1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1452
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "CH2"
+      ],
+      "products": [
+        "C2",
+        "CH3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.14e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 1453
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "CH2"
+      ],
+      "products": [
+        "C2",
+        "CH3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.14e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1453
+    },
+    {
+      "reactants": [
+        "C3+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "C3H+"
+      ],
+      "alpha": 2.4e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 1484
+    },
+    {
+      "reactants": [
+        "C",
+        "CH2+"
+      ],
+      "products": [
+        "H",
+        "C2H+"
+      ],
+      "alpha": 1.2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1486
+    },
+    {
+      "reactants": [
+        "CH2+",
+        "O"
+      ],
+      "products": [
+        "H",
+        "HCO+"
+      ],
+      "alpha": 7.5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1488
+    },
+    {
+      "reactants": [
+        "C2",
+        "CH2+"
+      ],
+      "products": [
+        "H",
+        "C3H+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1490
+    },
+    {
+      "reactants": [
+        "CH",
+        "CH2+"
+      ],
+      "products": [
+        "H",
+        "C2H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.31e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1491
+    },
+    {
+      "reactants": [
+        "CH2+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "CH3+"
+      ],
+      "alpha": 1.2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1492
+    },
+    {
+      "reactants": [
+        "CH2+",
+        "O2"
+      ],
+      "products": [
+        "OH",
+        "HCO+"
+      ],
+      "alpha": 9.1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1494
+    },
+    {
+      "reactants": [
+        "C",
+        "H2O+"
+      ],
+      "products": [
+        "OH",
+        "CH+"
+      ],
+      "alpha": 1.1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1528
+    },
+    {
+      "reactants": [
+        "C4H+",
+        "O"
+      ],
+      "products": [
+        "C3",
+        "HCO+"
+      ],
+      "alpha": 2e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1658
+    },
+    {
+      "reactants": [
+        "C4H+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "C4H2+"
+      ],
+      "alpha": 1.65e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1659
+    },
+    {
+      "reactants": [
+        "C4H",
+        "C4H+"
+      ],
+      "products": [
+        "C4",
+        "C4H2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.27e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 1669
+    },
+    {
+      "reactants": [
+        "C4H",
+        "C4H+"
+      ],
+      "products": [
+        "C4",
+        "C4H2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.27e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1669
+    },
+    {
+      "reactants": [
+        "C",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "CH+"
+      ],
+      "alpha": 1.1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1759
+    },
+    {
+      "reactants": [
+        "C2",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "C2H+"
+      ],
+      "alpha": 8.3e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1763
+    },
+    {
+      "reactants": [
+        "CH",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "CH2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.14e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1764
+    },
+    {
+      "reactants": [
+        "HCO+",
+        "OH"
+      ],
+      "products": [
+        "CO",
+        "H2O+"
+      ],
+      "alpha": 0.5,
+      "beta": 7.42e-10,
+      "gamma": 5.5,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1772
+    },
+    {
+      "reactants": [
+        "CCH",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "C2H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.34e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 1782
+    },
+    {
+      "reactants": [
+        "CCH",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "C2H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.34e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1782
+    },
+    {
+      "reactants": [
+        "C3",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "C3H+"
+      ],
+      "alpha": 1.3e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 1784
+    },
+    {
+      "reactants": [
+        "CH2",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "CH3+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.11e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 1787
+    },
+    {
+      "reactants": [
+        "CH2",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "CH3+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.11e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1787
+    },
+    {
+      "reactants": [
+        "H2O",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "H3O+"
+      ],
+      "alpha": 1.0,
+      "beta": 8.34e-10,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 1788
+    },
+    {
+      "reactants": [
+        "CCH",
+        "O2"
+      ],
+      "products": [
+        "H",
+        "CO",
+        "CO"
+      ],
+      "alpha": 1e-11,
+      "beta": -0.32,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 1962
+    },
+    {
+      "reactants": [
+        "C2",
+        "CCH"
+      ],
+      "products": [
+        "H",
+        "C4"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1977
+    },
+    {
+      "reactants": [
+        "C",
+        "C4"
+      ],
+      "products": [
+        "C2",
+        "C3"
+      ],
+      "alpha": 2.4e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 2003
+    },
+    {
+      "reactants": [
+        "C",
+        "CH2"
+      ],
+      "products": [
+        "CH",
+        "CH"
+      ],
+      "alpha": 2.69e-12,
+      "beta": 0.0,
+      "gamma": 23600.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2014
+    },
+    {
+      "reactants": [
+        "C",
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "CCH"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2015
+    },
+    {
+      "reactants": [
+        "CH",
+        "H"
+      ],
+      "products": [
+        "C",
+        "H2"
+      ],
+      "alpha": 1.24e-10,
+      "beta": 0.26,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 500.0,
+      "frml": 3,
+      "id": 2028
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H"
+      ],
+      "products": [
+        "CH",
+        "H2"
+      ],
+      "alpha": 2.2e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 298.0,
+      "frml": 3,
+      "id": 2029
+    },
+    {
+      "reactants": [
+        "H",
+        "OH"
+      ],
+      "products": [
+        "O",
+        "H2"
+      ],
+      "alpha": 6.86e-14,
+      "beta": 2.8,
+      "gamma": 1950.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2032
+    },
+    {
+      "reactants": [
+        "H",
+        "H2O"
+      ],
+      "products": [
+        "H2",
+        "OH"
+      ],
+      "alpha": 6.82e-12,
+      "beta": 1.6,
+      "gamma": 9720.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2034
+    },
+    {
+      "reactants": [
+        "H",
+        "O2"
+      ],
+      "products": [
+        "O",
+        "OH"
+      ],
+      "alpha": 2.94e-10,
+      "beta": 0.0,
+      "gamma": 8380.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2042
+    },
+    {
+      "reactants": [
+        "C",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "CH"
+      ],
+      "alpha": 6.64e-10,
+      "beta": 0.0,
+      "gamma": 11700.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2054
+    },
+    {
+      "reactants": [
+        "CH",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "CH2"
+      ],
+      "alpha": 3.75e-10,
+      "beta": 0.0,
+      "gamma": 1660.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2055
+    },
+    {
+      "reactants": [
+        "H2",
+        "O"
+      ],
+      "products": [
+        "H",
+        "OH"
+      ],
+      "alpha": 3.44e-13,
+      "beta": 2.67,
+      "gamma": 3160.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2058
+    },
+    {
+      "reactants": [
+        "H2",
+        "OH"
+      ],
+      "products": [
+        "H",
+        "H2O"
+      ],
+      "alpha": 8.4e-13,
+      "beta": 0.0,
+      "gamma": 1040.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2059
+    },
+    {
+      "reactants": [
+        "C2",
+        "O"
+      ],
+      "products": [
+        "C",
+        "CO"
+      ],
+      "alpha": 2e-10,
+      "beta": -0.12,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 298.0,
+      "frml": 3,
+      "id": 2152
+    },
+    {
+      "reactants": [
+        "O",
+        "OH"
+      ],
+      "products": [
+        "H",
+        "O2"
+      ],
+      "alpha": 4e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 50.0,
+      "frml": 3,
+      "id": 2164
+    },
+    {
+      "reactants": [
+        "CCH",
+        "O"
+      ],
+      "products": [
+        "CH",
+        "CO"
+      ],
+      "alpha": 1.9e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 2172
+    },
+    {
+      "reactants": [
+        "C2",
+        "H2O+"
+      ],
+      "products": [
+        "OH",
+        "C2H+"
+      ],
+      "alpha": 4.7e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2178
+    },
+    {
+      "reactants": [
+        "CH",
+        "H2O+"
+      ],
+      "products": [
+        "OH",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.24e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2179
+    },
+    {
+      "reactants": [
+        "CO",
+        "H2O+"
+      ],
+      "products": [
+        "OH",
+        "HCO+"
+      ],
+      "alpha": 1.0,
+      "beta": 9.86e-10,
+      "gamma": 0.251,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2180
+    },
+    {
+      "reactants": [
+        "H2",
+        "H2O+"
+      ],
+      "products": [
+        "H",
+        "H3O+"
+      ],
+      "alpha": 6.1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2181
+    },
+    {
+      "reactants": [
+        "H2O+",
+        "OH"
+      ],
+      "products": [
+        "O",
+        "H3O+"
+      ],
+      "alpha": 1.0,
+      "beta": 8.21e-10,
+      "gamma": 5.5,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2183
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H2O+"
+      ],
+      "products": [
+        "OH",
+        "C2H2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.52e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 2184
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H2O+"
+      ],
+      "products": [
+        "OH",
+        "C2H2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.52e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2184
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H2O+"
+      ],
+      "products": [
+        "OH",
+        "CH3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.21e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 2185
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H2O+"
+      ],
+      "products": [
+        "OH",
+        "CH3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.21e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2185
+    },
+    {
+      "reactants": [
+        "H2O",
+        "H2O+"
+      ],
+      "products": [
+        "OH",
+        "H3O+"
+      ],
+      "alpha": 1.0,
+      "beta": 9.26e-10,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2186
+    },
+    {
+      "reactants": [
+        "C",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "CH+"
+      ],
+      "alpha": 2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2205
+    },
+    {
+      "reactants": [
+        "Cl",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "HCl+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2206
+    },
+    {
+      "reactants": [
+        "H3+",
+        "O"
+      ],
+      "products": [
+        "H2",
+        "OH+"
+      ],
+      "alpha": 7.98e-10,
+      "beta": -0.156,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 2211
+    },
+    {
+      "reactants": [
+        "H3+",
+        "O"
+      ],
+      "products": [
+        "H",
+        "H2O+"
+      ],
+      "alpha": 3.42e-10,
+      "beta": -0.156,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 2212
+    },
+    {
+      "reactants": [
+        "C2",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "C2H+"
+      ],
+      "alpha": 1.8e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2217
+    },
+    {
+      "reactants": [
+        "CH",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "CH2+"
+      ],
+      "alpha": 1.0,
+      "beta": 2.18e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2218
+    },
+    {
+      "reactants": [
+        "CO",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "HCO+"
+      ],
+      "alpha": 0.945,
+      "beta": 1.99e-09,
+      "gamma": 0.251,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2220
+    },
+    {
+      "reactants": [
+        "CO",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "HOC+"
+      ],
+      "alpha": 0.0554,
+      "beta": 1.99e-09,
+      "gamma": 0.251,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2221
+    },
+    {
+      "reactants": [
+        "H3+",
+        "OH"
+      ],
+      "products": [
+        "H2",
+        "H2O+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.52e-09,
+      "gamma": 5.5,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2235
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "C2H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 3.01e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 2246
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "C2H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 3.01e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2246
+    },
+    {
+      "reactants": [
+        "C3",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "C3H+"
+      ],
+      "alpha": 3.2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 2249
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "CH3+"
+      ],
+      "alpha": 1.0,
+      "beta": 2.17e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 2252
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "CH3+"
+      ],
+      "alpha": 1.0,
+      "beta": 2.17e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2252
+    },
+    {
+      "reactants": [
+        "H2O",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "H3O+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.73e-09,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2254
+    },
+    {
+      "reactants": [
+        "C4",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "C4H+"
+      ],
+      "alpha": 2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2283
+    },
+    {
+      "reactants": [
+        "H3+",
+        "c-C3H2"
+      ],
+      "products": [
+        "H2",
+        "c-C3H3+"
+      ],
+      "alpha": 0.6,
+      "beta": 3.01e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2298
+    },
+    {
+      "reactants": [
+        "H3+",
+        "c-C3H2"
+      ],
+      "products": [
+        "l-C3H3+",
+        "H2"
+      ],
+      "alpha": 0.4,
+      "beta": 3.01e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2299
+    },
+    {
+      "reactants": [
+        "C4H",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "C4H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 3.72e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 2302
+    },
+    {
+      "reactants": [
+        "C4H",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "C4H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 3.72e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2302
+    },
+    {
+      "reactants": [
+        "C",
+        "c-C3H3+"
+      ],
+      "products": [
+        "H",
+        "C4H2+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 2402
+    },
+    {
+      "reactants": [
+        "C",
+        "l-C3H3+"
+      ],
+      "products": [
+        "H",
+        "C4H2+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 2403
+    },
+    {
+      "reactants": [
+        "Cl+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "HCl+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2530
+    },
+    {
+      "reactants": [
+        "C4",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "C4H+"
+      ],
+      "alpha": 1.4e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2543
+    },
+    {
+      "reactants": [
+        "HCO+",
+        "c-C3H2"
+      ],
+      "products": [
+        "CO",
+        "c-C3H3+"
+      ],
+      "alpha": 0.9,
+      "beta": 1.24e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2555
+    },
+    {
+      "reactants": [
+        "HCO+",
+        "c-C3H2"
+      ],
+      "products": [
+        "l-C3H3+",
+        "CO"
+      ],
+      "alpha": 0.1,
+      "beta": 1.24e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2556
+    },
+    {
+      "reactants": [
+        "C4H",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "C4H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.47e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 2559
+    },
+    {
+      "reactants": [
+        "C4H",
+        "HCO+"
+      ],
+      "products": [
+        "CO",
+        "C4H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.47e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2559
+    },
+    {
+      "reactants": [
+        "CO",
+        "HOC+"
+      ],
+      "products": [
+        "CO",
+        "HCO+"
+      ],
+      "alpha": 1.0,
+      "beta": 8.68e-10,
+      "gamma": 0.251,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2660
+    },
+    {
+      "reactants": [
+        "H2",
+        "HOC+"
+      ],
+      "products": [
+        "H2",
+        "HCO+"
+      ],
+      "alpha": 1e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2661
+    },
+    {
+      "reactants": [
+        "C2",
+        "O+"
+      ],
+      "products": [
+        "C",
+        "CO+"
+      ],
+      "alpha": 4.8e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2764
+    },
+    {
+      "reactants": [
+        "CH",
+        "O+"
+      ],
+      "products": [
+        "H",
+        "CO+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.27e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2765
+    },
+    {
+      "reactants": [
+        "H2",
+        "O+"
+      ],
+      "products": [
+        "H",
+        "OH+"
+      ],
+      "alpha": 1.6e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2767
+    },
+    {
+      "reactants": [
+        "CCH",
+        "O+"
+      ],
+      "products": [
+        "CH",
+        "CO+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.58e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 2771
+    },
+    {
+      "reactants": [
+        "CCH",
+        "O+"
+      ],
+      "products": [
+        "CH",
+        "CO+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.58e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2771
+    },
+    {
+      "reactants": [
+        "C",
+        "H3O+"
+      ],
+      "products": [
+        "H2",
+        "HCO+"
+      ],
+      "alpha": 1e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2811
+    },
+    {
+      "reactants": [
+        "CH",
+        "H3O+"
+      ],
+      "products": [
+        "H2O",
+        "CH2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.23e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2814
+    },
+    {
+      "reactants": [
+        "C3",
+        "H3O+"
+      ],
+      "products": [
+        "H2O",
+        "C3H+"
+      ],
+      "alpha": 1.5e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 2822
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H3O+"
+      ],
+      "products": [
+        "H2O",
+        "CH3+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.2e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 2824
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H3O+"
+      ],
+      "products": [
+        "H2O",
+        "CH3+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.2e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2824
+    },
+    {
+      "reactants": [
+        "C4",
+        "H3O+"
+      ],
+      "products": [
+        "H2O",
+        "C4H+"
+      ],
+      "alpha": 1.1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2841
+    },
+    {
+      "reactants": [
+        "H3O+",
+        "c-C3H2"
+      ],
+      "products": [
+        "H2O",
+        "c-C3H3+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.41e-09,
+      "gamma": 5.54,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 2850
+    },
+    {
+      "reactants": [
+        "C4H",
+        "H3O+"
+      ],
+      "products": [
+        "H2O",
+        "C4H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.69e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 94.0,
+      "frml": 4,
+      "id": 2852
+    },
+    {
+      "reactants": [
+        "C4H",
+        "H3O+"
+      ],
+      "products": [
+        "H2O",
+        "C4H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.69e-09,
+      "gamma": 1.13,
+      "itype": 4,
+      "tmin": 95.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 2852
+    },
+    {
+      "reactants": [
+        "C2+",
+        "O"
+      ],
+      "products": [
+        "C",
+        "CO+"
+      ],
+      "alpha": 3.1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3045
+    },
+    {
+      "reactants": [
+        "C2",
+        "C2+"
+      ],
+      "products": [
+        "C",
+        "C3+"
+      ],
+      "alpha": 6.44e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3047
+    },
+    {
+      "reactants": [
+        "C2",
+        "C2+"
+      ],
+      "products": [
+        "C3",
+        "C+"
+      ],
+      "alpha": 2.26e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3048
+    },
+    {
+      "reactants": [
+        "C2+",
+        "CH"
+      ],
+      "products": [
+        "H",
+        "C3+"
+      ],
+      "alpha": 0.3,
+      "beta": 1.17e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3049
+    },
+    {
+      "reactants": [
+        "C2+",
+        "CH"
+      ],
+      "products": [
+        "C",
+        "C2H+"
+      ],
+      "alpha": 0.33,
+      "beta": 1.17e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3050
+    },
+    {
+      "reactants": [
+        "C2+",
+        "CH"
+      ],
+      "products": [
+        "CCH",
+        "C+"
+      ],
+      "alpha": 0.19,
+      "beta": 1.17e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3051
+    },
+    {
+      "reactants": [
+        "C2+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "C2H+"
+      ],
+      "alpha": 1.1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3053
+    },
+    {
+      "reactants": [
+        "C2+",
+        "O2"
+      ],
+      "products": [
+        "CO",
+        "CO+"
+      ],
+      "alpha": 8e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3056
+    },
+    {
+      "reactants": [
+        "C2+",
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "C3H+"
+      ],
+      "alpha": 0.65,
+      "beta": 1.15e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 3057
+    },
+    {
+      "reactants": [
+        "C2+",
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "C3H+"
+      ],
+      "alpha": 0.65,
+      "beta": 1.15e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3057
+    },
+    {
+      "reactants": [
+        "C2+",
+        "CH2"
+      ],
+      "products": [
+        "H2",
+        "C3+"
+      ],
+      "alpha": 0.3,
+      "beta": 1.15e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 3058
+    },
+    {
+      "reactants": [
+        "C2+",
+        "CH2"
+      ],
+      "products": [
+        "H2",
+        "C3+"
+      ],
+      "alpha": 0.3,
+      "beta": 1.15e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3058
+    },
+    {
+      "reactants": [
+        "C2+",
+        "H2O"
+      ],
+      "products": [
+        "OH",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 8.65e-10,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3060
+    },
+    {
+      "reactants": [
+        "C",
+        "CH+"
+      ],
+      "products": [
+        "H",
+        "C2+"
+      ],
+      "alpha": 1.14e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3074
+    },
+    {
+      "reactants": [
+        "CH+",
+        "H"
+      ],
+      "products": [
+        "H2",
+        "C+"
+      ],
+      "alpha": 7.5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3075
+    },
+    {
+      "reactants": [
+        "CH+",
+        "O"
+      ],
+      "products": [
+        "H",
+        "CO+"
+      ],
+      "alpha": 3.5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3077
+    },
+    {
+      "reactants": [
+        "C2",
+        "CH+"
+      ],
+      "products": [
+        "H",
+        "C3+"
+      ],
+      "alpha": 5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3080
+    },
+    {
+      "reactants": [
+        "C2",
+        "CH+"
+      ],
+      "products": [
+        "CCH",
+        "C+"
+      ],
+      "alpha": 2.7e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3081
+    },
+    {
+      "reactants": [
+        "C2",
+        "CH+"
+      ],
+      "products": [
+        "C",
+        "C2H+"
+      ],
+      "alpha": 1.8e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3082
+    },
+    {
+      "reactants": [
+        "CH",
+        "CH+"
+      ],
+      "products": [
+        "H2",
+        "C2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.34e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3084
+    },
+    {
+      "reactants": [
+        "CH+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "CH2+"
+      ],
+      "alpha": 1.2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3087
+    },
+    {
+      "reactants": [
+        "CH+",
+        "O2"
+      ],
+      "products": [
+        "OH",
+        "CO+"
+      ],
+      "alpha": 1e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3090
+    },
+    {
+      "reactants": [
+        "CH+",
+        "O2"
+      ],
+      "products": [
+        "O",
+        "HCO+"
+      ],
+      "alpha": 9.7e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3091
+    },
+    {
+      "reactants": [
+        "CH+",
+        "OH"
+      ],
+      "products": [
+        "H2",
+        "CO+"
+      ],
+      "alpha": 1.0,
+      "beta": 8.94e-10,
+      "gamma": 5.5,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3092
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CH+"
+      ],
+      "products": [
+        "H2",
+        "C3+"
+      ],
+      "alpha": 0.3,
+      "beta": 1.68e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 3093
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CH+"
+      ],
+      "products": [
+        "H2",
+        "C3+"
+      ],
+      "alpha": 0.3,
+      "beta": 1.68e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3093
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CH+"
+      ],
+      "products": [
+        "H",
+        "C3H+"
+      ],
+      "alpha": 0.65,
+      "beta": 1.68e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 3094
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CH+"
+      ],
+      "products": [
+        "H",
+        "C3H+"
+      ],
+      "alpha": 0.65,
+      "beta": 1.68e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3094
+    },
+    {
+      "reactants": [
+        "CH+",
+        "CH2"
+      ],
+      "products": [
+        "H2",
+        "C2H+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.31e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 3096
+    },
+    {
+      "reactants": [
+        "CH+",
+        "CH2"
+      ],
+      "products": [
+        "H2",
+        "C2H+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.31e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3096
+    },
+    {
+      "reactants": [
+        "CH+",
+        "H2O"
+      ],
+      "products": [
+        "H2",
+        "HCO+"
+      ],
+      "alpha": 0.714,
+      "beta": 1.01e-09,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3098
+    },
+    {
+      "reactants": [
+        "CH+",
+        "H2O"
+      ],
+      "products": [
+        "C",
+        "H3O+"
+      ],
+      "alpha": 0.143,
+      "beta": 1.01e-09,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3100
+    },
+    {
+      "reactants": [
+        "C",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "CH+"
+      ],
+      "alpha": 1.2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3182
+    },
+    {
+      "reactants": [
+        "C2",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "C2H+"
+      ],
+      "alpha": 4.8e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3188
+    },
+    {
+      "reactants": [
+        "CH",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.26e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3189
+    },
+    {
+      "reactants": [
+        "CO",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "HCO+"
+      ],
+      "alpha": 1.0,
+      "beta": 1e-09,
+      "gamma": 0.251,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3191
+    },
+    {
+      "reactants": [
+        "H2",
+        "OH+"
+      ],
+      "products": [
+        "H",
+        "H2O+"
+      ],
+      "alpha": 1.1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3192
+    },
+    {
+      "reactants": [
+        "OH",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "H2O+"
+      ],
+      "alpha": 1.0,
+      "beta": 8.32e-10,
+      "gamma": 5.5,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3196
+    },
+    {
+      "reactants": [
+        "CCH",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "C2H2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.55e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 3200
+    },
+    {
+      "reactants": [
+        "CCH",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "C2H2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.55e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3200
+    },
+    {
+      "reactants": [
+        "CH2",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "CH3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.23e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 3201
+    },
+    {
+      "reactants": [
+        "CH2",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "CH3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.23e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3201
+    },
+    {
+      "reactants": [
+        "H2O",
+        "OH+"
+      ],
+      "products": [
+        "O",
+        "H3O+"
+      ],
+      "alpha": 0.464,
+      "beta": 9.39e-10,
+      "gamma": 5.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3203
+    },
+    {
+      "reactants": [
+        "C4+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "C4H+"
+      ],
+      "alpha": 1.3e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3247
+    },
+    {
+      "reactants": [
+        "C",
+        "CH3+"
+      ],
+      "products": [
+        "H2",
+        "C2H+"
+      ],
+      "alpha": 1.2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3255
+    },
+    {
+      "reactants": [
+        "C",
+        "CH3+"
+      ],
+      "products": [
+        "H",
+        "C2H2+"
+      ],
+      "alpha": 1.2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3256
+    },
+    {
+      "reactants": [
+        "CH3+",
+        "O"
+      ],
+      "products": [
+        "H2",
+        "HOC+"
+      ],
+      "alpha": 2.05e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 3259
+    },
+    {
+      "reactants": [
+        "CH3+",
+        "O"
+      ],
+      "products": [
+        "H2",
+        "HCO+"
+      ],
+      "alpha": 2.05e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 3260
+    },
+    {
+      "reactants": [
+        "C2",
+        "CH3+"
+      ],
+      "products": [
+        "H2",
+        "C3H+"
+      ],
+      "alpha": 9.9e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3266
+    },
+    {
+      "reactants": [
+        "CH",
+        "CH3+"
+      ],
+      "products": [
+        "H2",
+        "C2H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.29e-09,
+      "gamma": 3.33,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 3267
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CH3+"
+      ],
+      "products": [
+        "H",
+        "c-C3H3+"
+      ],
+      "alpha": 0.25,
+      "beta": 1.61e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 3278
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CH3+"
+      ],
+      "products": [
+        "H",
+        "c-C3H3+"
+      ],
+      "alpha": 0.25,
+      "beta": 1.61e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3278
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CH3+"
+      ],
+      "products": [
+        "H",
+        "l-C3H3+"
+      ],
+      "alpha": 0.25,
+      "beta": 1.61e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 3279
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CH3+"
+      ],
+      "products": [
+        "H",
+        "l-C3H3+"
+      ],
+      "alpha": 0.25,
+      "beta": 1.61e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3279
+    },
+    {
+      "reactants": [
+        "C",
+        "C2H2+"
+      ],
+      "products": [
+        "H2",
+        "C3+"
+      ],
+      "alpha": 2.4e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 3404
+    },
+    {
+      "reactants": [
+        "C",
+        "C2H2+"
+      ],
+      "products": [
+        "H",
+        "C3H+"
+      ],
+      "alpha": 4.5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 3405
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "O"
+      ],
+      "products": [
+        "CH",
+        "HCO+"
+      ],
+      "alpha": 5e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3410
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "O"
+      ],
+      "products": [
+        "CH",
+        "HOC+"
+      ],
+      "alpha": 5e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3411
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "CCH"
+      ],
+      "products": [
+        "H",
+        "C4H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.38e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 3422
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "CCH"
+      ],
+      "products": [
+        "H",
+        "C4H2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.38e-09,
+      "gamma": 1.34,
+      "itype": 4,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3422
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "c-C3H3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.13e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 3423
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "c-C3H3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.13e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3423
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "l-C3H3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.13e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 3424
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "CH2"
+      ],
+      "products": [
+        "H",
+        "l-C3H3+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.13e-09,
+      "gamma": 1.41,
+      "itype": 4,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 3424
+    },
+    {
+      "reactants": [
+        "CH",
+        "O"
+      ],
+      "products": [
+        "H",
+        "CO"
+      ],
+      "alpha": 7e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 3459
+    },
+    {
+      "reactants": [
+        "CH",
+        "O"
+      ],
+      "products": [
+        "C",
+        "OH"
+      ],
+      "alpha": 2.52e-11,
+      "beta": 0.0,
+      "gamma": 2380.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 3460
+    },
+    {
+      "reactants": [
+        "C",
+        "CH"
+      ],
+      "products": [
+        "H",
+        "C2"
+      ],
+      "alpha": 2.4e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 3461
+    },
+    {
+      "reactants": [
+        "C",
+        "O2"
+      ],
+      "products": [
+        "O",
+        "CO"
+      ],
+      "alpha": 4.9e-11,
+      "beta": -0.32,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 15.0,
+      "tmax": 295.0,
+      "frml": 3,
+      "id": 3468
+    },
+    {
+      "reactants": [
+        "C",
+        "OH"
+      ],
+      "products": [
+        "H",
+        "CO"
+      ],
+      "alpha": 1.15e-10,
+      "beta": -0.339,
+      "gamma": -0.108,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 500.0,
+      "frml": 3,
+      "id": 3469
+    },
+    {
+      "reactants": [
+        "C",
+        "OH"
+      ],
+      "products": [
+        "O",
+        "CH"
+      ],
+      "alpha": 2.25e-11,
+      "beta": 0.5,
+      "gamma": 14800.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 3470
+    },
+    {
+      "reactants": [
+        "C",
+        "CCH"
+      ],
+      "products": [
+        "H",
+        "C3"
+      ],
+      "alpha": 2.4e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 3479
+    },
+    {
+      "reactants": [
+        "C",
+        "c-C3H2"
+      ],
+      "products": [
+        "H",
+        "C4H"
+      ],
+      "alpha": 2e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 3499
+    },
+    {
+      "reactants": [
+        "HCO+",
+        "O-"
+      ],
+      "products": [
+        "H",
+        "O",
+        "CO"
+      ],
+      "alpha": 3.76e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3540
+    },
+    {
+      "reactants": [
+        "H3O+",
+        "O-"
+      ],
+      "products": [
+        "H",
+        "O",
+        "H2O"
+      ],
+      "alpha": 3.76e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3541
+    },
+    {
+      "reactants": [
+        "H3+",
+        "O-"
+      ],
+      "products": [
+        "H",
+        "O",
+        "H2"
+      ],
+      "alpha": 7.51e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3542
+    },
+    {
+      "reactants": [
+        "C4H-",
+        "HCO+"
+      ],
+      "products": [
+        "H",
+        "CO",
+        "C4H"
+      ],
+      "alpha": 3.76e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3552
+    },
+    {
+      "reactants": [
+        "C4H-",
+        "H3O+"
+      ],
+      "products": [
+        "H",
+        "H2O",
+        "C4H"
+      ],
+      "alpha": 3.76e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3553
+    },
+    {
+      "reactants": [
+        "C4H-",
+        "H3+"
+      ],
+      "products": [
+        "H",
+        "H2",
+        "C4H"
+      ],
+      "alpha": 7.51e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 3554
+    },
+    {
+      "reactants": [
+        "C2",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "CCH"
+      ],
+      "alpha": 1.6e-10,
+      "beta": 0.0,
+      "gamma": 1420.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4412
+    },
+    {
+      "reactants": [
+        "C+",
+        "C4"
+      ],
+      "products": [
+        "C2",
+        "C3+"
+      ],
+      "alpha": 7.9e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 50.0,
+      "frml": 3,
+      "id": 4594
+    },
+    {
+      "reactants": [
+        "C+",
+        "C4"
+      ],
+      "products": [
+        "C3",
+        "C2+"
+      ],
+      "alpha": 1.1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 50.0,
+      "frml": 3,
+      "id": 4595
+    },
+    {
+      "reactants": [
+        "C+",
+        "C4-"
+      ],
+      "products": [
+        "C",
+        "C",
+        "C3"
+      ],
+      "alpha": 4.51e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 4615
+    },
+    {
+      "reactants": [
+        "C+",
+        "C4-"
+      ],
+      "products": [
+        "C",
+        "C2",
+        "C2"
+      ],
+      "alpha": 2.55e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 4616
+    },
+    {
+      "reactants": [
+        "C+",
+        "C4-"
+      ],
+      "products": [
+        "C2",
+        "C3"
+      ],
+      "alpha": 4.51e-09,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 4617
+    },
+    {
+      "reactants": [
+        "C+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "CH+"
+      ],
+      "alpha": 1.5e-10,
+      "beta": 0.0,
+      "gamma": 4640.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4643
+    },
+    {
+      "reactants": [
+        "CH2+",
+        "H"
+      ],
+      "products": [
+        "H2",
+        "CH+"
+      ],
+      "alpha": 1.2e-09,
+      "beta": 0.0,
+      "gamma": 2700.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4644
+    },
+    {
+      "reactants": [
+        "CH3+",
+        "H"
+      ],
+      "products": [
+        "H2",
+        "CH2+"
+      ],
+      "alpha": 7e-10,
+      "beta": 0.0,
+      "gamma": 10600.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4645
+    },
+    {
+      "reactants": [
+        "H",
+        "H3+"
+      ],
+      "products": [
+        "H2",
+        "H2+"
+      ],
+      "alpha": 2.1e-09,
+      "beta": 0.0,
+      "gamma": 20000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4647
+    },
+    {
+      "reactants": [
+        "H",
+        "H3O+"
+      ],
+      "products": [
+        "H2",
+        "H2O+"
+      ],
+      "alpha": 6.1e-10,
+      "beta": 0.0,
+      "gamma": 20500.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4648
+    },
+    {
+      "reactants": [
+        "H",
+        "HCO+"
+      ],
+      "products": [
+        "H2",
+        "CO+"
+      ],
+      "alpha": 1.3e-09,
+      "beta": 0.0,
+      "gamma": 24500.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4649
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H3O+"
+      ],
+      "products": [
+        "H2O",
+        "C2H2+"
+      ],
+      "alpha": 2.2e-10,
+      "beta": 0.0,
+      "gamma": 4100.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4656
+    },
+    {
+      "reactants": [
+        "H",
+        "l-C3H3+"
+      ],
+      "products": [
+        "c-C3H3+",
+        "H"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4721
+    },
+    {
+      "reactants": [
+        "H2",
+        "H3+"
+      ],
+      "products": [
+        "H",
+        "H",
+        "H3+"
+      ],
+      "alpha": 3e-11,
+      "beta": 0.5,
+      "gamma": 52000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4730
+    },
+    {
+      "reactants": [
+        "H2",
+        "H3O+"
+      ],
+      "products": [
+        "H",
+        "H",
+        "H3O+"
+      ],
+      "alpha": 3e-11,
+      "beta": 0.5,
+      "gamma": 52000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4731
+    },
+    {
+      "reactants": [
+        "H2",
+        "HCO+"
+      ],
+      "products": [
+        "H",
+        "H",
+        "HCO+"
+      ],
+      "alpha": 3e-11,
+      "beta": 0.5,
+      "gamma": 52000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4733
+    },
+    {
+      "reactants": [
+        "CH2",
+        "O2"
+      ],
+      "products": [
+        "CO",
+        "H2O"
+      ],
+      "alpha": 2.48e-10,
+      "beta": -3.3,
+      "gamma": 1440.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4761
+    },
+    {
+      "reactants": [
+        "C2",
+        "H"
+      ],
+      "products": [
+        "C",
+        "CH"
+      ],
+      "alpha": 4.67e-10,
+      "beta": 0.5,
+      "gamma": 30400.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4774
+    },
+    {
+      "reactants": [
+        "CO",
+        "H"
+      ],
+      "products": [
+        "C",
+        "OH"
+      ],
+      "alpha": 1.1e-10,
+      "beta": 0.5,
+      "gamma": 77700.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4775
+    },
+    {
+      "reactants": [
+        "H2",
+        "O2"
+      ],
+      "products": [
+        "OH",
+        "OH"
+      ],
+      "alpha": 3.16e-10,
+      "beta": 0.0,
+      "gamma": 21900.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4784
+    },
+    {
+      "reactants": [
+        "H2O",
+        "O"
+      ],
+      "products": [
+        "OH",
+        "OH"
+      ],
+      "alpha": 1.85e-11,
+      "beta": 0.95,
+      "gamma": 8570.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4807
+    },
+    {
+      "reactants": [
+        "C4",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "C4H"
+      ],
+      "alpha": 1.6e-10,
+      "beta": 0.0,
+      "gamma": 1420.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4834
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H"
+      ],
+      "products": [
+        "C2",
+        "H2"
+      ],
+      "alpha": 5.99e-11,
+      "beta": 0.0,
+      "gamma": 14200.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4853
+    },
+    {
+      "reactants": [
+        "C4H",
+        "H"
+      ],
+      "products": [
+        "H2",
+        "C4"
+      ],
+      "alpha": 5.99e-11,
+      "beta": 0.0,
+      "gamma": 14200.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4857
+    },
+    {
+      "reactants": [
+        "O",
+        "c-C3H2"
+      ],
+      "products": [
+        "H",
+        "CO",
+        "CCH"
+      ],
+      "alpha": 1e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4867
+    },
+    {
+      "reactants": [
+        "H2",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H",
+        "e-"
+      ],
+      "alpha": 2e-09,
+      "beta": 0.5,
+      "gamma": 116000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4879
+    },
+    {
+      "reactants": [
+        "H",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "H",
+        "H"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.0,
+      "gamma": 52000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4880
+    },
+    {
+      "reactants": [
+        "H2",
+        "He"
+      ],
+      "products": [
+        "H",
+        "H",
+        "He"
+      ],
+      "alpha": 1e-11,
+      "beta": 0.0,
+      "gamma": 52000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4881
+    },
+    {
+      "reactants": [
+        "H2",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "H",
+        "H2"
+      ],
+      "alpha": 1.25e-11,
+      "beta": 0.0,
+      "gamma": 52000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4882
+    },
+    {
+      "reactants": [
+        "O",
+        "t-C3H2"
+      ],
+      "products": [
+        "H",
+        "CO",
+        "CCH"
+      ],
+      "alpha": 1e-11,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 5208
+    },
+    {
+      "reactants": [
+        "H",
+        "t-C3H2"
+      ],
+      "products": [
+        "c-C3H2",
+        "H"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 5252
+    },
+    {
+      "reactants": [
+        "C",
+        "t-C3H2"
+      ],
+      "products": [
+        "C4H",
+        "H"
+      ],
+      "alpha": 4e-11,
+      "beta": -0.4,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 5259
+    },
+    {
+      "reactants": [
+        "C3",
+        "OH"
+      ],
+      "products": [
+        "CCH",
+        "CO"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 5281
+    },
+    {
+      "reactants": [
+        "H3+",
+        "t-C3H2"
+      ],
+      "products": [
+        "c-C3H3+",
+        "H2"
+      ],
+      "alpha": 0.5,
+      "beta": 3.33e-09,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5285
+    },
+    {
+      "reactants": [
+        "H3+",
+        "t-C3H2"
+      ],
+      "products": [
+        "l-C3H3+",
+        "H2"
+      ],
+      "alpha": 0.5,
+      "beta": 3.33e-09,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5286
+    },
+    {
+      "reactants": [
+        "HCO+",
+        "t-C3H2"
+      ],
+      "products": [
+        "c-C3H3+",
+        "CO"
+      ],
+      "alpha": 1.0,
+      "beta": 1.28e-09,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5287
+    },
+    {
+      "reactants": [
+        "H3O+",
+        "t-C3H2"
+      ],
+      "products": [
+        "c-C3H3+",
+        "H2O"
+      ],
+      "alpha": 1.0,
+      "beta": 1.45e-09,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 5288
+    },
+    {
+      "reactants": [
+        "C",
+        "CO+"
+      ],
+      "products": [
+        "CO",
+        "C+"
+      ],
+      "alpha": 1.1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5329
+    },
+    {
+      "reactants": [
+        "CO+",
+        "O"
+      ],
+      "products": [
+        "CO",
+        "O+"
+      ],
+      "alpha": 1.4e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5331
+    },
+    {
+      "reactants": [
+        "C2",
+        "CO+"
+      ],
+      "products": [
+        "CO",
+        "C2+"
+      ],
+      "alpha": 8.4e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5333
+    },
+    {
+      "reactants": [
+        "CH2",
+        "O+"
+      ],
+      "products": [
+        "O",
+        "CH2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.25e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 5488
+    },
+    {
+      "reactants": [
+        "CH2",
+        "O+"
+      ],
+      "products": [
+        "O",
+        "CH2+"
+      ],
+      "alpha": 1.0,
+      "beta": 1.25e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5488
+    },
+    {
+      "reactants": [
+        "H2O",
+        "O+"
+      ],
+      "products": [
+        "O",
+        "H2O+"
+      ],
+      "alpha": 1.0,
+      "beta": 9.54e-10,
+      "gamma": 5.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5489
+    },
+    {
+      "reactants": [
+        "C",
+        "C2+"
+      ],
+      "products": [
+        "C2",
+        "C+"
+      ],
+      "alpha": 1.1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5537
+    },
+    {
+      "reactants": [
+        "C+",
+        "CH"
+      ],
+      "products": [
+        "C",
+        "CH+"
+      ],
+      "alpha": 0.53,
+      "beta": 1.37e-09,
+      "gamma": 3.33,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5607
+    },
+    {
+      "reactants": [
+        "C+",
+        "CH2"
+      ],
+      "products": [
+        "C",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.34e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 5613
+    },
+    {
+      "reactants": [
+        "C+",
+        "CH2"
+      ],
+      "products": [
+        "C",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.34e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5613
+    },
+    {
+      "reactants": [
+        "CH",
+        "CO+"
+      ],
+      "products": [
+        "CO",
+        "CH+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.14e-09,
+      "gamma": 3.33,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5634
+    },
+    {
+      "reactants": [
+        "CO+",
+        "OH"
+      ],
+      "products": [
+        "CO",
+        "OH+"
+      ],
+      "alpha": 0.5,
+      "beta": 7.45e-10,
+      "gamma": 5.5,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5636
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CO+"
+      ],
+      "products": [
+        "CO",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.35e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 5637
+    },
+    {
+      "reactants": [
+        "CCH",
+        "CO+"
+      ],
+      "products": [
+        "CO",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.35e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5637
+    },
+    {
+      "reactants": [
+        "CH2",
+        "CO+"
+      ],
+      "products": [
+        "CO",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.12e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 5638
+    },
+    {
+      "reactants": [
+        "CH2",
+        "CO+"
+      ],
+      "products": [
+        "CO",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.12e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5638
+    },
+    {
+      "reactants": [
+        "CO+",
+        "H2O"
+      ],
+      "products": [
+        "CO",
+        "H2O+"
+      ],
+      "alpha": 0.659,
+      "beta": 8.37e-10,
+      "gamma": 5.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5639
+    },
+    {
+      "reactants": [
+        "C2",
+        "H2+"
+      ],
+      "products": [
+        "H2",
+        "C2+"
+      ],
+      "alpha": 1.1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5645
+    },
+    {
+      "reactants": [
+        "CH",
+        "H2+"
+      ],
+      "products": [
+        "H2",
+        "CH+"
+      ],
+      "alpha": 0.5,
+      "beta": 2.59e-09,
+      "gamma": 3.33,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5646
+    },
+    {
+      "reactants": [
+        "CO",
+        "H2+"
+      ],
+      "products": [
+        "H2",
+        "CO+"
+      ],
+      "alpha": 0.214,
+      "beta": 2.39e-09,
+      "gamma": 0.251,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5648
+    },
+    {
+      "reactants": [
+        "H2O",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "H2O+"
+      ],
+      "alpha": 0.333,
+      "beta": 1.54e-09,
+      "gamma": 5.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5666
+    },
+    {
+      "reactants": [
+        "O+",
+        "OH"
+      ],
+      "products": [
+        "O",
+        "OH+"
+      ],
+      "alpha": 0.5,
+      "beta": 8.45e-10,
+      "gamma": 5.5,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5685
+    },
+    {
+      "reactants": [
+        "H2+",
+        "OH"
+      ],
+      "products": [
+        "H2",
+        "OH+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.81e-09,
+      "gamma": 5.5,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5697
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H2+"
+      ],
+      "products": [
+        "H2",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 3.62e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 5698
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H2+"
+      ],
+      "products": [
+        "H2",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 3.62e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5698
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H2+"
+      ],
+      "products": [
+        "H2",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 2.58e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 5699
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H2+"
+      ],
+      "products": [
+        "H2",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 2.58e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5699
+    },
+    {
+      "reactants": [
+        "H2+",
+        "H2O"
+      ],
+      "products": [
+        "H2",
+        "H2O+"
+      ],
+      "alpha": 0.534,
+      "beta": 2.07e-09,
+      "gamma": 5.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5700
+    },
+    {
+      "reactants": [
+        "C2",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "C2+"
+      ],
+      "alpha": 5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5708
+    },
+    {
+      "reactants": [
+        "CH",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "CH+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.95e-09,
+      "gamma": 3.33,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5709
+    },
+    {
+      "reactants": [
+        "H2",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "H2+"
+      ],
+      "alpha": 1.7e-14,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 5710
+    },
+    {
+      "reactants": [
+        "C2",
+        "H2O+"
+      ],
+      "products": [
+        "H2O",
+        "C2+"
+      ],
+      "alpha": 4.7e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5716
+    },
+    {
+      "reactants": [
+        "CH",
+        "H2O+"
+      ],
+      "products": [
+        "H2O",
+        "CH+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.24e-09,
+      "gamma": 3.33,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5717
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H2O+"
+      ],
+      "products": [
+        "H2O",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.52e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 5718
+    },
+    {
+      "reactants": [
+        "CCH",
+        "H2O+"
+      ],
+      "products": [
+        "H2O",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.52e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5718
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H2O+"
+      ],
+      "products": [
+        "H2O",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.21e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 5719
+    },
+    {
+      "reactants": [
+        "CH2",
+        "H2O+"
+      ],
+      "products": [
+        "H2O",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.21e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5719
+    },
+    {
+      "reactants": [
+        "C2",
+        "O+"
+      ],
+      "products": [
+        "O",
+        "C2+"
+      ],
+      "alpha": 4.8e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5735
+    },
+    {
+      "reactants": [
+        "CH",
+        "O+"
+      ],
+      "products": [
+        "O",
+        "CH+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.27e-09,
+      "gamma": 3.33,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5781
+    },
+    {
+      "reactants": [
+        "CCH",
+        "O+"
+      ],
+      "products": [
+        "O",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.58e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 5783
+    },
+    {
+      "reactants": [
+        "CCH",
+        "O+"
+      ],
+      "products": [
+        "O",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.58e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5783
+    },
+    {
+      "reactants": [
+        "C2",
+        "OH+"
+      ],
+      "products": [
+        "OH",
+        "C2+"
+      ],
+      "alpha": 4.8e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5801
+    },
+    {
+      "reactants": [
+        "CH",
+        "OH+"
+      ],
+      "products": [
+        "OH",
+        "CH+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.26e-09,
+      "gamma": 3.33,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5802
+    },
+    {
+      "reactants": [
+        "CCH",
+        "OH+"
+      ],
+      "products": [
+        "OH",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.55e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 133.0,
+      "frml": 4,
+      "id": 5803
+    },
+    {
+      "reactants": [
+        "CCH",
+        "OH+"
+      ],
+      "products": [
+        "OH",
+        "C2H+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.55e-09,
+      "gamma": 1.34,
+      "itype": 5,
+      "tmin": 134.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5803
+    },
+    {
+      "reactants": [
+        "CH2",
+        "OH+"
+      ],
+      "products": [
+        "OH",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.23e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 149.0,
+      "frml": 4,
+      "id": 5804
+    },
+    {
+      "reactants": [
+        "CH2",
+        "OH+"
+      ],
+      "products": [
+        "OH",
+        "CH2+"
+      ],
+      "alpha": 0.5,
+      "beta": 1.23e-09,
+      "gamma": 1.41,
+      "itype": 5,
+      "tmin": 150.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5804
+    },
+    {
+      "reactants": [
+        "H2O",
+        "OH+"
+      ],
+      "products": [
+        "OH",
+        "H2O+"
+      ],
+      "alpha": 0.536,
+      "beta": 9.39e-10,
+      "gamma": 5.41,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5805
+    },
+    {
+      "reactants": [
+        "C2+",
+        "CH"
+      ],
+      "products": [
+        "C2",
+        "CH+"
+      ],
+      "alpha": 0.15,
+      "beta": 1.17e-09,
+      "gamma": 3.33,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 5840
+    },
+    {
+      "reactants": [
+        "C+",
+        "C4H-"
+      ],
+      "products": [
+        "C",
+        "C4H"
+      ],
+      "alpha": 7.51e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5852
+    },
+    {
+      "reactants": [
+        "He+",
+        "O-"
+      ],
+      "products": [
+        "He",
+        "O"
+      ],
+      "alpha": 7.51e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5862
+    },
+    {
+      "reactants": [
+        "C4H-",
+        "He+"
+      ],
+      "products": [
+        "He",
+        "C4H"
+      ],
+      "alpha": 7.51e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5883
+    },
+    {
+      "reactants": [
+        "Cl+",
+        "O-"
+      ],
+      "products": [
+        "Cl",
+        "O"
+      ],
+      "alpha": 7.51e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6024
+    },
+    {
+      "reactants": [
+        "C4H-",
+        "Cl+"
+      ],
+      "products": [
+        "Cl",
+        "C4H"
+      ],
+      "alpha": 7.51e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6028
+    },
+    {
+      "reactants": [
+        "C+",
+        "C4"
+      ],
+      "products": [
+        "C",
+        "C4+"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 50.0,
+      "frml": 3,
+      "id": 6356
+    },
+    {
+      "reactants": [
+        "C",
+        "C2H+"
+      ],
+      "products": [
+        "CCH",
+        "C+"
+      ],
+      "alpha": 1.76e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6360
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "CH"
+      ],
+      "products": [
+        "CCH",
+        "CH+"
+      ],
+      "alpha": 0.04,
+      "beta": 1.17e-09,
+      "gamma": 3.33,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 4,
+      "id": 6361
+    },
+    {
+      "reactants": [
+        "C+",
+        "H"
+      ],
+      "products": [
+        "CH+",
+        "Photon"
+      ],
+      "alpha": 1.7e-17,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6401
+    },
+    {
+      "reactants": [
+        "C+",
+        "O"
+      ],
+      "products": [
+        "CO+",
+        "Photon"
+      ],
+      "alpha": 2.5e-18,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6402
+    },
+    {
+      "reactants": [
+        "C+",
+        "H2"
+      ],
+      "products": [
+        "CH2+",
+        "Photon"
+      ],
+      "alpha": 2e-16,
+      "beta": -1.3,
+      "gamma": 23.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 298.0,
+      "frml": 3,
+      "id": 6403
+    },
+    {
+      "reactants": [
+        "C+",
+        "C3"
+      ],
+      "products": [
+        "C4+",
+        "Photon"
+      ],
+      "alpha": 1e-13,
+      "beta": -1.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 50.0,
+      "frml": 3,
+      "id": 6404
+    },
+    {
+      "reactants": [
+        "C3+",
+        "H"
+      ],
+      "products": [
+        "C3H+",
+        "Photon"
+      ],
+      "alpha": 7e-16,
+      "beta": -1.5,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6420
+    },
+    {
+      "reactants": [
+        "C",
+        "C"
+      ],
+      "products": [
+        "C2",
+        "Photon"
+      ],
+      "alpha": 1e-17,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6423
+    },
+    {
+      "reactants": [
+        "C",
+        "H"
+      ],
+      "products": [
+        "CH",
+        "Photon"
+      ],
+      "alpha": 1e-17,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6424
+    },
+    {
+      "reactants": [
+        "C",
+        "O"
+      ],
+      "products": [
+        "CO",
+        "Photon"
+      ],
+      "alpha": 7.79e-18,
+      "beta": 1.684,
+      "gamma": 37.24,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 29.0,
+      "frml": 3,
+      "id": 6426
+    },
+    {
+      "reactants": [
+        "C",
+        "O"
+      ],
+      "products": [
+        "CO",
+        "Photon"
+      ],
+      "alpha": 1.591e-17,
+      "beta": 2.049,
+      "gamma": 34.76,
+      "itype": 6,
+      "tmin": 30.0,
+      "tmax": 79.0,
+      "frml": 3,
+      "id": 6426
+    },
+    {
+      "reactants": [
+        "C",
+        "O"
+      ],
+      "products": [
+        "CO",
+        "Photon"
+      ],
+      "alpha": 9.744e-18,
+      "beta": 0.7046,
+      "gamma": 136.2,
+      "itype": 6,
+      "tmin": 80.0,
+      "tmax": 499.0,
+      "frml": 3,
+      "id": 6426
+    },
+    {
+      "reactants": [
+        "C",
+        "O"
+      ],
+      "products": [
+        "CO",
+        "Photon"
+      ],
+      "alpha": 1.482e-17,
+      "beta": 0.5408,
+      "gamma": 329.7,
+      "itype": 6,
+      "tmin": 500.0,
+      "tmax": 3999.0,
+      "frml": 3,
+      "id": 6426
+    },
+    {
+      "reactants": [
+        "C",
+        "O"
+      ],
+      "products": [
+        "CO",
+        "Photon"
+      ],
+      "alpha": 1.1e-16,
+      "beta": -0.01051,
+      "gamma": 2750.0,
+      "itype": 6,
+      "tmin": 4000.0,
+      "tmax": 20000.0,
+      "frml": 3,
+      "id": 6426
+    },
+    {
+      "reactants": [
+        "C",
+        "H2"
+      ],
+      "products": [
+        "CH2",
+        "Photon"
+      ],
+      "alpha": 1e-17,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6427
+    },
+    {
+      "reactants": [
+        "H",
+        "O"
+      ],
+      "products": [
+        "OH",
+        "Photon"
+      ],
+      "alpha": 2.5e-15,
+      "beta": 4.907,
+      "gamma": -44.35,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 20.0,
+      "frml": 3,
+      "id": 6428
+    },
+    {
+      "reactants": [
+        "H",
+        "O"
+      ],
+      "products": [
+        "OH",
+        "Photon"
+      ],
+      "alpha": 1.844e-19,
+      "beta": -0.366,
+      "gamma": 50.61,
+      "itype": 6,
+      "tmin": 21.0,
+      "tmax": 100.0,
+      "frml": 3,
+      "id": 6428
+    },
+    {
+      "reactants": [
+        "H",
+        "O"
+      ],
+      "products": [
+        "OH",
+        "Photon"
+      ],
+      "alpha": 2.276e-19,
+      "beta": 0.2598,
+      "gamma": 4.711,
+      "itype": 6,
+      "tmin": 101.0,
+      "tmax": 500.0,
+      "frml": 3,
+      "id": 6428
+    },
+    {
+      "reactants": [
+        "H",
+        "O"
+      ],
+      "products": [
+        "OH",
+        "Photon"
+      ],
+      "alpha": 2.175e-20,
+      "beta": 1.726,
+      "gamma": -776.1,
+      "itype": 6,
+      "tmin": 501.0,
+      "tmax": 2000.0,
+      "frml": 3,
+      "id": 6428
+    },
+    {
+      "reactants": [
+        "H",
+        "O"
+      ],
+      "products": [
+        "OH",
+        "Photon"
+      ],
+      "alpha": 2.622e-18,
+      "beta": -0.02906,
+      "gamma": 2184.0,
+      "itype": 6,
+      "tmin": 2001.0,
+      "tmax": 5000.0,
+      "frml": 3,
+      "id": 6428
+    },
+    {
+      "reactants": [
+        "H",
+        "O"
+      ],
+      "products": [
+        "OH",
+        "Photon"
+      ],
+      "alpha": 6.463e-23,
+      "beta": 2.782,
+      "gamma": -11180.0,
+      "itype": 6,
+      "tmin": 5001.0,
+      "tmax": 15000.0,
+      "frml": 3,
+      "id": 6428
+    },
+    {
+      "reactants": [
+        "H",
+        "O"
+      ],
+      "products": [
+        "OH",
+        "Photon"
+      ],
+      "alpha": 8.581e-16,
+      "beta": -0.5933,
+      "gamma": 37220.0,
+      "itype": 6,
+      "tmin": 15001.0,
+      "tmax": 30000.0,
+      "frml": 3,
+      "id": 6428
+    },
+    {
+      "reactants": [
+        "O",
+        "O"
+      ],
+      "products": [
+        "O2",
+        "Photon"
+      ],
+      "alpha": 4.9e-20,
+      "beta": 1.58,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6429
+    },
+    {
+      "reactants": [
+        "C",
+        "C2"
+      ],
+      "products": [
+        "C3",
+        "Photon"
+      ],
+      "alpha": 3e-16,
+      "beta": -1.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 6435
+    },
+    {
+      "reactants": [
+        "C",
+        "C3"
+      ],
+      "products": [
+        "C4",
+        "Photon"
+      ],
+      "alpha": 4e-14,
+      "beta": -1.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 6436
+    },
+    {
+      "reactants": [
+        "H",
+        "OH"
+      ],
+      "products": [
+        "H2O",
+        "Photon"
+      ],
+      "alpha": 4e-18,
+      "beta": -2.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6437
+    },
+    {
+      "reactants": [
+        "C3H+",
+        "H2"
+      ],
+      "products": [
+        "l-C3H3+",
+        "Photon"
+      ],
+      "alpha": 1.33e-12,
+      "beta": -1.43,
+      "gamma": 12.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 100.0,
+      "frml": 3,
+      "id": 6447
+    },
+    {
+      "reactants": [
+        "C3H+",
+        "H2"
+      ],
+      "products": [
+        "c-C3H3+",
+        "Photon"
+      ],
+      "alpha": 1.33e-12,
+      "beta": -1.43,
+      "gamma": 12.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 100.0,
+      "frml": 3,
+      "id": 6448
+    },
+    {
+      "reactants": [
+        "C4H+",
+        "H"
+      ],
+      "products": [
+        "C4H2+",
+        "Photon"
+      ],
+      "alpha": 6e-14,
+      "beta": -1.5,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6468
+    },
+    {
+      "reactants": [
+        "C",
+        "O-"
+      ],
+      "products": [
+        "CO",
+        "e-"
+      ],
+      "alpha": 5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 7,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6525
+    },
+    {
+      "reactants": [
+        "H",
+        "O-"
+      ],
+      "products": [
+        "OH",
+        "e-"
+      ],
+      "alpha": 5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 7,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6526
+    },
+    {
+      "reactants": [
+        "O",
+        "O-"
+      ],
+      "products": [
+        "O2",
+        "e-"
+      ],
+      "alpha": 1.9e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 7,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6528
+    },
+    {
+      "reactants": [
+        "H2",
+        "O-"
+      ],
+      "products": [
+        "H2O",
+        "e-"
+      ],
+      "alpha": 7e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 7,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6531
+    },
+    {
+      "reactants": [
+        "C4-",
+        "H"
+      ],
+      "products": [
+        "C4H",
+        "e-"
+      ],
+      "alpha": 6.2e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 7,
+      "tmin": 300.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 6591
+    },
+    {
+      "reactants": [
+        "O",
+        "e-"
+      ],
+      "products": [
+        "O-"
+      ],
+      "alpha": 1.5e-15,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6598
+    },
+    {
+      "reactants": [
+        "c-C3H3+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "c-C3H2"
+      ],
+      "alpha": 4e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 6639
+    },
+    {
+      "reactants": [
+        "c-C3H3+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "t-C3H2"
+      ],
+      "alpha": 5e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 6641
+    },
+    {
+      "reactants": [
+        "c-C3H3+",
+        "e-"
+      ],
+      "products": [
+        "H2",
+        "H",
+        "C3"
+      ],
+      "alpha": 1e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 6643
+    },
+    {
+      "reactants": [
+        "e-",
+        "l-C3H3+"
+      ],
+      "products": [
+        "H",
+        "c-C3H2"
+      ],
+      "alpha": 5e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 6647
+    },
+    {
+      "reactants": [
+        "e-",
+        "l-C3H3+"
+      ],
+      "products": [
+        "H",
+        "t-C3H2"
+      ],
+      "alpha": 5e-09,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 6648
+    },
+    {
+      "reactants": [
+        "e-",
+        "l-C3H3+"
+      ],
+      "products": [
+        "H2",
+        "H",
+        "C3"
+      ],
+      "alpha": 2e-09,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 6650
+    },
+    {
+      "reactants": [
+        "C4H2+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "C4H"
+      ],
+      "alpha": 8.3e-07,
+      "beta": -0.79,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 6653
+    },
+    {
+      "reactants": [
+        "C4H2+",
+        "e-"
+      ],
+      "products": [
+        "CCH",
+        "CCH"
+      ],
+      "alpha": 2.8e-07,
+      "beta": -0.79,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 6654
+    },
+    {
+      "reactants": [
+        "C2+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "C"
+      ],
+      "alpha": 8.84e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6772
+    },
+    {
+      "reactants": [
+        "CH+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "H"
+      ],
+      "alpha": 7e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6775
+    },
+    {
+      "reactants": [
+        "CO+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "O"
+      ],
+      "alpha": 2.75e-07,
+      "beta": -0.55,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6778
+    },
+    {
+      "reactants": [
+        "H2+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H"
+      ],
+      "alpha": 1.59e-08,
+      "beta": -1.184,
+      "gamma": 7.125,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 1000.0,
+      "frml": 3,
+      "id": 6781
+    },
+    {
+      "reactants": [
+        "HCl+",
+        "e-"
+      ],
+      "products": [
+        "Cl",
+        "H"
+      ],
+      "alpha": 3e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6782
+    },
+    {
+      "reactants": [
+        "OH+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "O"
+      ],
+      "alpha": 6.3e-09,
+      "beta": -0.48,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6791
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "C2"
+      ],
+      "alpha": 1.16e-07,
+      "beta": -0.76,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6803
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "CH"
+      ],
+      "alpha": 1.05e-07,
+      "beta": -0.76,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6804
+    },
+    {
+      "reactants": [
+        "C2H+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "C",
+        "H"
+      ],
+      "alpha": 4.8e-08,
+      "beta": -0.76,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6805
+    },
+    {
+      "reactants": [
+        "C3+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "C2"
+      ],
+      "alpha": 3e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 6811
+    },
+    {
+      "reactants": [
+        "CH2+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "H2"
+      ],
+      "alpha": 7.7e-08,
+      "beta": -0.6,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6814
+    },
+    {
+      "reactants": [
+        "CH2+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "CH"
+      ],
+      "alpha": 1.6e-07,
+      "beta": -0.6,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6815
+    },
+    {
+      "reactants": [
+        "CH2+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "H",
+        "H"
+      ],
+      "alpha": 4e-07,
+      "beta": -0.6,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6816
+    },
+    {
+      "reactants": [
+        "H2Cl+",
+        "e-"
+      ],
+      "products": [
+        "Cl",
+        "H",
+        "H"
+      ],
+      "alpha": 2.7e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6822
+    },
+    {
+      "reactants": [
+        "H2O+",
+        "e-"
+      ],
+      "products": [
+        "O",
+        "H2"
+      ],
+      "alpha": 3.9e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6826
+    },
+    {
+      "reactants": [
+        "H2O+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "OH"
+      ],
+      "alpha": 8.6e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6827
+    },
+    {
+      "reactants": [
+        "H2O+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H",
+        "O"
+      ],
+      "alpha": 3.05e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6828
+    },
+    {
+      "reactants": [
+        "H3+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H",
+        "H"
+      ],
+      "alpha": 4.36e-08,
+      "beta": -0.52,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6832
+    },
+    {
+      "reactants": [
+        "H3+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H2"
+      ],
+      "alpha": 2.34e-08,
+      "beta": -0.52,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6833
+    },
+    {
+      "reactants": [
+        "HCO+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "CO"
+      ],
+      "alpha": 2.8e-07,
+      "beta": -0.69,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6835
+    },
+    {
+      "reactants": [
+        "HOC+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "CO"
+      ],
+      "alpha": 2e-07,
+      "beta": -0.75,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6845
+    },
+    {
+      "reactants": [
+        "C+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "Photon"
+      ],
+      "alpha": 4.4e-12,
+      "beta": -0.61,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7049
+    },
+    {
+      "reactants": [
+        "Cl+",
+        "e-"
+      ],
+      "products": [
+        "Cl",
+        "Photon"
+      ],
+      "alpha": 1.13e-10,
+      "beta": -0.7,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7050
+    },
+    {
+      "reactants": [
+        "He+",
+        "e-"
+      ],
+      "products": [
+        "He",
+        "Photon"
+      ],
+      "alpha": 4.5e-12,
+      "beta": -0.67,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7053
+    },
+    {
+      "reactants": [
+        "O+",
+        "e-"
+      ],
+      "products": [
+        "O",
+        "Photon"
+      ],
+      "alpha": 3.4e-12,
+      "beta": -0.63,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7057
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "CCH"
+      ],
+      "alpha": 2.9e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7060
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H",
+        "C2"
+      ],
+      "alpha": 1.7e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7061
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "e-"
+      ],
+      "products": [
+        "CH",
+        "CH"
+      ],
+      "alpha": 7.5e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7062
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "CH2"
+      ],
+      "alpha": 2.89e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7063
+    },
+    {
+      "reactants": [
+        "C2H2+",
+        "e-"
+      ],
+      "products": [
+        "C2",
+        "H2"
+      ],
+      "alpha": 1.15e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7064
+    },
+    {
+      "reactants": [
+        "C3H+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "C3"
+      ],
+      "alpha": 2e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 7073
+    },
+    {
+      "reactants": [
+        "C3H+",
+        "e-"
+      ],
+      "products": [
+        "C2",
+        "CH"
+      ],
+      "alpha": 4e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 7074
+    },
+    {
+      "reactants": [
+        "C4+",
+        "e-"
+      ],
+      "products": [
+        "C2",
+        "C2"
+      ],
+      "alpha": 1.2e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7080
+    },
+    {
+      "reactants": [
+        "C4+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "C3"
+      ],
+      "alpha": 1.8e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7081
+    },
+    {
+      "reactants": [
+        "CH3+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "H",
+        "H2"
+      ],
+      "alpha": 3e-07,
+      "beta": -0.3,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7086
+    },
+    {
+      "reactants": [
+        "CH3+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H",
+        "CH"
+      ],
+      "alpha": 1.6e-07,
+      "beta": -0.3,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7087
+    },
+    {
+      "reactants": [
+        "CH3+",
+        "e-"
+      ],
+      "products": [
+        "CH",
+        "H2"
+      ],
+      "alpha": 1.4e-07,
+      "beta": -0.3,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7088
+    },
+    {
+      "reactants": [
+        "CH3+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "CH2"
+      ],
+      "alpha": 4e-07,
+      "beta": -0.3,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7089
+    },
+    {
+      "reactants": [
+        "H3O+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H",
+        "OH"
+      ],
+      "alpha": 2.6e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 7112
+    },
+    {
+      "reactants": [
+        "H3O+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H2O"
+      ],
+      "alpha": 1.1e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 7113
+    },
+    {
+      "reactants": [
+        "H3O+",
+        "e-"
+      ],
+      "products": [
+        "H2",
+        "OH"
+      ],
+      "alpha": 6e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 7114
+    },
+    {
+      "reactants": [
+        "H3O+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "O",
+        "H2"
+      ],
+      "alpha": 5.6e-09,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 300.0,
+      "frml": 3,
+      "id": 7115
+    },
+    {
+      "reactants": [
+        "C4H+",
+        "e-"
+      ],
+      "products": [
+        "C2",
+        "CCH"
+      ],
+      "alpha": 6.6e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 7183
+    },
+    {
+      "reactants": [
+        "C4H+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "C4"
+      ],
+      "alpha": 5.7e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 7185
+    },
+    {
+      "reactants": [
+        "C4H+",
+        "e-"
+      ],
+      "products": [
+        "C",
+        "H",
+        "C3"
+      ],
+      "alpha": 1.2e-07,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 7186
+    },
+    {
+      "reactants": [
+        "C4H",
+        "e-"
+      ],
+      "products": [
+        "C4H-",
+        "Photon"
+      ],
+      "alpha": 1.1e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7224
+    },
+    {
+      "reactants": [
+        "C4",
+        "e-"
+      ],
+      "products": [
+        "C4-",
+        "Photon"
+      ],
+      "alpha": 1.1e-08,
+      "beta": -0.5,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7240
+    },
+    {
+      "reactants": [
+        "XH",
+        "XH"
+      ],
+      "products": [
+        "H2"
+      ],
+      "alpha": 1.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 10,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 10,
+      "id": 7365
+    },
+    {
+      "reactants": [
+        "H"
+      ],
+      "products": [
+        "XH"
+      ],
+      "alpha": 7.92e-05,
+      "beta": 0.5,
+      "gamma": 0.0,
+      "itype": 11,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 11,
+      "id": 7366
+    }
+  ],
+  "species": [
+    "C",
+    "C+",
+    "C2",
+    "C2+",
+    "C2H+",
+    "C2H2+",
+    "C3",
+    "C3+",
+    "C3H+",
+    "C4",
+    "C4+",
+    "C4-",
+    "C4H",
+    "C4H+",
+    "C4H-",
+    "C4H2+",
+    "CCH",
+    "CH",
+    "CH+",
+    "CH2",
+    "CH2+",
+    "CH3+",
+    "CO",
+    "CO+",
+    "Cl",
+    "Cl+",
+    "H",
+    "H2",
+    "H2+",
+    "H2Cl+",
+    "H2O",
+    "H2O+",
+    "H3+",
+    "H3O+",
+    "HCO+",
+    "HCl+",
+    "HOC+",
+    "He",
+    "He+",
+    "O",
+    "O+",
+    "O-",
+    "O2",
+    "OH",
+    "OH+",
+    "XH",
+    "c-C3H2",
+    "c-C3H3+",
+    "e-",
+    "l-C3H3+",
+    "t-C3H2"
+  ],
+  "rates": [
+    6.5e-18,
+    3.64e-17,
+    6.5e-17,
+    3.9e-17,
+    1.3e-18,
+    1.2090000000000001e-17,
+    1.781e-15,
+    1.0153e-14,
+    6.175e-15,
+    1.443e-14,
+    8.944e-14,
+    1.1609e-15,
+    6.5e-15,
+    3.77e-15,
+    9.88e-15,
+    2.86e-15,
+    9.75e-15,
+    3.25e-15,
+    7.904e-14,
+    3.38e-15,
+    6.149e-16,
+    2.3790000000000002e-15,
+    3.198e-15,
+    1.4040000000000001e-14,
+    7.514e-15,
+    3.51e-17,
+    1.0049e-15,
+    1.1141e-16,
+    1.1544e-15,
+    4.355e-17,
+    1.2558e-15,
+    5.980000000000001e-16,
+    4.1399377187851664e-19,
+    2.0611536224385577e-20,
+    2.0230591981612217e-22,
+    4.139937718785167e-17,
+    4.139937718785167e-17,
+    2.961835298080309e-11,
+    1.6523382555206605e-26,
+    9.905022674950039e-30,
+    1.503839549132005e-23,
+    2.6173207472127232e-23,
+    5.846985459809191e-19,
+    4.893811681350143e-19,
+    3.567402850743191e-27,
+    3.870884007340441e-29,
+    1.7653855659927214e-20,
+    1.1060576671584723e-21,
+    5.507963373551963e-26,
+    4.21414179331048e-21,
+    2.0611536224385577e-20,
+    2.0529356025310564e-19,
+    5.617690984793232e-21,
+    3.508016523560062e-20,
+    1.0261879631701891e-19,
+    5.774134493070103e-21,
+    3.579949493634894e-28,
+    4.410455476677428e-24,
+    1.3083896530419912e-19,
+    7.414208033904616e-19,
+    1.032525245625474e-19,
+    4.139937718785167e-17,
+    2.0407432451376597e-19,
+    3.710076520389404e-18,
+    2.885615071413981e-18,
+    2.865740904304176e-23,
+    9.321923561844374e-24,
+    6.3974973371936205e-28,
+    5.4872356478032286e-05,
+    4.53e-06,
+    3.4200000000000003e-06,
+    0.00013707124444663516,
+    6.840388774270084e-05,
+    2.6170824902755507e-05,
+    2.8820054948581464e-05,
+    1.0522859404945525e-05,
+    5.0271746093874826e-05,
+    0.00010160664089668357,
+    0.00012520469997307857,
+    0.00012520469997307857,
+    7.5e-06,
+    7.5e-06,
+    1e-06,
+    4e-07,
+    4.097006311995257e-47,
+    5.60905097249744e-07,
+    1.9444724705909076e-06,
+    3.959999999999999e-06,
+    4e-07,
+    6.3e-07,
+    3.7e-07,
+    2.3019363148864186e-12,
+    1.3534969883367232e-138,
+    5.309326632571449e-05,
+    5.5802227930460766e-05,
+    2.7801435589067366e-05,
+    1.063662500563582e-05,
+    2.4088404136127792e-05,
+    8.795225771297755e-06,
+    4.2086090854062334e-05,
+    2.4e-05,
+    1.5e-05,
+    1.1e-05,
+    0.0001206241752487724,
+    2.465585113989074e-05,
+    2.1000000000000002e-05,
+    0.00013557319805924023,
+    7.454903469068433e-05,
+    2.852191297807531e-05,
+    5.5489359527865815e-05,
+    2.026043079459661e-05,
+    0.00014223779578527424,
+    1.3000000000000001e-05,
+    0.00011150760749409599,
+    6.371863285376913e-05,
+    5.5753803747047995e-05,
+    5.5753803747047995e-05,
+    5.177138919368742e-05,
+    3.185931642688457e-05,
+    4.655831041371205e-06,
+    2.056751087247585e-06,
+    1.1639577603428013e-06,
+    5.141877718118962e-07,
+    5.3542056975768846e-05,
+    2.3652637503347224e-05,
+    3.375477504994123e-05,
+    1.4911445382544986e-05,
+    1.862332416548482e-05,
+    8.22700434899034e-06,
+    4.655831041371205e-06,
+    2.056751087247585e-06,
+    1.6e-05,
+    9.081742924135375e-05,
+    2.2968762706574677e-05,
+    1e-05,
+    0.00020223626229831418,
+    3.274391302712378e-06,
+    1.2527580562193296e-06,
+    1.7463420281132686e-05,
+    6.681376299836426e-06,
+    1.9646347816274268e-05,
+    7.516548337315979e-06,
+    6.11219709839644e-05,
+    2.3384817049427493e-05,
+    1e-05,
+    1e-05,
+    4.1509482127434505e-05,
+    1.5156058695182737e-05,
+    4.1509482127434505e-05,
+    1.5156058695182737e-05,
+    7.561774215193996e-05,
+    4.42e-06,
+    3.22e-06,
+    1.23e-05,
+    2.01e-07,
+    8.580000000000001e-06,
+    3.3e-06,
+    5.9939503299293474e-05,
+    2.9424847074198618e-05,
+    7.628664056273714e-06,
+    1.1e-05,
+    2.451855420998722e-05,
+    8.952283374356642e-06,
+    2.4e-06,
+    1.2e-05,
+    7.5e-06,
+    1e-05,
+    0.00012202136646787015,
+    1.2e-05,
+    9.1e-06,
+    1.1e-05,
+    2e-06,
+    1.65e-06,
+    2.267218336864045e-05,
+    1.0015620708605953e-05,
+    1.1e-05,
+    8.3e-06,
+    0.00010618653265142898,
+    5.557752097235153e-05,
+    5.5190998058296685e-05,
+    2.1115670381558513e-05,
+    1.3000000000000001e-05,
+    4.774665819839617e-05,
+    1.743339393953662e-05,
+    0.000122977257038957,
+    2.9694690391391674e-07,
+    1e-06,
+    2.4e-06,
+    0.0,
+    1e-06,
+    5.12118139363334e-07,
+    2.1999999999999997e-06,
+    1.0302927205347145e-98,
+    0.0,
+    0.0,
+    0.0,
+    3.0279400461281603e-78,
+    2.267714677789473e-150,
+    5.723387730098051e-54,
+    3.008046504857094e-06,
+    4e-07,
+    1.8999999999999998e-06,
+    4.7e-06,
+    5.775057038937366e-05,
+    1.2941257159247215e-05,
+    6.099999999999999e-06,
+    0.0001229896084051229,
+    3.1302357107690654e-05,
+    1.1976051858197365e-05,
+    2.6024079468495207e-05,
+    9.50198498506275e-06,
+    0.00013654309354685154,
+    2e-05,
+    1e-05,
+    1.1781437539585752e-05,
+    5.049187516965321e-06,
+    1.8e-05,
+    0.00020305845717553963,
+    2.468223240448514e-05,
+    1.446979550485161e-06,
+    0.0002277030508840278,
+    0.00012397380907124854,
+    4.74314685436501e-05,
+    3.2e-05,
+    9.334256602749521e-05,
+    3.4081499863778795e-05,
+    0.0002550967082462777,
+    2e-05,
+    0.00027243335921852996,
+    0.00018162223947902,
+    0.0001328197198918779,
+    5.867418745828999e-05,
+    1e-05,
+    1e-05,
+    1e-05,
+    1.4e-05,
+    0.0001683475243011514,
+    1.8705280477905713e-05,
+    5.248521189275821e-05,
+    2.3185767624646853e-05,
+    1.1392506302461038e-05,
+    1e-07,
+    4.8e-06,
+    5.9147761608471406e-05,
+    1.6e-05,
+    3.2537976467204766e-05,
+    1.2448790747336735e-05,
+    1e-07,
+    0.0001145696799660155,
+    1.5e-05,
+    5.1618008863130986e-05,
+    1.8846912367066614e-05,
+    1.1e-05,
+    0.0002126971409181214,
+    6.0340141563783247e-05,
+    2.6655746452825293e-05,
+    3.1e-06,
+    6.44e-06,
+    2.26e-06,
+    3.269427452688735e-05,
+    3.596370197957608e-05,
+    2.0706373867028656e-05,
+    1.1e-05,
+    8e-06,
+    3.215371802099201e-05,
+    1.174005582865191e-05,
+    1.4840177548150158e-05,
+    5.418487305531651e-06,
+    6.377417706156943e-05,
+    1.14e-05,
+    7.5e-06,
+    3.5e-06,
+    5e-06,
+    2.7e-06,
+    1.8e-06,
+    0.00012481574890606565,
+    1.2e-05,
+    1e-07,
+    9.7e-06,
+    0.00013392534703310583,
+    2.0758405239836964e-05,
+    7.942013337541412e-06,
+    4.497654468631342e-05,
+    1.720769556467306e-05,
+    5.634965967558466e-05,
+    2.0574546000714388e-05,
+    0.00010633551455764202,
+    2.129688876994791e-05,
+    1.2e-05,
+    4.8e-06,
+    5.8682031202105486e-05,
+    1.3125007260899815e-05,
+    1.1e-05,
+    0.00012463745943125734,
+    3.192016678744771e-05,
+    1.221242130276705e-05,
+    2.645422954235463e-05,
+    9.65904258812164e-06,
+    6.424544242547411e-05,
+    1.2999999999999998e-06,
+    1.2e-05,
+    1.2e-05,
+    2.05e-06,
+    2.05e-06,
+    9.900000000000002e-06,
+    0.00012015844484240649,
+    1.6577893073480908e-05,
+    6.342580095953211e-06,
+    1.6577893073480908e-05,
+    6.342580095953211e-06,
+    2.4e-06,
+    4.5e-06,
+    5e-07,
+    5e-07,
+    5.6838490537648824e-05,
+    2.1745988900411007e-05,
+    2.4303479173057506e-05,
+    8.873754572827198e-06,
+    2.4303479173057506e-05,
+    8.873754572827198e-06,
+    7.000000000000001e-07,
+    1.0947472119059277e-110,
+    2.4e-06,
+    1.2779847710650481e-06,
+    3.6824115673120023e-06,
+    0.0,
+    2.4e-06,
+    2e-06,
+    0.0020594368162194245,
+    0.0020594368162194245,
+    0.004113396406863798,
+    0.0020594368162194245,
+    0.0020594368162194245,
+    0.004113396406863798,
+    3.4221855438392624e-68,
+    7.899999999999999e-06,
+    1.0999999999999998e-06,
+    0.0024702287343482993,
+    0.0013966925216381736,
+    0.00024702287343482995,
+    4.6073547846863475e-208,
+    6.601933298088548e-123,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.9128684338293705e-184,
+    1e-06,
+    0.0,
+    0.0,
+    0.0,
+    5.3770791257671386e-64,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    3.4221855438392624e-68,
+    0.0,
+    0.0,
+    1e-07,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1e-07,
+    1e-06,
+    1.5592239363664756e-06,
+    1e-06,
+    1.6649999999999998e-05,
+    1.6649999999999998e-05,
+    1.28e-05,
+    9999.999950682637,
+    1.0999999999999998e-06,
+    1.4000000000000001e-06,
+    8.4e-06,
+    5.376875923242811e-05,
+    1.9632200382361055e-05,
+    0.0001406718263970803,
+    1.0999999999999998e-06,
+    6.76333696124584e-05,
+    2.8820054948581464e-05,
+    1.0522859404945525e-05,
+    5.309326632571449e-05,
+    5.5802227930460766e-05,
+    2.7801435589067366e-05,
+    1.063662500563582e-05,
+    2.4088404136127792e-05,
+    8.795225771297755e-06,
+    8.133353041884775e-05,
+    1.1e-05,
+    0.0001206241752487724,
+    6.712916213659818e-06,
+    7.561774215193996e-05,
+    6.329245986743535e-05,
+    0.00013557319805924023,
+    7.454903469068433e-05,
+    2.852191297807531e-05,
+    5.5489359527865815e-05,
+    2.026043079459661e-05,
+    0.0001629935256423529,
+    5e-06,
+    9.081742924135375e-05,
+    1.7e-10,
+    4.7e-06,
+    5.775057038937366e-05,
+    3.1302357107690654e-05,
+    1.1976051858197365e-05,
+    2.6024079468495207e-05,
+    9.50198498506275e-06,
+    4.8e-06,
+    5.9147761608471406e-05,
+    3.2537976467204766e-05,
+    1.2448790747336735e-05,
+    4.8e-06,
+    5.8682031202105486e-05,
+    3.192016678744771e-05,
+    1.221242130276705e-05,
+    2.645422954235463e-05,
+    9.65904258812164e-06,
+    7.42145628018408e-05,
+    1.6347137263443675e-05,
+    0.004113396406863798,
+    0.004113396406863798,
+    0.004113396406863798,
+    0.004113396406863798,
+    0.004113396406863798,
+    1e-06,
+    1.76e-06,
+    4.359236603584979e-06,
+    1.6999999999999998e-13,
+    2.5e-14,
+    1.6688231605386538e-11,
+    3.0000000000000004e-08,
+    1.150217370760849e-09,
+    1e-13,
+    1e-13,
+    6.120016797070126e-18,
+    4.46136380929576e-16,
+    6.996623245107543e-15,
+    1.0102997047449131e-13,
+    5.382600194195487e-13,
+    1e-13,
+    1.1906991374015018e-16,
+    4.3833417567500516e-16,
+    1.6371248700121118e-15,
+    2.4810427789120583e-15,
+    8.330499116596383e-15,
+    1.5161678333795245e-14,
+    7.046351178714027e-14,
+    2.2716661023803755e-18,
+    9e-11,
+    1.2e-08,
+    3.6e-11,
+    5.187781271072216e-07,
+    5.187781271072216e-07,
+    9.859006035092988e-08,
+    5e-06,
+    5e-06,
+    1.8999999999999998e-06,
+    7e-06,
+    6.2e-06,
+    1.5e-11,
+    0.02190890230020664,
+    0.00273861278752583,
+    0.0005477225575051661,
+    0.00273861278752583,
+    0.00027386127875258305,
+    0.00010954451150103324,
+    0.12190004995809577,
+    0.04112290841959858,
+    0.004841867408345669,
+    0.003834057902536163,
+    0.01785456953089257,
+    0.004373950577891199,
+    0.016431676725154984,
+    0.00032237306749270314,
+    0.015384030874104166,
+    0.013925200360180495,
+    0.006365805878939654,
+    0.016431676725154984,
+    0.00592602498235908,
+    0.012313818145161724,
+    0.030784545362904307,
+    0.014788509052639487,
+    0.0021361179742701475,
+    0.004710413994544429,
+    0.016705538003907568,
+    0.0025561688710818,
+    0.001371888797782434,
+    0.029266561264568593,
+    0.025637220383774043,
+    3.503455792820326e-07,
+    1.2219778161897064e-05,
+    4.394239811437857e-07,
+    2.8977793117255295e-07,
+    0.015883954167649816,
+    0.009311283477587824,
+    0.004107919181288746,
+    0.0015829181911899302,
+    0.0006298809411309411,
+    0.01095445115010332,
+    0.0021908902300206644,
+    0.006572670690061992,
+    0.009859006035092991,
+    0.008322573344016542,
+    0.00443870578347549,
+    0.0038838675605410537,
+    0.011096764458688724,
+    0.014240786495134319,
+    0.006024948132556828,
+    0.003286335345030996,
+    0.000306724632202893,
+    0.0036149688795340962,
+    0.0031220185777794465,
+    0.006572670690061992,
+    0.0006024948132556827,
+    0.0006024948132556827,
+    812111002.8552626,
+    2.6027775932645494e-13
+  ]
+}

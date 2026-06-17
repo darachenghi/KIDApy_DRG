@@ -28,14 +28,9 @@ _PSEUDO_GRAIN_SPECIES = frozenset({"XH", "GRAIN-", "GRAIN0"})
 
 class assembly:
 
-    def __init__(self, reactions,species,ks, grains: bool = False):
+    def __init__(self, grains: bool = False):
 
         self.grains: bool = grains
-
-        self.species: list = []
-        self.species_map: dict = {}
-        self.reactions = reactions
-        self.rates = ks
 
         # Fields treated as external forcing (not ODE variables)
         self.external_fields = frozenset({"Photon", "CR", "CRP"})
@@ -47,45 +42,23 @@ class assembly:
     # Public interface
     # ------------------------------------------------------------------
 
-    def get_operators(self, env: dict):
-        """
-        Build the sparse ODE tensors ``A`` and ``B`` for the current
-        environment.
+    def get_operators(self,reactions, species_map, rates):
 
-        Parameters
-        ----------
-        env : dict
-            Required keys: T, nH, Av, uv_flux.
-            Optional: Tcap_2body (bool, default True).
-
-        Returns
-        -------
-        A : scipy.sparse.csr_matrix, shape (N, N)
-        B : scipy.sparse.csr_matrix, shape (N, N*N)
-        """
-        T = float(env["T"])
-        nH = float(env["nH"])
-        Av = float(env["Av"])
-        uv_flux = float(env["uv_flux"])
-        Tcap_2body = bool(env.get("Tcap_2body", True))
-
-        N = len(self.species)
+        N = len(species_map)
         A_rows, A_cols, A_data = [], [], []
         B_rows, B_cols, B_data = [], [], []
 
-        reactions = self.reactions
-
-        for rxn in reactions:
-            r_idxs = [self.species_map[r] for r in rxn["reactants"]
-                      if r in self.species_map]
-            p_idxs = [self.species_map[p] for p in rxn["products"]
-                      if p in self.species_map]
+        for i,rxn in enumerate(reactions):
+            r_idxs = [species_map[r] for r in rxn["reactants"]
+                      if r in species_map]
+            p_idxs = [species_map[p] for p in rxn["products"]
+                      if p in species_map]
 
             order = len(r_idxs)
             if order == 0:
                 continue
 
-            k = self._calculate_rate(rxn, T, nH, Av, uv_flux, Tcap_2body)
+            k = rates[i]
             if k == 0.0:
                 continue
 
