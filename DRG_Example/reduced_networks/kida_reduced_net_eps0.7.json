@@ -1,0 +1,790 @@
+{
+  "method": "subset",
+  "epsilon": 0.7,
+  "reactions": [
+    {
+      "reactants": [
+        "O"
+      ],
+      "products": [
+        "O+",
+        "e-"
+      ],
+      "alpha": 2.8,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 5,
+      "stoichiometric": {
+        "570": -1,
+        "480": -1,
+        "479": 1
+      }
+    },
+    {
+      "reactants": [
+        "CO"
+      ],
+      "products": [
+        "CO+",
+        "e-"
+      ],
+      "alpha": 3.0,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 7,
+      "stoichiometric": {
+        "248": 1,
+        "249": -1,
+        "570": -1
+      }
+    },
+    {
+      "reactants": [
+        "H2"
+      ],
+      "products": [
+        "H",
+        "H"
+      ],
+      "alpha": 0.1,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 8,
+      "stoichiometric": {
+        "271": -2,
+        "274": 1
+      }
+    },
+    {
+      "reactants": [
+        "H2"
+      ],
+      "products": [
+        "H2+",
+        "e-"
+      ],
+      "alpha": 0.93,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 1,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 11,
+      "stoichiometric": {
+        "570": -1,
+        "274": 1,
+        "275": -1
+      }
+    },
+    {
+      "reactants": [
+        "O"
+      ],
+      "products": [
+        "O+",
+        "e-"
+      ],
+      "alpha": 2.7,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 249,
+      "stoichiometric": {
+        "570": -1,
+        "480": -1,
+        "479": 1
+      }
+    },
+    {
+      "reactants": [
+        "CO+"
+      ],
+      "products": [
+        "C+",
+        "O"
+      ],
+      "alpha": 77.3,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 253,
+      "stoichiometric": {
+        "1": -1,
+        "249": 1,
+        "479": -1
+      }
+    },
+    {
+      "reactants": [
+        "HCO+"
+      ],
+      "products": [
+        "CO+",
+        "H"
+      ],
+      "alpha": 3.35,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 264,
+      "stoichiometric": {
+        "249": -1,
+        "271": -1,
+        "369": 1
+      }
+    },
+    {
+      "reactants": [
+        "HCl+"
+      ],
+      "products": [
+        "Cl+",
+        "H"
+      ],
+      "alpha": 96.6,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 2,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 1,
+      "id": 265,
+      "stoichiometric": {
+        "382": 1,
+        "261": -1,
+        "271": -1
+      }
+    },
+    {
+      "reactants": [
+        "CH3+"
+      ],
+      "products": [
+        "H",
+        "CH2+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 1.7,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 324,
+      "stoichiometric": {
+        "199": 1,
+        "271": -1,
+        "185": -1
+      }
+    },
+    {
+      "reactants": [
+        "H2"
+      ],
+      "products": [
+        "H",
+        "H"
+      ],
+      "alpha": 5.68e-11,
+      "beta": 0.0,
+      "gamma": 4.183,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 348,
+      "stoichiometric": {
+        "271": -2,
+        "274": 1
+      }
+    },
+    {
+      "reactants": [
+        "CO+"
+      ],
+      "products": [
+        "C+",
+        "O"
+      ],
+      "alpha": 1.04e-10,
+      "beta": 0.0,
+      "gamma": 2.892,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 614,
+      "stoichiometric": {
+        "1": -1,
+        "249": 1,
+        "479": -1
+      }
+    },
+    {
+      "reactants": [
+        "HCl+"
+      ],
+      "products": [
+        "Cl+",
+        "H"
+      ],
+      "alpha": 1.09e-10,
+      "beta": 0.0,
+      "gamma": 3.009,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 617,
+      "stoichiometric": {
+        "382": 1,
+        "261": -1,
+        "271": -1
+      }
+    },
+    {
+      "reactants": [
+        "HCO+"
+      ],
+      "products": [
+        "CO+",
+        "H"
+      ],
+      "alpha": 5.39e-12,
+      "beta": 0.0,
+      "gamma": 3.667,
+      "itype": 3,
+      "tmin": -9999.0,
+      "tmax": 9999.0,
+      "frml": 2,
+      "id": 620,
+      "stoichiometric": {
+        "249": -1,
+        "271": -1,
+        "369": 1
+      }
+    },
+    {
+      "reactants": [
+        "CO+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "HCO+"
+      ],
+      "alpha": 7.5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 806,
+      "stoichiometric": {
+        "249": 1,
+        "271": -1,
+        "274": 1,
+        "369": -1
+      }
+    },
+    {
+      "reactants": [
+        "CO",
+        "H2+"
+      ],
+      "products": [
+        "H",
+        "HCO+"
+      ],
+      "alpha": 0.786,
+      "beta": 2.39e-09,
+      "gamma": 0.251,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 1035,
+      "stoichiometric": {
+        "248": 1,
+        "369": -1,
+        "271": -1,
+        "275": 1
+      }
+    },
+    {
+      "reactants": [
+        "CH2+",
+        "O"
+      ],
+      "products": [
+        "H",
+        "HCO+"
+      ],
+      "alpha": 7.5e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1488,
+      "stoichiometric": {
+        "369": -1,
+        "185": 1,
+        "271": -1,
+        "479": 1
+      }
+    },
+    {
+      "reactants": [
+        "CH2+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "CH3+"
+      ],
+      "alpha": 1.2e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 1492,
+      "stoichiometric": {
+        "271": -1,
+        "199": -1,
+        "185": 1,
+        "274": 1
+      }
+    },
+    {
+      "reactants": [
+        "Cl+",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "HCl+"
+      ],
+      "alpha": 1e-09,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 2530,
+      "stoichiometric": {
+        "382": -1,
+        "271": -1,
+        "261": 1,
+        "274": 1
+      }
+    },
+    {
+      "reactants": [
+        "CH3+",
+        "O"
+      ],
+      "products": [
+        "H2",
+        "HCO+"
+      ],
+      "alpha": 2.05e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 3260,
+      "stoichiometric": {
+        "369": -1,
+        "199": 1,
+        "274": -1,
+        "479": 1
+      }
+    },
+    {
+      "reactants": [
+        "CH3+",
+        "H"
+      ],
+      "products": [
+        "H2",
+        "CH2+"
+      ],
+      "alpha": 7e-10,
+      "beta": 0.0,
+      "gamma": 10600.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4645,
+      "stoichiometric": {
+        "274": -1,
+        "199": 1,
+        "271": 1,
+        "185": -1
+      }
+    },
+    {
+      "reactants": [
+        "H",
+        "HCO+"
+      ],
+      "products": [
+        "H2",
+        "CO+"
+      ],
+      "alpha": 1.3e-09,
+      "beta": 0.0,
+      "gamma": 24500.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4649,
+      "stoichiometric": {
+        "274": -1,
+        "249": -1,
+        "271": 1,
+        "369": 1
+      }
+    },
+    {
+      "reactants": [
+        "H2",
+        "HCO+"
+      ],
+      "products": [
+        "H",
+        "H",
+        "HCO+"
+      ],
+      "alpha": 3e-11,
+      "beta": 0.5,
+      "gamma": 52000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4733,
+      "stoichiometric": {
+        "271": -2,
+        "274": 1,
+        "369": 0
+      }
+    },
+    {
+      "reactants": [
+        "H2",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H",
+        "e-"
+      ],
+      "alpha": 2e-09,
+      "beta": 0.5,
+      "gamma": 116000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4879,
+      "stoichiometric": {
+        "271": -2,
+        "570": 0,
+        "274": 1
+      }
+    },
+    {
+      "reactants": [
+        "H",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "H",
+        "H"
+      ],
+      "alpha": 1e-10,
+      "beta": 0.0,
+      "gamma": 52000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4880,
+      "stoichiometric": {
+        "274": 1,
+        "271": -2
+      }
+    },
+    {
+      "reactants": [
+        "H2",
+        "H2"
+      ],
+      "products": [
+        "H",
+        "H",
+        "H2"
+      ],
+      "alpha": 1.25e-11,
+      "beta": 0.0,
+      "gamma": 52000.0,
+      "itype": 4,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 3,
+      "id": 4882,
+      "stoichiometric": {
+        "271": -2,
+        "274": 1
+      }
+    },
+    {
+      "reactants": [
+        "CO+",
+        "O"
+      ],
+      "products": [
+        "CO",
+        "O+"
+      ],
+      "alpha": 1.4e-10,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 5331,
+      "stoichiometric": {
+        "248": -1,
+        "249": 1,
+        "480": -1,
+        "479": 1
+      }
+    },
+    {
+      "reactants": [
+        "CO",
+        "H2+"
+      ],
+      "products": [
+        "H2",
+        "CO+"
+      ],
+      "alpha": 0.214,
+      "beta": 2.39e-09,
+      "gamma": 0.251,
+      "itype": 5,
+      "tmin": 10.0,
+      "tmax": 800.0,
+      "frml": 5,
+      "id": 5648,
+      "stoichiometric": {
+        "248": 1,
+        "249": -1,
+        "274": -1,
+        "275": 1
+      }
+    },
+    {
+      "reactants": [
+        "C+",
+        "O"
+      ],
+      "products": [
+        "CO+",
+        "Photon"
+      ],
+      "alpha": 2.5e-18,
+      "beta": 0.0,
+      "gamma": 0.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6402,
+      "stoichiometric": {
+        "1": 1,
+        "249": -1,
+        "479": 1
+      }
+    },
+    {
+      "reactants": [
+        "C+",
+        "H2"
+      ],
+      "products": [
+        "CH2+",
+        "Photon"
+      ],
+      "alpha": 2e-16,
+      "beta": -1.3,
+      "gamma": 23.0,
+      "itype": 6,
+      "tmin": 10.0,
+      "tmax": 298.0,
+      "frml": 3,
+      "id": 6403,
+      "stoichiometric": {
+        "1": 1,
+        "185": -1,
+        "274": 1
+      }
+    },
+    {
+      "reactants": [
+        "H2+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "H"
+      ],
+      "alpha": 1.59e-08,
+      "beta": -1.184,
+      "gamma": 7.125,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 1000.0,
+      "frml": 3,
+      "id": 6781,
+      "stoichiometric": {
+        "570": 1,
+        "271": -2,
+        "275": 1
+      }
+    },
+    {
+      "reactants": [
+        "HCO+",
+        "e-"
+      ],
+      "products": [
+        "H",
+        "CO"
+      ],
+      "alpha": 2.8e-07,
+      "beta": -0.69,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 6835,
+      "stoichiometric": {
+        "248": -1,
+        "570": 1,
+        "271": -1,
+        "369": 1
+      }
+    },
+    {
+      "reactants": [
+        "O+",
+        "e-"
+      ],
+      "products": [
+        "O",
+        "Photon"
+      ],
+      "alpha": 3.4e-12,
+      "beta": -0.63,
+      "gamma": 0.0,
+      "itype": 8,
+      "tmin": 10.0,
+      "tmax": 280.0,
+      "frml": 3,
+      "id": 7057,
+      "stoichiometric": {
+        "570": 1,
+        "480": 1,
+        "479": -1
+      }
+    }
+  ],
+  "species": [
+    "C+",
+    "CH2+",
+    "CH3+",
+    "CO",
+    "CO+",
+    "Cl+",
+    "H",
+    "H2",
+    "H2+",
+    "HCO+",
+    "HCl+",
+    "O",
+    "O+",
+    "e-"
+  ],
+  "rates": [
+    3.64e-17,
+    3.9e-17,
+    1.3e-18,
+    1.2090000000000001e-17,
+    3.51e-17,
+    1.0049e-15,
+    4.355e-17,
+    1.2558e-15,
+    4.139937718785167e-17,
+    3.870884007340441e-29,
+    2.865740904304176e-23,
+    9.321923561844374e-24,
+    6.3974973371936205e-28,
+    7.5e-06,
+    2.465585113989074e-05,
+    7.5e-06,
+    1.2e-05,
+    1e-05,
+    2.05e-06,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.4000000000000001e-06,
+    6.712916213659818e-06,
+    2.5e-14,
+    1.6688231605386538e-11,
+    0.004373950577891199,
+    0.029266561264568593,
+    2.8977793117255295e-07
+  ]
+}
