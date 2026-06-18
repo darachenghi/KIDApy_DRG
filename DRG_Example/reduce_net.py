@@ -75,7 +75,7 @@ out_root = str(SAVE_DIR_FULL / "kida_uva_2024_point")
 solver.save(out_root, t, y, col_names=net.species)
 
 reactions = net.reactions
-reaction_rates = net.reaction_rates(reactions, env)
+reaction_rates = net.reaction_rates(reactions, env) #function to get list of reaction rates
 species_map = net.species_map
 
 #Sources
