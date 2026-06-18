@@ -101,4 +101,3 @@ class assembly:
         A = _build(A_rows, A_cols, A_data, (N, N))
         B = _build(B_rows, B_cols, B_data, (N, N * N))
         return A, B
-    
