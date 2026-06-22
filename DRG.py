@@ -63,13 +63,10 @@ class DRG:
 
         "adds stoichiometric coefficient dictionary to reactions"
 
+        excluded_rate = ["Photon", "CR", "CRP"]
+        dropped = set(excluded_rate) | set(dropped or [])
+
         for rxn in reactions:
-
-            if dropped is None:
-                dropped = []
-
-            excluded_rate = ["Photon", "CR", "CRP"]
-            dropped = excluded_rate + dropped
 
             reactant_counts = Counter(rxn["reactants"])
             product_counts = Counter(rxn["products"])

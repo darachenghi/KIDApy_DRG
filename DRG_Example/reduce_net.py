@@ -36,6 +36,7 @@ dropped = net.drop_passive_species()
 # Initial conditions
 
 abund = load_abundances(str(ABUNDANCES_PATH))
+abund["e-"] = sum(val for name, val in abund.items() if name.endswith("+"))  # charge neutrality
 x0 = np.zeros(len(net.species), dtype=np.float64)
 for name, val in abund.items():
     if name in net.species_map:
@@ -74,31 +75,31 @@ t, y = solver.solve(
 out_root = str(SAVE_DIR_FULL / "kida_uva_2024_point")
 solver.save(out_root, t, y, col_names=net.species)
 
-reactions = net.reactions
+reactions = net._select_multirange_entries(net.reactions, env["T"])  # dedupe multi-temperature-range entries (matches get_operators)
 reaction_rates = net.reaction_rates(reactions, env) #function to get list of reaction rates
 species_map = net.species_map
 
 #Sources
 sources = ['CO', 'C+', 'O+', 'O']
-eps = [0.001, 0.005, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+eps = [0.001, 0.0025, 0.005, 0.01, 0.02]
 
 #Reduce Network
 drg = DRG()
 
 for e in eps:
-    drg.reduce_net(net.reactions, net.species_map,reaction_rates, y, sources,dropped,eps = e)
-    reactions = drg.reduced_rxns
+    drg.reduce_net(reactions, species_map, reaction_rates, y, sources,dropped,eps = e)
+    reduced_reactions = drg.reduced_rxns
     species = drg.reduced_species
     n_species = len(species)
 
     print(f'\nTolerance: {e}')
-    print(f'Number of reactions in reduced network: {len(reactions)}')
+    print(f'Number of reactions in reduced network: {len(reduced_reactions)}')
     print(f'Number of species in reduced network: {n_species}')
 
     file_name = f"kida_reduced_net_eps{e}.json"
     file_path = SAVE_DIR/file_name
 
-    data = {"epsilon": e, "reactions": reactions, 
+    data = {"epsilon": e, "reactions": reduced_reactions,
             "species": species, "rates": drg.reduced_rates}
     
     with open(file_path, "w") as f:
