@@ -60,7 +60,7 @@ A, B = net.get_operators(env)
 
 # Integrate
 
-t_eval = np.logspace(0, np.log10(1e6 * YEAR), 200)
+t_eval = np.logspace(0, np.log10(1e6 * YEAR), 300)
 
 solver = QuadraticSolver()
 t, y = solver.solve(
@@ -80,8 +80,8 @@ reaction_rates = net.reaction_rates(reactions, env) #function to get list of rea
 species_map = net.species_map
 
 #Sources
-sources = ['CO', 'C+', 'O+', 'O']
-eps = [0.001, 0.0025, 0.005, 0.01, 0.02]
+sources = ['CO', 'C+', 'O+', 'O', 'e-']
+eps = [0.03, 0.05, 0.07]
 
 #Reduce Network
 drg = DRG()

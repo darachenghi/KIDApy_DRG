@@ -13,7 +13,7 @@ from assembly import assembly
 from solver import QuadraticSolver
 
 HERE = Path(__file__).resolve().parent
-SAVE_DIR = HERE / "kida_reduced_solved" 
+SAVE_DIR = HERE / "cluster_reduced_solved" 
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 REPO_ROOT = HERE.parent
 ABUNDANCES_PATH = REPO_ROOT/ "networks" / "kida.uva.2024" / "abundances.in"
@@ -22,11 +22,11 @@ YEAR = 3600 * 24 * 365.25
 ATOL = 1e-20
 RTOL = 1e-3
 
-eps = [0.03, 0.05, 0.07]
+eps = [ 0.00001]
 t_eval = np.logspace(0, np.log10(1e6 * YEAR), 300)
 
 for e in eps:
-    file_name = f"kida_reduced_net_eps{e}.json"
+    file_name = f"cluster_0000_reduced_net_eps{e}.json"
     file_path = HERE/"reduced_networks"/file_name
 
     with open(file_path) as f:

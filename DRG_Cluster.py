@@ -1,44 +1,44 @@
 import numpy as np
-from collections import Counter
 import networkx as nx
 import scipy.sparse as sp
+from collections import Counter
+from parser import Network, load_abundances
 
-class DRG:
+
+class DRG_c:
     def __init__(self):
         self.reduced_species = []
-        self.reduced_rates = []
         self.reduced_rxns = []
         self.reduced_rxns_indices = []
-    
-    def reduce_net(self, reactions: list, 
-                   species_map: dict, 
-                   k: list, 
-                   y, 
-                   sources:list,
-                   dropped = None ,
-                   eps = 0.1):
-        
-        '''Reduces reaction network with DRG method'''
-        
-        source_indices = [species_map[s] for s in sources]
 
-        reactions = self._get_stoich(reactions, species_map, dropped)
-        
-        idx_to_species = {idx:species for species,idx in species_map.items()}
+    def reduce_net(self, net, cluster, sources, dropped = None, eps = 0.1):
+
+        if cluster.ndim == 1:
+            n_cluster = 1
+        else:
+            n_cluster = int(cluster.shape[0])
+
+        if n_cluster == 1:
+            sample_row = cluster
+        else:
+            sample_row = cluster[0,:]
         
         reached_species_indices = set()
 
-        if y.ndim == 1:
-            t_steps = 1
-        else:
-            t_steps = int(y[0].shape[0])
+        reactions, species_map = self._get_reactions(net,sample_row, dropped )
+        source_indices = [species_map[s] for s in sources]
 
-        for t in range(t_steps):
-            if y.ndim ==1:
-                concs = y
+        for i in range(n_cluster):
+            if n_cluster == 1:
+                data_row = cluster
             else:
-                concs = y[:,t]
-            R_mat = self._point_build_R_mat(reactions, species_map, k,concs, dropped)
+                data_row = cluster[i,:]
+
+            env = self._get_env(data_row)
+            reaction_rates = net.reaction_rates(reactions, env) #function to get list of reaction rates)
+            state_data = self._get_state_data(data_row, species_map, dropped)
+
+            R_mat = self._point_build_R_mat(reactions, species_map, reaction_rates, state_data, dropped)
             A_mat = self._build_A_mat(R_mat, eps )
             reached_species_idx = self._dfs(A_mat, source_indices)
             reached_species_indices.update(reached_species_idx)
@@ -46,26 +46,50 @@ class DRG:
         reduced_rxns = []
         reduced_rxns_indices = []
         reduced_species = set()
-        reduced_rates = []
+        idx_to_species = {idx:species for species,idx in species_map.items()}
 
         for i, rxn in enumerate(reactions):
             found_idx = set(rxn["stoichiometric"].keys())
 
             if found_idx.issubset(reached_species_indices):
                 reduced_rxns.append(rxn)
-                reduced_rates.append(k[i])
                 reduced_rxns_indices.append(i)
                 species = [idx_to_species[i] for i in found_idx]
                 reduced_species.update(species)
 
-        self.reduced_rates = reduced_rates
         self.reduced_species = sorted(reduced_species)
         self.reduced_rxns = reduced_rxns
         self.reduced_rxns_indices = reduced_rxns_indices
         return self.reduced_rxns
-    
-    #HELPER FUNCTIONS
 
+#HELPER FUNCTIONS
+
+    def _get_env(self,data_row):
+        "Gets environment from row"
+        env_data = data_row[2:7]
+        env_splice = np.delete(env_data, 2)
+        env_var = [ 'nH', 'T', 'Av','uv_flux']
+        env = {}
+        for i, var in enumerate(env_var):
+            env[var] = env_splice[i]
+        return env
+    
+    def _get_state_data(self,data_row, species_map, dropped):
+        "Removes dropped species and environment entries"
+        state_data = data_row[7:]
+        dropped_idx = [species_map[i] for i in dropped]
+        for i in dropped_idx:
+            state_data = np.delete(state_data, i)
+        return state_data.T
+    
+    def _get_reactions(self,net, sample_row, dropped):
+        "Assumes that the reaction network is the same for a states"
+        sample_env = self._get_env(sample_row)
+        reactions = net._select_multirange_entries(net.reactions, sample_env["T"]) 
+        species_map = net.species_map 
+        reactions = self._get_stoich(reactions, species_map, dropped)
+        return reactions, species_map
+    
     def _get_stoich(self, reactions, species_map, dropped):
 
         "adds stoichiometric coefficient dictionary to reactions"
