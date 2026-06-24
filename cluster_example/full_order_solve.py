@@ -23,18 +23,19 @@ ABUNDANCES_PATH = REPO_ROOT/ "networks" / "kida.uva.2024" / "abundances.in"
 CLUSTER_PATH = REPO_ROOT/ "cluster_data" / "cluster_0000.npy"
 YEAR = 3600 * 24 * 365.25
 ATOL = 1e-20
-RTOL = 1e-3
+RTOL = 1e-6
 
 NETWORK_PATH    = REPO_ROOT / "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
 FULL_SAVE_DIR = HERE / "Full Order Solve"
 FULL_SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
-#Load Cluster and Get Test trace
-cluster = np.load(CLUSTER_PATH)
-test_data = cluster[1,:]
-drg = DRG_c()
-env = drg._get_env(test_data)
-print(env)
+#Environment Variables
+env = dict(
+    T       = 12.0,    # gas temperature [K]
+    nH      = 1e4,     # total H number density [cm⁻³]
+    Av      = 10.0,    # visual extinction [mag]
+    uv_flux = 1.0,     # FUV field scaling (1 = standard Draine field)
+)
 
 #LOAD NETWORK
 net = Network(grains=True)
@@ -61,11 +62,11 @@ t, y = solver.solve(
     x0=x0,
     atol=ATOL,
     rtol=RTOL,
-    t_eval=t_eval,
+    t_eval=None,
 )
 
 #SAVE
-out_root = str(SAVE_DIR / "Cluster_0000")
+out_root = str(FULL_SAVE_DIR / "Cluster_0000")
 solver.save(out_root, t, y, col_names=net.species)
 print(f"\n  saved = {out_root}.npy")
 print(f"  saved = {out_root}.csv")
