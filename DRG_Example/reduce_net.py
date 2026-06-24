@@ -80,8 +80,8 @@ reaction_rates = net.reaction_rates(reactions, env) #function to get list of rea
 species_map = net.species_map
 
 #Sources
-sources = ['CO', 'C+', 'O+', 'O']
-eps = [0.001, 0.0025, 0.005, 0.01, 0.02]
+sources = ['CO', 'C+', 'O+', 'O','e-']
+eps = [0.15]
 
 #Reduce Network
 drg = DRG()

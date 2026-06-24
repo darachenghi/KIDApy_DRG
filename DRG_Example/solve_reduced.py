@@ -22,8 +22,8 @@ YEAR = 3600 * 24 * 365.25
 ATOL = 1e-20
 RTOL = 1e-3
 
-eps = [ 0.001, 0.01, 0.1, 0.2]
-t_eval = np.logspace(0, np.log10(1e6 * YEAR), 300)
+eps = [ 0.2]
+t_eval = np.logspace(0, np.log10(1e6 * YEAR), 200)
 
 for e in eps:
     file_name = f"kida_reduced_net_eps{e}.json"

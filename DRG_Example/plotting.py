@@ -12,10 +12,10 @@ FULL_ORDER_SOLVE = HERE/"Full_networks"/"kida_uva_2024_point.csv"
 
 #Plotting Epsilon Plot
 folder = HERE/"reduced_networks"
-eps = [0.001, 0.005,0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+eps =  [0.001, 0.0025, 0.005, 0.01, 0.025, 0.05,0.06,0.075, 0.1,0.15, 0.2,0.3, 0.7, 0.9]
 species_length = []
 
-plt.figure()
+plt.figure(figsize = (6,5))
 
 for e in eps:
     file_name = f"kida_reduced_net_eps{e}.json"
@@ -33,22 +33,23 @@ plt.xlabel("Epsilon")
 plt.ylabel("Number of Species")
 plt.title("DRG Reduction of KIDA Network")
 file_name = "kida_eps"
-plt.savefig(SAVE_DIR/file_name)
-
+plt.savefig(SAVE_DIR/file_name, dpi = 700, transparent = True)
 
 #Plotting Quantity of Interests
 YEAR = 3600 * 24 * 365.25
 folder_path = HERE/"kida_reduced_solved"
-eps = ['0p001','0p01', '0p1','0p2']
+eps = [ 0.001, 0.01, 0.05, 0.1, 0.2]
+labels = ["Full Order Solve"] + [f'eps = {e}' for e in eps]
 
-species = ["CO", "C+", "O+", "O"]
+species = ["CO", "C+", "O+", "O", "e-"]
 
 for s in species:
-    plt.figure()
+    plt.figure(figsize = (5.5,4.5))
     df = pd.read_csv(FULL_ORDER_SOLVE)
     plt.plot(df["t"]/YEAR, df[s])
 
     for e in eps:
+        e = str(e).replace('.', 'p')
         f = f'{folder_path}/{e}eps.csv'
         df = pd.read_csv(f)
         plt.plot(df["t"]/YEAR, df[s], linestyle = 'dashed')
@@ -56,7 +57,8 @@ for s in species:
     plt.loglog()
     plt.xlabel("Time (Years)")
     plt.ylabel('Abundance per H')
-    plt.legend(["full order", "eps = 0.001", "eps = 0.01", "eps = 0.1", "eps = 0.2"])
+    plt.legend(labels)
     plt.title(f'{s}')
     file = SAVE_DIR/f'{s}'
-    plt.savefig(file)
+    plt.savefig(file, dpi = 700, transparent = True)
+    
