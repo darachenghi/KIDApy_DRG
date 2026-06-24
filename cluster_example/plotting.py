@@ -7,21 +7,18 @@ HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parent
 SAVE_DIR = HERE / "Plots" 
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
-FULL_ORDER_SOLVE = "/oden/cheng/Downloads/code/DRG/KIDApy_DRG/cluster_example/Full Order Solve/Full Order Solve/kida_uva_2024_point.csv"
 
 #Plotting Quantity of Interests
 YEAR = 3600 * 24 * 365.25
 folder_path = HERE/"cluster_reduced_solved"
-eps = [0.00001,0.001]
+eps = [0.001, 0.01, 0.05, 0.1]
 
-label = ["full order"] + [f'eps = {e}' for e in eps]
+label = [f'eps = {e}' for e in eps]
 
-species = ["CO", "C+", "O+", "O"]
+species = ["CO", "C+", "O+", "O", "e-"]
 
 for s in species:
     plt.figure()
-    df = pd.read_csv(FULL_ORDER_SOLVE)
-    plt.plot(df["t"]/YEAR, df[s])
 
     for e in eps:
         e = str(e).replace('.', 'p')

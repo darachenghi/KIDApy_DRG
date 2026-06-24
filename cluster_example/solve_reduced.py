@@ -8,8 +8,9 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from parser import load_abundances
+from parser import load_abundances, Network
 from assembly import assembly
+from DRG_Cluster import DRG_c
 from solver import QuadraticSolver
 
 HERE = Path(__file__).resolve().parent
@@ -18,11 +19,21 @@ SAVE_DIR.mkdir(parents=True, exist_ok=True)
 REPO_ROOT = HERE.parent
 ABUNDANCES_PATH = REPO_ROOT/ "networks" / "kida.uva.2024" / "abundances.in"
 
+CLUSTER_PATH = REPO_ROOT/ "cluster_data" / "cluster_0000.npy"
 YEAR = 3600 * 24 * 365.25
 ATOL = 1e-20
 RTOL = 1e-3
 
-eps = [ 0.00001]
+########################################################Reduced Order Solve##########################################################################
+
+#Load Cluster and Get Test trace
+cluster = np.load(CLUSTER_PATH)
+test_data = cluster[102,:]
+drg = DRG_c()
+env = drg._get_env(test_data)
+
+#Solving Reduced Networks
+eps = [0.001, 0.01, 0.05, 0.1]
 t_eval = np.logspace(0, np.log10(1e6 * YEAR), 300)
 
 for e in eps:
@@ -35,7 +46,9 @@ for e in eps:
     reactions = data["reactions"]
     species = data["species"]
     species_map = {species:i for i, species in enumerate(species)}
-    rates = data["rates"]
+
+    net = Network(grains=True)
+    rates = net.reaction_rates(reactions, env)
 
     abund = load_abundances(str(ABUNDANCES_PATH))
     abund["e-"] = sum(val for name,val in abund.items() if name.endswith("+"))
@@ -64,3 +77,4 @@ for e in eps:
     out_root = str(SAVE_DIR/f"{str(e).replace('.', 'p')}eps")
     solver.save(out_root, t, y, col_names= species_map.keys())
     print(f"  saved = {out_root}.csv")
+
