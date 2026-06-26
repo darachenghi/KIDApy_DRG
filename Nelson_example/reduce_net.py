@@ -17,8 +17,8 @@ from DRG import DRG
 
 HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parent
-NETWORK_PATH    = REPO_ROOT/ "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
-ABUNDANCES_PATH = REPO_ROOT/ "networks" / "kida.uva.2024" / "abundances.in"
+NETWORK_PATH    = REPO_ROOT/ "networks" / "nelson" / "gas_reactions.in"
+ABUNDANCES_PATH = REPO_ROOT/ "networks" / "nelson" / "abundances.in"
 SAVE_DIR = HERE / "reduced_networks" 
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 SAVE_DIR_FULL = HERE / "Full_networks" 
@@ -29,7 +29,7 @@ ATOL = 1e-20
 RTOL = 1e-3
 
 # Load network
-net = Network(grains=True)
+net = Network(grains=False)
 net.load_from_disk(str(NETWORK_PATH))
 dropped = net.drop_passive_species()
 
@@ -51,8 +51,8 @@ print(f"  reactions = {len(net.reactions)}")
 
 env = dict(
     T       = 10.0,    # gas temperature [K]
-    nH      = 1e4,     # total H number density [cm⁻³]
-    Av      = 10.0,    # visual extinction [mag]
+    nH      = 2e4,     # total H number density [cm⁻³]
+    Av      = 15.0,    # visual extinction [mag]
     uv_flux = 1.0,     # FUV field scaling (1 = standard Draine field)
 )
 
@@ -60,7 +60,7 @@ A, B = net.get_operators(env)
 
 # Integrate
 
-t_eval = np.logspace(0, np.log10(1e6 * YEAR), 200)
+t_eval = np.logspace(0, np.log10(1e6 * YEAR), 120)
 
 solver = QuadraticSolver()
 t, y = solver.solve(
@@ -72,7 +72,7 @@ t, y = solver.solve(
     t_eval=t_eval,
 )
 
-out_root = str(SAVE_DIR_FULL / "kida_uva_2024_point")
+out_root = str(SAVE_DIR_FULL / "nelson")
 solver.save(out_root, t, y, col_names=net.species)
 
 reactions = net._select_multirange_entries(net.reactions, env["T"])  # dedupe multi-temperature-range entries (matches get_operators)
@@ -80,8 +80,8 @@ reaction_rates = net.reaction_rates(reactions, env) #function to get list of rea
 species_map = net.species_map
 
 #Sources
-sources = ['CO', 'C+', 'O+', 'O','e-']
-eps = [0.2]
+sources = ['CO', 'e-']
+eps = [0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
 #Reduce Network
 drg = DRG()
@@ -96,7 +96,7 @@ for e in eps:
     print(f'Number of reactions in reduced network: {len(reduced_reactions)}')
     print(f'Number of species in reduced network: {n_species}')
 
-    file_name = f"kida_reduced_net_eps{e}.json"
+    file_name = f"nelson_reduced_net_eps{e}.json"
     file_path = SAVE_DIR/file_name
 
     data = {"epsilon": e, "reactions": reduced_reactions,

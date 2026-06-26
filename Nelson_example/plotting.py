@@ -7,18 +7,18 @@ HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parent
 SAVE_DIR = HERE / "Plots" 
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
-FULL_ORDER_SOLVE = HERE/"Full_networks"/"kida_uva_2024_point.csv"
+FULL_ORDER_SOLVE = HERE/"Full_networks"/"nelson.csv"
 
 
 #Plotting Epsilon Plot
 folder = HERE/"reduced_networks"
-eps =  [0.001, 0.0025, 0.005, 0.01, 0.025, 0.05,0.06,0.075, 0.1,0.15, 0.2,0.3,0.4, 0.5, 0.6, 0.7,0.8, 0.9]
+eps = [0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 species_length = []
 
 plt.figure(figsize = (6,5))
 
 for e in eps:
-    file_name = f"kida_reduced_net_eps{e}.json"
+    file_name = f"nelson_reduced_net_eps{e}.json"
     file = folder/file_name
     with open(file) as f:
         data = json.load(f)
@@ -26,8 +26,6 @@ for e in eps:
     species = data["species"]
     n_species = len(species)
     species_length.append(n_species)
-    print(f'eps = {e}')
-    print(f'Number of Species: {n_species}\n')
 
 plt.plot(eps, species_length, marker = 'o')
 
@@ -38,11 +36,11 @@ plt.savefig(SAVE_DIR/file_name, dpi = 700)
 
 #Plotting Quantity of Interests
 YEAR = 3600 * 24 * 365.25
-folder_path = HERE/"kida_reduced_solved"
-eps = [ 0.01,  0.1, 0.2, 0.5]
-labels = ["No Reduction (578 species)", "eps = 0.01 (363 species)", "eps = 0.1 (127 species)","eps = 0.2 (51 species)", "eps = 0.5 (15 species)"]
+folder_path = HERE/"nelson_reduced_solved"
+eps = [ 0.01, 0.2, 0.7]
+labels = ["No Reduction (14 species)", "eps = 0.01 (12 species)", "eps = 0.2 (11 species)", "eps = 0.7 (9 species)"]
 
-species = ["O+"]
+species = ["CO", "e-"]
 
 for s in species:
     plt.figure(figsize = (5.5,4.5))
@@ -62,4 +60,3 @@ for s in species:
     plt.title(f'{s}')
     file = SAVE_DIR/f'{s}'
     plt.savefig(file, dpi = 700)
-    
