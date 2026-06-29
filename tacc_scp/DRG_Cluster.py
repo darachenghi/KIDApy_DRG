@@ -13,8 +13,7 @@ class DRG_c:
     def reduce_net(self, net, cluster, sources, dropped = None, eps = 0.1):
 
 
-        reduced_rxns = []
-        seen = set()
+        reduced_rxns = set()
         reduced_species = set()
 
 
@@ -50,13 +49,9 @@ class DRG_c:
                 found_idx = set(rxn["stoichiometric"].keys())
 
                 if found_idx.issubset(reached_species_indices):
-                    id = rxn["id"]
-
-                    if id not in seen:
-                        seen.add(id)
-                        reduced_rxns.append(rxn)
-                        species = [idx_to_species[i] for i in found_idx]
-                        reduced_species.update(species)
+                    reduced_rxns.update(rxn)
+                    species = [idx_to_species[i] for i in found_idx]
+                    reduced_species.update(species)
 
         self.reduced_species = sorted(reduced_species)
         self.reduced_rxns = reduced_rxns
@@ -82,9 +77,10 @@ class DRG_c:
             state_data = np.delete(state_data, i)
         return state_data.T
     
-    def _get_reactions(self,net, data_row, dropped):
-        env = self._get_env(data_row)
-        reactions = net._select_multirange_entries(net.reactions, env["T"]) 
+    def _get_reactions(self,net, sample_row, dropped):
+        "Assumes that the reaction network is the same for a states"
+        sample_env = self._get_env(sample_row)
+        reactions = net._select_multirange_entries(net.reactions, sample_env["T"]) 
         species_map = net.species_map 
         reactions = self._get_stoich(reactions, species_map, dropped)
         return reactions, species_map
