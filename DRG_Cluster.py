@@ -2,7 +2,7 @@ import numpy as np
 import networkx as nx
 import scipy.sparse as sp
 from collections import Counter
-from parser import Network, load_abundances
+from parser import Network
 
 
 class DRG_c:
@@ -47,19 +47,21 @@ class DRG_c:
             idx_to_species = {idx:species for species,idx in species_map.items()}
 
             for i, rxn in enumerate(reactions):
+                id = rxn["id"]
+
+                if id in seen:
+                    continue
+
                 found_idx = set(rxn["stoichiometric"].keys())
 
                 if found_idx.issubset(reached_species_indices):
-                    id = rxn["id"]
+                    seen.add(id)
+                    reduced_rxns.append(rxn)
+                    species = [idx_to_species[i] for i in found_idx]
+                    reduced_species.update(species)
 
-                    if id not in seen:
-                        seen.add(id)
-                        reduced_rxns.append(rxn)
-                        species = [idx_to_species[i] for i in found_idx]
-                        reduced_species.update(species)
-
-        self.reduced_species = sorted(reduced_species)
-        self.reduced_rxns = reduced_rxns
+                    self.reduced_species = sorted(reduced_species)
+                    self.reduced_rxns = reduced_rxns
         return self.reduced_rxns
 
 #HELPER FUNCTIONS
@@ -198,3 +200,4 @@ class DRG_c:
 
         found_species_indices = list(found_species_indices)
         return found_species_indices
+
