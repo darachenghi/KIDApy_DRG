@@ -69,6 +69,11 @@ class DRG_c:
         if savedir is not None:
             for e in eps_list:
                 self._save_reduce_net(savedir, e, self.reduced_rxns[e], self.reduced_species[e])
+
+        for e in eps_list:
+            print(f'Epsilon: {e}')
+            print(f'Number of reactions in reduced network: {len(self.reduced_rxns[e])}')
+            print(f'Number of species in reduced network: {len(self.reduced_species[e])}\n')
         return self.reduced_rxns
 
 #HELPER FUNCTIONS
