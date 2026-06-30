@@ -11,7 +11,7 @@ from parser import Network
 from DRG_Cluster import DRG_c
 
 HERE = Path(__file__).resolve().parent
-SAVE_DIR = HERE / "reduced_networks" /"cluster_0000"
+SAVE_DIR = HERE / "reduced_networks" 
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 REPO_ROOT = HERE.parent
 

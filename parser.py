@@ -51,6 +51,7 @@ import numpy as np
 import scipy.sparse as sp
 from collections import defaultdict
 from typing import Dict
+from collections import Counter
 
 
 # ---------------------------------------------------------------------------
@@ -164,6 +165,7 @@ class Network:
         self.species: list = []
         self.species_map: dict = {}
         self.reactions: list = []
+        self.dropped: list = []
 
         # Fields treated as external forcing (not ODE variables)
         self.external_fields = frozenset({"Photon", "CR", "CRP"})
@@ -304,6 +306,7 @@ class Network:
             return []
         self.species = [s for s in self.species if s not in passive]
         self.species_map = {s: i for i, s in enumerate(self.species)}
+        self.dropped = sorted(passive)
         return sorted(passive)
 
     def reaction_rates(self, reactions, env: dict) -> list[float]:
@@ -408,7 +411,7 @@ class Network:
         self.species = sorted(found_species)
         self.species_map = {s: i for i, s in enumerate(self.species)}
         self.reactions = parsed_reactions
-
+        self._get_stoich(self.reactions, self.species_map)
         print(f"Loaded {len(self.reactions)} reactions, "
               f"{len(self.species)} species.")
 
@@ -531,3 +534,36 @@ class Network:
             return a * (Teff / 300.0) ** b * grain_density 
 
         raise ValueError(f"Unsupported formula type: frml={frml}")
+    
+    def _get_stoich(self, reactions, species_map):
+
+        "adds stoichiometric coefficient dictionary to reactions"
+
+        excluded_rate = ["Photon", "CR", "CRP"]
+        dropped = self.drop_passive_species()
+        all_excluded = set(dropped) | set(excluded_rate)
+
+        for rxn in reactions:
+
+            reactant_counts = Counter(rxn["reactants"])
+            product_counts = Counter(rxn["products"])
+
+            reaction_species = set(reactant_counts)
+            reaction_species.update(product_counts)
+
+            stoic = {}
+
+            for species in reaction_species:
+                if species in all_excluded:
+                    continue
+                idx = species_map[species]
+
+                stoic[idx] = (
+                    reactant_counts[species]
+                    - product_counts[species]
+                )
+
+            rxn["stoichiometric"] = stoic
+
+        self.reactions = reactions
+        return reactions

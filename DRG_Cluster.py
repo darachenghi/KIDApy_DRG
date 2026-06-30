@@ -2,6 +2,7 @@ import numpy as np
 import networkx as nx
 import scipy.sparse as sp
 import json 
+import time
 
 from collections import Counter
 from parser import Network
@@ -30,20 +31,21 @@ class DRG_c:
             else:
                 data_row = cluster[j,:]
 
-            reactions, species_map = self._get_reactions(net, data_row, dropped)
+            _t0 = time.perf_counter()
+            reactions, species_map, env = self._get_reactions(net, data_row, dropped)
             source_indices = [species_map[s] for s in sources]
 
-            env = self._get_env(data_row)
-            reaction_rates = net.reaction_rates(reactions, env)
             state_data = self._get_state_data(data_row, species_map, dropped)
 
-            R_mat = self._point_build_R_mat(reactions, species_map, reaction_rates, state_data, dropped)
+            R_mat = self._point_build_R_mat(net, reactions, species_map,env ,state_data, dropped)
 
             idx_to_species = {idx: species for species, idx in species_map.items()}
 
             for e in eps_list:
                 A_mat = self._build_A_mat(R_mat, e)
+
                 reached = set(self._dfs(A_mat, source_indices))
+
                 r = results[e]
 
                 for rxn in reactions:
@@ -96,43 +98,20 @@ class DRG_c:
         env = self._get_env(data_row)
         reactions = net._select_multirange_entries(net.reactions, env["T"]) 
         species_map = net.species_map 
-        reactions = self._get_stoich(reactions, species_map, dropped)
-        return reactions, species_map
+        return reactions, species_map, env
     
-    def _get_stoich(self, reactions, species_map, dropped):
+    def _rxn_rate(self, net, rxn, env: dict) -> list[float]:
+        T = float(env["T"])
+        nH = float(env["nH"])
+        Av = float(env["Av"])
+        uv_flux = float(env["uv_flux"])
+        Tcap_2body = bool(env.get("Tcap_2body", True))
+        return net._calculate_rate(rxn, T, nH, Av, uv_flux, Tcap_2body) 
 
-        "adds stoichiometric coefficient dictionary to reactions"
-
-        excluded_rate = ["Photon", "CR", "CRP"]
-        dropped = set(excluded_rate) | set(dropped or [])
-
-        for rxn in reactions:
-
-            reactant_counts = Counter(rxn["reactants"])
-            product_counts = Counter(rxn["products"])
-
-            reaction_species = set(reactant_counts)
-            reaction_species.update(product_counts)
-
-            stoic = {}
-
-            for species in reaction_species:
-                if species in dropped:
-                    continue
-                idx = species_map[species]
-
-                stoic[idx] = (
-                    reactant_counts[species]
-                    - product_counts[species]
-                )
-
-            rxn["stoichiometric"] = stoic
-
-        return reactions
-
-    def _point_build_R_mat(self, reactions: list, 
+    def _point_build_R_mat(self, net, 
+                    reactions: list, 
                     species_map: dict, 
-                    k: list, 
+                    env: dict, 
                     concs, 
                     dropped = None):
         
@@ -152,7 +131,7 @@ class DRG_c:
 
         for i,rxn in enumerate(reactions):
 
-            wi = k[i]
+            wi = self._rxn_rate(net, rxn, env)
 
             for reactant in rxn["reactants"]:
                 if reactant in excluded_rate:
