@@ -165,7 +165,6 @@ class Network:
         self.species: list = []
         self.species_map: dict = {}
         self.reactions: list = []
-        self.dropped: list = []
 
         # Fields treated as external forcing (not ODE variables)
         self.external_fields = frozenset({"Photon", "CR", "CRP"})
@@ -306,7 +305,6 @@ class Network:
             return []
         self.species = [s for s in self.species if s not in passive]
         self.species_map = {s: i for i, s in enumerate(self.species)}
-        self.dropped = sorted(passive)
         return sorted(passive)
 
     def reaction_rates(self, reactions, env: dict) -> list[float]:
@@ -411,7 +409,6 @@ class Network:
         self.species = sorted(found_species)
         self.species_map = {s: i for i, s in enumerate(self.species)}
         self.reactions = parsed_reactions
-        self._get_stoich(self.reactions, self.species_map)
         print(f"Loaded {len(self.reactions)} reactions, "
               f"{len(self.species)} species.")
 
@@ -535,9 +532,15 @@ class Network:
 
         raise ValueError(f"Unsupported formula type: frml={frml}")
     
-    def _get_stoich(self, reactions, species_map):
+    def _get_stoich(self, dropped = None):
 
         "adds stoichiometric coefficient dictionary to reactions"
+
+        reactions = self.reactions
+        species_map = self.species_map
+
+        if dropped == None:
+            dropped = []
 
         excluded_rate = ["Photon", "CR", "CRP"]
         dropped = self.drop_passive_species()
@@ -566,4 +569,4 @@ class Network:
             rxn["stoichiometric"] = stoic
 
         self.reactions = reactions
-        return reactions
+        return self.reactions
