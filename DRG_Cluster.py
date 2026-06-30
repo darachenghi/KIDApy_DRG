@@ -1,6 +1,8 @@
 import numpy as np
 import networkx as nx
 import scipy.sparse as sp
+import json 
+
 from collections import Counter
 from parser import Network
 
@@ -10,58 +12,63 @@ class DRG_c:
         self.reduced_species = []
         self.reduced_rxns = []
 
-    def reduce_net(self, net, cluster, sources, dropped = None, eps = 0.1):
+    def reduce_net(self, net, cluster, sources, eps:list, dropped=None, savedir=None):
+        scalar_eps = np.isscalar(eps)
+        eps_list = [eps] if scalar_eps else list(eps)
 
-
-        reduced_rxns = []
-        seen = set()
-        reduced_species = set()
-
+        results = {e: {"seen": set(), "rxns": [], "species": set()} for e in eps_list}
 
         if cluster.ndim == 1:
             n_cluster = 1
         else:
             n_cluster = int(cluster.shape[0])
 
-        for i in range(n_cluster):
+        for j in range(n_cluster):
 
             if n_cluster == 1:
                 data_row = cluster
             else:
-                data_row = cluster[i,:]
+                data_row = cluster[j,:]
 
-            reached_species_indices = set()
-
-            reactions, species_map = self._get_reactions(net,data_row, dropped )
+            reactions, species_map = self._get_reactions(net, data_row, dropped)
             source_indices = [species_map[s] for s in sources]
-            
+
             env = self._get_env(data_row)
-            reaction_rates = net.reaction_rates(reactions, env) #function to get list of reaction rates)
+            reaction_rates = net.reaction_rates(reactions, env)
             state_data = self._get_state_data(data_row, species_map, dropped)
 
             R_mat = self._point_build_R_mat(reactions, species_map, reaction_rates, state_data, dropped)
-            A_mat = self._build_A_mat(R_mat, eps )
-            reached_species_idx = self._dfs(A_mat, source_indices)
-            reached_species_indices.update(reached_species_idx)
 
-            idx_to_species = {idx:species for species,idx in species_map.items()}
+            idx_to_species = {idx: species for species, idx in species_map.items()}
 
-            for i, rxn in enumerate(reactions):
-                id = rxn["id"]
+            for e in eps_list:
+                A_mat = self._build_A_mat(R_mat, e)
+                reached = set(self._dfs(A_mat, source_indices))
+                r = results[e]
 
-                if id in seen:
-                    continue
+                for rxn in reactions:
+                    rxn_id = rxn["id"]
+                    if rxn_id in r["seen"]:
+                        continue
+                    found_idx = set(rxn["stoichiometric"].keys())
+                    if found_idx.issubset(reached):
+                        r["seen"].add(rxn_id)
+                        r["rxns"].append(rxn)
+                        r["species"].update(idx_to_species[idx] for idx in found_idx)
 
-                found_idx = set(rxn["stoichiometric"].keys())
+        if scalar_eps:
+            e = eps_list[0]
+            self.reduced_rxns = results[e]["rxns"]
+            self.reduced_species = sorted(results[e]["species"])
+            if savedir is not None:
+                self._save_reduce_net(savedir, e, self.reduced_rxns, self.reduced_species)
+            return self.reduced_rxns
 
-                if found_idx.issubset(reached_species_indices):
-                    seen.add(id)
-                    reduced_rxns.append(rxn)
-                    species = [idx_to_species[i] for i in found_idx]
-                    reduced_species.update(species)
-
-                    self.reduced_species = sorted(reduced_species)
-                    self.reduced_rxns = reduced_rxns
+        self.reduced_rxns = {e: results[e]["rxns"] for e in eps_list}
+        self.reduced_species = {e: sorted(results[e]["species"]) for e in eps_list}
+        if savedir is not None:
+            for e in eps_list:
+                self._save_reduce_net(savedir, e, self.reduced_rxns[e], self.reduced_species[e])
         return self.reduced_rxns
 
 #HELPER FUNCTIONS
@@ -78,10 +85,11 @@ class DRG_c:
     
     def _get_state_data(self,data_row, species_map, dropped):
         "Removes dropped species and environment entries"
+        if dropped == None:
+            dropped = []
         state_data = data_row[7:]
         dropped_idx = [species_map[i] for i in dropped]
-        for i in dropped_idx:
-            state_data = np.delete(state_data, i)
+        state_data = np.delete(state_data, sorted(dropped_idx))
         return state_data.T
     
     def _get_reactions(self,net, data_row, dropped):
@@ -201,3 +209,12 @@ class DRG_c:
         found_species_indices = list(found_species_indices)
         return found_species_indices
 
+    def _save_reduce_net(self, savedir, eps, reduced_reactions, species):
+        file_name = f"reduced_net_eps{eps}.json"
+        file_path = savedir/file_name
+
+        data = {"epsilon": eps, "reactions": reduced_reactions,
+                "species": species}
+            
+        with open(file_path, "w") as f:
+            json.dump(data, f, indent = 2)

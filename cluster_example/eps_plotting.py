@@ -11,13 +11,13 @@ SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
 #Plotting Epsilon Plot
 folder = HERE/"reduced_networks"
-eps =  [0.001, 0.005, 0.01, 0.05, 0.1, 0.9]
+eps = [0.001, 0.005, 0.01, 0.05, 0.1, 0.2]
 species_length = []
 
 plt.figure()
 
 for e in eps:
-    file_name = f"cluster_0000_reduced_net_eps{e}.json"
+    file_name = f"reduced_net_eps{e}.json"
     file = folder/file_name
     with open(file) as f:
         data = json.load(f)
