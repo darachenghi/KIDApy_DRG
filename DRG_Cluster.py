@@ -13,11 +13,30 @@ class DRG_c:
         self.reduced_species = []
         self.reduced_rxns = []
 
-    def reduce_net(self, net, cluster, sources, eps:list, dropped=None, savedir=None):
+    def reduce_net(self, net, cluster, sources, eps:list, dropped=None, savedir=None, prevfolder = None,):
         scalar_eps = np.isscalar(eps)
         eps_list = [eps] if scalar_eps else list(eps)
 
-        results = {e: {"seen": set(), "rxns": [], "species": set()} for e in eps_list}
+        if prevfolder is None:
+            results = {e: {"seen": set(), "rxns": [], "species": set()} for e in eps_list}
+
+        else:
+            results = {}
+            for e in eps_list:
+                prev_path = prevfolder / f"reduced_net_eps{e}.json"
+                if prev_path.exists():
+                    with open(prev_path, "r") as f:
+                        prev_data = json.load(f)
+                    prev_rxns = prev_data.get("reactions", [])
+                    prev_species = prev_data.get("species", [])
+                    results[e] = {
+                        "seen": {rxn["id"] for rxn in prev_rxns},
+                        "rxns": list(prev_rxns),
+                        "species": set(prev_species),
+                    }
+                else:
+                    results[e] = {"seen": set(), "rxns": [], "species": set()}
+
 
         if cluster.ndim == 1:
             n_cluster = 1
