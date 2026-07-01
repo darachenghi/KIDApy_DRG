@@ -56,7 +56,7 @@ class DRG_c:
 
             state_data = self._get_state_data(data_row, species_map, dropped)
 
-            R_mat = self._point_build_R_mat(net, reactions, species_map,env ,state_data, dropped)
+            R_mat = self._point_build_R_mat(net, reactions, species_map,env ,state_data)
 
             idx_to_species = {idx: species for species, idx in species_map.items()}
 
@@ -136,15 +136,11 @@ class DRG_c:
                     reactions: list, 
                     species_map: dict, 
                     env: dict, 
-                    concs, 
-                    dropped = None):
+                    concs):
         
         '''Builds coefficient matrix at a single state'''
-        if dropped is None:
-            dropped = []
 
         excluded_rate = ["Photon", "CR", "CRP"]
-        dropped = excluded_rate + dropped
 
         n_species = len(species_map)
         den_vec = np.zeros(n_species)
@@ -153,7 +149,7 @@ class DRG_c:
         col = []
         data = []
 
-        for i,rxn in enumerate(reactions):
+        for rxn in reactions:
 
             wi = self._rxn_rate(net, rxn, env)
 
