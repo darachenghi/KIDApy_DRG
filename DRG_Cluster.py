@@ -2,10 +2,6 @@ import numpy as np
 import networkx as nx
 import scipy.sparse as sp
 import json 
-import time
-
-from collections import Counter
-from parser import Network
 
 
 class DRG_c:
@@ -13,7 +9,33 @@ class DRG_c:
         self.reduced_species = []
         self.reduced_rxns = []
 
-    def reduce_net(self, net, cluster, sources, eps:list, dropped=None, savedir=None, prevfolder = None,):
+    def reduce_net(self, 
+                   net, 
+                   cluster, 
+                   sources, 
+                   eps, 
+                   dropped=None, 
+                   savedir=None, 
+                   prevfolder = None,):
+        
+        ''' Iterates through each state in cluster and returns reduced network''
+        
+            Inputs: 
+                net: parsed reactions (dropped species removed and stoichiometric values added)
+                cluster: array of states: idx | t | nH | T | Tgrain | Av | uv_flux | species 0 | ... | species 577
+                sources: list of source species
+                eps: list of epsilon values
+                dropped: list of removed species
+                savedir: directory to save reduced networks of form reduced_net_eps{eps}.json
+                prevfolder: directory of previous reduced networks to use as starting point of reduction
+                    
+            Outputs:
+                reduced_rxns: list of reactions in reduced network for each epsilon value
+                reduced_species: list of species in reduced network for each epsilon value '''
+
+        if savedir is not None and not savedir.exists():
+            raise FileNotFoundError(f"Save directory {savedir} does not exist.")
+
         scalar_eps = np.isscalar(eps)
         eps_list = [eps] if scalar_eps else list(eps)
 
@@ -35,43 +57,33 @@ class DRG_c:
                         "species": set(prev_species),
                     }
                 else:
+                    print(f"\nWarning: Previous reduced network for epsilon: {e} not found in {prevfolder}.\n")
                     results[e] = {"seen": set(), "rxns": [], "species": set()}
-
-
-        if cluster.ndim == 1:
-            n_cluster = 1
-        else:
-            n_cluster = int(cluster.shape[0])
+        
+        n_cluster = int(cluster.shape[0]) if cluster.ndim > 1 else 1
 
         for j in range(n_cluster):
-
-            if n_cluster == 1:
-                data_row = cluster
-            else:
-                data_row = cluster[j,:]
-
-            _t0 = time.perf_counter()
-            reactions, species_map, env = self._get_reactions(net, data_row, dropped)
+            data_row = cluster[j] if n_cluster > 1 else cluster
+            reactions, species_map, env = self._get_reactions(net, data_row)
             source_indices = [species_map[s] for s in sources]
 
             state_data = self._get_state_data(data_row, species_map, dropped)
-
             R_mat = self._point_build_R_mat(net, reactions, species_map,env ,state_data)
-
             idx_to_species = {idx: species for species, idx in species_map.items()}
 
             for e in eps_list:
                 A_mat = self._build_A_mat(R_mat, e)
-
                 reached = set(self._dfs(A_mat, source_indices))
-
                 r = results[e]
 
                 for rxn in reactions:
                     rxn_id = rxn["id"]
+
                     if rxn_id in r["seen"]:
                         continue
+
                     found_idx = set(rxn["stoichiometric"].keys())
+
                     if found_idx.issubset(reached):
                         r["seen"].add(rxn_id)
                         r["rxns"].append(rxn)
@@ -81,12 +93,14 @@ class DRG_c:
             e = eps_list[0]
             self.reduced_rxns = results[e]["rxns"]
             self.reduced_species = sorted(results[e]["species"])
+
             if savedir is not None:
                 self._save_reduce_net(savedir, e, self.reduced_rxns, self.reduced_species)
             return self.reduced_rxns
 
         self.reduced_rxns = {e: results[e]["rxns"] for e in eps_list}
         self.reduced_species = {e: sorted(results[e]["species"]) for e in eps_list}
+
         if savedir is not None:
             for e in eps_list:
                 self._save_reduce_net(savedir, e, self.reduced_rxns[e], self.reduced_species[e])
@@ -95,22 +109,22 @@ class DRG_c:
             print(f'Epsilon: {e}')
             print(f'Number of reactions in reduced network: {len(self.reduced_rxns[e])}')
             print(f'Number of species in reduced network: {len(self.reduced_species[e])}\n')
+
         return self.reduced_rxns
 
 #HELPER FUNCTIONS
 
     def _get_env(self,data_row):
-        "Gets environment from row"
-        env_data = data_row[2:7]
-        env_splice = np.delete(env_data, 2)
+        '''Gets environment from row'''
+        env_data = np.delete(data_row[2:7],2)
         env_var = [ 'nH', 'T', 'Av','uv_flux']
         env = {}
         for i, var in enumerate(env_var):
-            env[var] = env_splice[i]
+            env[var] = env_data[i]
         return env
     
     def _get_state_data(self,data_row, species_map, dropped):
-        "Removes dropped species and environment entries"
+        '''Removes dropped species and environment entries from data row'''
         if dropped == None:
             dropped = []
         state_data = data_row[7:]
@@ -118,13 +132,15 @@ class DRG_c:
         state_data = np.delete(state_data, sorted(dropped_idx))
         return state_data.T
     
-    def _get_reactions(self,net, data_row, dropped):
+    def _get_reactions(self,net, data_row):
+        '''Selects reactions and returns species map based on environment'''
         env = self._get_env(data_row)
         reactions = net._select_multirange_entries(net.reactions, env["T"]) 
         species_map = net.species_map 
         return reactions, species_map, env
     
-    def _rxn_rate(self, net, rxn, env: dict) -> list[float]:
+    def _rxn_rate(self, net, rxn, env: dict) -> float:
+        '''Calculates rxn rate for given rxn and environment'''
         T = float(env["T"])
         nH = float(env["nH"])
         Av = float(env["Av"])
@@ -132,7 +148,8 @@ class DRG_c:
         Tcap_2body = bool(env.get("Tcap_2body", True))
         return net._calculate_rate(rxn, T, nH, Av, uv_flux, Tcap_2body) 
 
-    def _point_build_R_mat(self, net, 
+    def _point_build_R_mat(self, 
+                    net, 
                     reactions: list, 
                     species_map: dict, 
                     env: dict, 
@@ -140,7 +157,7 @@ class DRG_c:
         
         '''Builds coefficient matrix at a single state'''
 
-        excluded_rate = ["Photon", "CR", "CRP"]
+        excluded_rate = set(["Photon", "CR", "CRP"])
 
         n_species = len(species_map)
         den_vec = np.zeros(n_species)
