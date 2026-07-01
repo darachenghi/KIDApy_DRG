@@ -1,7 +1,10 @@
 *.pyc
 *.npy
 *.csv
-*.png
 *comparison.txt
 .venv/
 DRG_Example/drg_pipeline.ipynb
+*.png
+*.json
+cluster_example/test.py
+DRG_Example/test.py
