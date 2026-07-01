@@ -27,10 +27,17 @@ class DRG:
         idx_to_species = {idx:species for species,idx in species_map.items()}
         
         reached_species_indices = set()
-        t_steps = int(y[0].shape[0])
+
+        if y.ndim == 1:
+            t_steps = 1
+        else:
+            t_steps = int(y[0].shape[0])
 
         for t in range(t_steps):
-            concs = y[:,t]
+            if y.ndim ==1:
+                concs = y
+            else:
+                concs = y[:,t]
             R_mat = self._point_build_R_mat(reactions, species_map, k,concs, dropped)
             A_mat = self._build_A_mat(R_mat, eps )
             reached_species_idx = self._dfs(A_mat, source_indices)
