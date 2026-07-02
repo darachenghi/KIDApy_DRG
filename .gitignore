@@ -6,9 +6,9 @@
 DRG_Example/drg_pipeline.ipynb
 *.png
 *.json
-cluster_example/test.py
 DRG_Example/test.py
 DRG_Example/kida_reduced_solved
 DRG_Example/Full_networks
 DRG_Example/Plots
 DRG_Example/reduced_networks
+cluster_example/test.py
