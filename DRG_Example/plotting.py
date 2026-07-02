@@ -12,7 +12,7 @@ FULL_ORDER_SOLVE = HERE/"Full_networks"/"kida_uva_2024_point.csv"
 
 #Plotting Epsilon Plot
 folder = HERE/"reduced_networks"
-eps =  [0.001, 0.0025, 0.005, 0.01, 0.025, 0.05,0.06,0.075, 0.1,0.15, 0.2,0.3,0.4, 0.5, 0.6, 0.7,0.8, 0.9]
+eps = [0.001,0.0025, 0.005, 0.01, 0.03, 0.05, 0.07,0.1, 0.3, 0.5, 0.7, 0.9]
 species_length = []
 
 plt.figure(figsize = (6,5))
@@ -39,10 +39,11 @@ plt.savefig(SAVE_DIR/file_name, dpi = 700)
 #Plotting Quantity of Interests
 YEAR = 3600 * 24 * 365.25
 folder_path = HERE/"kida_reduced_solved"
-eps = [ 0.01,  0.1, 0.2, 0.5]
-labels = ["No Reduction (578 species)", "eps = 0.01 (363 species)", "eps = 0.1 (127 species)","eps = 0.2 (51 species)", "eps = 0.5 (15 species)"]
+eps = [0.001,0.0025, 0.005, 0.01, 0.03, 0.05, 0.07]
 
-species = ["O+"]
+label = ["full order"] + [f'eps = {e}' for e in eps]
+
+species = ["CO", "C+", "O+", "O", "e-"]
 
 for s in species:
     plt.figure(figsize = (5.5,4.5))
@@ -58,7 +59,7 @@ for s in species:
     plt.loglog()
     plt.xlabel("Time (Years)")
     plt.ylabel('Abundance per H')
-    plt.legend(labels)
+    plt.legend(label)
     plt.title(f'{s}')
     file = SAVE_DIR/f'{s}'
     plt.savefig(file, dpi = 700)

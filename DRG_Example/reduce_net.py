@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
 import json
+import time
 
 from parser import Network, load_abundances
 from solver import QuadraticSolver
@@ -60,7 +61,7 @@ A, B = net.get_operators(env)
 
 # Integrate
 
-t_eval = np.logspace(0, np.log10(1e6 * YEAR), 200)
+t_eval = np.logspace(0, np.log10(1e6 * YEAR), 300)
 
 solver = QuadraticSolver()
 t, y = solver.solve(
@@ -87,7 +88,9 @@ eps = [0.2]
 drg = DRG()
 
 for e in eps:
+    start = time.perf_counter()
     drg.reduce_net(reactions, species_map, reaction_rates, y, sources,dropped,eps = e)
+    end = time.perf_counter()
     reduced_reactions = drg.reduced_rxns
     species = drg.reduced_species
     n_species = len(species)
@@ -95,6 +98,7 @@ for e in eps:
     print(f'\nTolerance: {e}')
     print(f'Number of reactions in reduced network: {len(reduced_reactions)}')
     print(f'Number of species in reduced network: {n_species}')
+    print(f'Time to reduce: {end-start} seconds')
 
     file_name = f"kida_reduced_net_eps{e}.json"
     file_path = SAVE_DIR/file_name
@@ -102,5 +106,5 @@ for e in eps:
     data = {"epsilon": e, "reactions": reduced_reactions,
             "species": species, "rates": drg.reduced_rates}
     
-    with open(file_path, "w") as f:
-        json.dump(data, f, indent = 2)
+    #with open(file_path, "w") as f:
+        #json.dump(data, f, indent = 2)
