@@ -13,3 +13,4 @@ DRG_Example/Plots
 DRG_Example/reduced_networks
 cluster_example/test.py
 parallel_example/test.py
+parallel_example/plotting.py
