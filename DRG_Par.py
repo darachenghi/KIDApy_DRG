@@ -2,9 +2,9 @@ import numpy as np
 import networkx as nx
 import scipy.sparse as sp
 import json 
-from concurrent.futures import ProcessPoolExecutor 
+from concurrent.futures import ProcessPoolExecutor
 from functools import partial
-
+import time
 
 class DRG_p:
     def __init__(self):
@@ -12,26 +12,24 @@ class DRG_p:
         self.reduced_rxns = []
         self.results = {}
 
-    def reduce_net(self, 
-                   net, 
-                   cluster, 
-                   sources, 
-                   eps, 
-                   dropped=None, 
-                   savedir=None, 
-                   prevfolder = None,):
-        
+    def reduce_net(self,
+                   net,
+                   cluster,
+                   sources,
+                   eps,
+                   dropped=None,
+                   savedir=None,):
+
         ''' Iterates through each state in cluster and returns reduced network''
-        
-            Inputs: 
+
+            Inputs:
                 net: parsed reactions (dropped species removed and stoichiometric values added)
                 cluster: array of states: idx | t | nH | T | Tgrain | Av | uv_flux | species 0 | ... | species 577
                 sources: list of source species
                 eps: list of epsilon values
                 dropped: list of removed species
                 savedir: directory to save reduced networks of form reduced_net_eps{eps}.json
-                prevfolder: directory of previous reduced networks to use as starting point 
-                    
+
             Outputs:
                 reduced_rxns: list of reactions in reduced network for each epsilon value
                 reduced_species: list of species in reduced network for each epsilon value '''
@@ -42,46 +40,37 @@ class DRG_p:
         scalar_eps = np.isscalar(eps)
         eps_list = [eps] if scalar_eps else list(eps)
 
-        if prevfolder is None:
-            results = {e: {"seen": set(), "rxns": [], "species": set()} for e in eps_list}
+        species_map = net.species_map
 
-        else:
-            results = {}
-            for e in eps_list:
-                prev_path = prevfolder / f"reduced_net_eps{e}.json"
-                if prev_path.exists():
-                    with open(prev_path, "r") as f:
-                        prev_data = json.load(f)
-                    prev_rxns = prev_data.get("reactions", [])
-                    prev_species = prev_data.get("species", [])
-                    results[e] = {
-                        "seen": {rxn["id"] for rxn in prev_rxns},
-                        "rxns": list(prev_rxns),
-                        "species": set(prev_species),
-                    }
-                else:
-                    print(f"\nWarning: Previous reduced network for epsilon: {e} not found in {prevfolder}.\n")
-                    results[e] = {"seen": set(), "rxns": [], "species": set()}
-
-        self.results = results
-        
         with ProcessPoolExecutor() as executor:
-            func = partial(self._state_reduce, net =net, sources =sources, eps_list = eps_list, dropped = dropped)
+            func = partial(self._state_reduce, net =net,species_map = species_map,sources =sources, eps_list = eps_list, dropped = dropped)
             out = executor.map(func, cluster)
 
-            idx_to_species = {idx: species for species, idx in net.species_map.items()}
+            t1 = time.perf_counter()
+            out = list(out)
+            t2 = time.perf_counter()
+            print(f"Unpack: {t2 -t1} seconds")
+            found_ids = {e: set() for e in eps_list}
 
+            start = time.perf_counter()
             for state_result in out:
                 for e in eps_list:
-                    r = self.results[e]
-                    for rxn in state_result[e]:
-                        rxn_id = rxn["id"]
-                        if rxn_id in r["seen"]:
-                            continue
-                        r["seen"].add(rxn_id)
-                        r["rxns"].append(rxn)
-                        found_idx = set(rxn["stoichiometric"].keys())
-                        r["species"].update(idx_to_species[idx] for idx in found_idx)
+                    found_ids[e].update(state_result[e])
+            end = time.perf_counter()
+            print(f"Merge: {end-start} seconds")
+
+        idx_to_species = {idx: species for species, idx in species_map.items()}
+        id_to_rxn = {}
+        for rxn in net.reactions:
+            id_to_rxn.setdefault(rxn["id"], rxn)
+
+        self.results = {}
+        for e in eps_list:
+            rxns = [id_to_rxn[rxn_id] for rxn_id in found_ids[e]]
+            species = set()
+            for rxn in rxns:
+                species.update(idx_to_species[idx] for idx in rxn["stoichiometric"].keys())
+            self.results[e] = {"rxns": rxns, "species": species}
 
         if scalar_eps:
             e = eps_list[0]
@@ -130,8 +119,7 @@ class DRG_p:
         '''Selects reactions and returns species map based on environment'''
         env = self._get_env(data_row)
         reactions = net._select_multirange_entries(net.reactions, env["T"]) 
-        species_map = net.species_map 
-        return reactions, species_map, env
+        return reactions, env
     
     def _rxn_rate(self, net, rxn, env: dict) -> float:
         '''Calculates rxn rate for given rxn and environment'''
@@ -229,10 +217,10 @@ class DRG_p:
         with open(file_path, "w") as f:
             json.dump(data, f, indent = 2)
 
-    def _state_reduce(self, data_row, net, sources, eps_list, dropped):
-        '''Computes reactions reached for a single state, for each epsilon.'''
+    def _state_reduce(self, data_row, net, species_map,sources, eps_list, dropped):
+        '''Computes reaction ids reached for a single state, for each epsilon.'''
 
-        reactions, species_map, env = self._get_reactions(net, data_row)
+        reactions, env = self._get_reactions(net, data_row)
         source_indices = [species_map[s] for s in sources]
 
         state_data = self._get_state_data(data_row, species_map, dropped)
@@ -243,12 +231,9 @@ class DRG_p:
             A_mat = self._build_A_mat(R_mat, e)
             reached = set(self._dfs(A_mat, source_indices))
 
-            found_rxns = []
-            for rxn in reactions:
-                found_idx = set(rxn["stoichiometric"].keys())
-                if found_idx.issubset(reached):
-                    found_rxns.append(rxn)
+            found_ids = {rxn["id"] for rxn in reactions
+                         if set(rxn["stoichiometric"].keys()).issubset(reached)}
 
-            state_results[e] = found_rxns
+            state_results[e] = found_ids
 
         return state_results

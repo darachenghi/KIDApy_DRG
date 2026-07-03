@@ -60,11 +60,12 @@ class DRG_c:
                     print(f"\nWarning: Previous reduced network for epsilon: {e} not found in {prevfolder}.\n")
                     results[e] = {"seen": set(), "rxns": [], "species": set()}
         
+        species_map = net.species_map
         n_cluster = int(cluster.shape[0]) if cluster.ndim > 1 else 1
 
         for j in range(n_cluster):
             data_row = cluster[j] if n_cluster > 1 else cluster
-            reactions, species_map, env = self._get_reactions(net, data_row)
+            reactions, env = self._get_reactions(net, data_row)
             source_indices = [species_map[s] for s in sources]
 
             state_data = self._get_state_data(data_row, species_map, dropped)
@@ -136,8 +137,7 @@ class DRG_c:
         '''Selects reactions and returns species map based on environment'''
         env = self._get_env(data_row)
         reactions = net._select_multirange_entries(net.reactions, env["T"]) 
-        species_map = net.species_map 
-        return reactions, species_map, env
+        return reactions, env
     
     def _rxn_rate(self, net, rxn, env: dict) -> float:
         '''Calculates rxn rate for given rxn and environment'''
