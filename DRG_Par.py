@@ -1,10 +1,52 @@
 import numpy as np
 import networkx as nx
 import scipy.sparse as sp
-import json 
+import json
 from concurrent.futures import ProcessPoolExecutor
-from functools import partial
 import time
+
+_worker_net = None
+_worker_species_map = None
+_worker_sources = None
+_worker_eps_list = None
+_worker_dropped = None
+
+
+def _init_worker(net, species_map, sources, eps_list, dropped):
+    global _worker_net, _worker_species_map, _worker_sources, _worker_eps_list, _worker_dropped
+    _worker_net = net
+    _worker_species_map = species_map
+    _worker_sources = sources
+    _worker_eps_list = eps_list
+    _worker_dropped = dropped
+
+def _state_reduce_worker(data_row):
+    '''Computes reaction ids reached for a single state, for each epsilon.'''
+
+    net = _worker_net
+    species_map = _worker_species_map
+    sources = _worker_sources
+    eps_list = _worker_eps_list
+    dropped = _worker_dropped
+
+    reactions, env = DRG_p._get_reactions(net, data_row)
+    source_indices = [species_map[s] for s in sources]
+
+    state_data = DRG_p._get_state_data(data_row, species_map, dropped)
+    R_mat = DRG_p._point_build_R_mat(net, reactions, species_map, env, state_data)
+
+    state_results = {}
+    for e in eps_list:
+        A_mat = DRG_p._build_A_mat(R_mat, e)
+        reached = set(DRG_p._dfs(A_mat, source_indices))
+
+        found_ids = {rxn["id"] for rxn in reactions
+                     if set(rxn["stoichiometric"].keys()).issubset(reached)}
+
+        state_results[e] = found_ids
+
+    return state_results
+
 
 class DRG_p:
     def __init__(self):
@@ -41,10 +83,11 @@ class DRG_p:
         eps_list = [eps] if scalar_eps else list(eps)
 
         species_map = net.species_map
+        chunk_size = int(np.ceil(len(cluster)/16))
 
-        with ProcessPoolExecutor() as executor:
-            func = partial(self._state_reduce, net =net,species_map = species_map,sources =sources, eps_list = eps_list, dropped = dropped)
-            out = executor.map(func, cluster)
+        with ProcessPoolExecutor(initializer=_init_worker,
+                                  initargs=(net, species_map, sources, eps_list, dropped)) as executor:
+            out = executor.map(_state_reduce_worker, cluster, chunksize = chunk_size)
 
             t1 = time.perf_counter()
             out = list(out)
@@ -97,7 +140,7 @@ class DRG_p:
     
 #HELPER FUNCTIONS
 
-    def _get_env(self,data_row):
+    def _get_env(data_row):
         '''Gets environment from row'''
         env_data = np.delete(data_row[2:7],2)
         env_var = [ 'nH', 'T', 'Av','uv_flux']
@@ -105,8 +148,8 @@ class DRG_p:
         for i, var in enumerate(env_var):
             env[var] = env_data[i]
         return env
-    
-    def _get_state_data(self,data_row, species_map, dropped):
+
+    def _get_state_data(data_row, species_map, dropped):
         '''Removes dropped species and environment entries from data row'''
         if dropped == None:
             dropped = []
@@ -114,29 +157,28 @@ class DRG_p:
         dropped_idx = [species_map[i] for i in dropped]
         state_data = np.delete(state_data, sorted(dropped_idx))
         return state_data.T
-    
-    def _get_reactions(self,net, data_row):
+
+    def _get_reactions(net, data_row):
         '''Selects reactions and returns species map based on environment'''
-        env = self._get_env(data_row)
-        reactions = net._select_multirange_entries(net.reactions, env["T"]) 
+        env = DRG_p._get_env(data_row)
+        reactions = net._select_multirange_entries(net.reactions, env["T"])
         return reactions, env
-    
-    def _rxn_rate(self, net, rxn, env: dict) -> float:
+
+    def _rxn_rate(net, rxn, env: dict) -> float:
         '''Calculates rxn rate for given rxn and environment'''
         T = float(env["T"])
         nH = float(env["nH"])
         Av = float(env["Av"])
         uv_flux = float(env["uv_flux"])
         Tcap_2body = bool(env.get("Tcap_2body", True))
-        return net._calculate_rate(rxn, T, nH, Av, uv_flux, Tcap_2body) 
+        return net._calculate_rate(rxn, T, nH, Av, uv_flux, Tcap_2body)
 
-    def _point_build_R_mat(self, 
-                    net, 
-                    reactions: list, 
-                    species_map: dict, 
-                    env: dict, 
+    def _point_build_R_mat(net,
+                    reactions: list,
+                    species_map: dict,
+                    env: dict,
                     concs):
-        
+
         '''Builds coefficient matrix at a single state'''
 
         excluded_rate = set(["Photon", "CR", "CRP"])
@@ -150,16 +192,16 @@ class DRG_p:
 
         for rxn in reactions:
 
-            wi = self._rxn_rate(net, rxn, env)
+            wi = DRG_p._rxn_rate(net, rxn, env)
 
             for reactant in rxn["reactants"]:
                 if reactant in excluded_rate:
                     continue
 
                 wi *= concs[species_map[reactant]]
-            
-            if wi == 0: 
-                continue 
+
+            if wi == 0:
+                continue
 
             stoic = rxn["stoichiometric"]
 
@@ -175,22 +217,22 @@ class DRG_p:
                     rows.append(idx_a)
                     col.append(idx_b)
                     data.append(rate_prod)
-        
+
         num_mat  = sp.coo_matrix((data,(rows,col)), shape = (n_species,n_species), dtype = np.float64)
         num_mat.sum_duplicates()
 
         R_mat = num_mat.copy()
         R_mat.data /= den_vec[R_mat.row]
         return R_mat
-    
-    def _build_A_mat(self, R_mat,eps = 0.1):
+
+    def _build_A_mat(R_mat,eps = 0.1):
         '''Builds adjacency matrix from R_mat'''
         A_mat = R_mat.copy()
         A_mat.data = (np.abs(A_mat.data)>= eps).astype(int)
         A_mat.eliminate_zeros()
         return A_mat
-    
-    def _dfs(self, A_mat, source_indices: list):
+
+    def _dfs(A_mat, source_indices: list):
         '''Conducts depth first search of directed graph, given source terms'''
 
         found_species_indices = set()
@@ -213,27 +255,6 @@ class DRG_p:
 
         data = {"epsilon": eps, "reactions": reduced_reactions,
                 "species": species}
-            
+
         with open(file_path, "w") as f:
             json.dump(data, f, indent = 2)
-
-    def _state_reduce(self, data_row, net, species_map,sources, eps_list, dropped):
-        '''Computes reaction ids reached for a single state, for each epsilon.'''
-
-        reactions, env = self._get_reactions(net, data_row)
-        source_indices = [species_map[s] for s in sources]
-
-        state_data = self._get_state_data(data_row, species_map, dropped)
-        R_mat = self._point_build_R_mat(net, reactions, species_map,env ,state_data)
-
-        state_results = {}
-        for e in eps_list:
-            A_mat = self._build_A_mat(R_mat, e)
-            reached = set(self._dfs(A_mat, source_indices))
-
-            found_ids = {rxn["id"] for rxn in reactions
-                         if set(rxn["stoichiometric"].keys()).issubset(reached)}
-
-            state_results[e] = found_ids
-
-        return state_results
