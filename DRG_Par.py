@@ -1,9 +1,9 @@
+import os
 import numpy as np
 import networkx as nx
 import scipy.sparse as sp
 import json
 from concurrent.futures import ProcessPoolExecutor
-import time
 
 _worker_net = None
 _worker_species_map = None
@@ -13,39 +13,47 @@ _worker_dropped = None
 
 
 def _init_worker(net, species_map, sources, eps_list, dropped):
-    global _worker_net, _worker_species_map, _worker_sources, _worker_eps_list, _worker_dropped
+    global _worker_net, _worker_species_map, _worker_sources, _worker_eps_list, _worker_dropped, _worker_source_indices
     _worker_net = net
     _worker_species_map = species_map
     _worker_sources = sources
     _worker_eps_list = eps_list
     _worker_dropped = dropped
+    _worker_source_indices = [species_map[s] for s in sources]
 
-def _state_reduce_worker(data_row):
-    '''Computes reaction ids reached for a single state, for each epsilon.'''
+def _state_reduce_chunk_worker(data_rows):
+    '''Computes reaction ids reached for a chunk of states'''
 
     net = _worker_net
     species_map = _worker_species_map
-    sources = _worker_sources
     eps_list = _worker_eps_list
     dropped = _worker_dropped
+    source_indices = _worker_source_indices
 
-    reactions, env = DRG_p._get_reactions(net, data_row)
-    source_indices = [species_map[s] for s in sources]
+    chunk_results = {e: set() for e in eps_list}
 
-    state_data = DRG_p._get_state_data(data_row, species_map, dropped)
-    R_mat = DRG_p._point_build_R_mat(net, reactions, species_map, env, state_data)
+    for data_row in data_rows:
+        reactions, env = DRG_p._get_reactions(net, data_row)
+        state_data = DRG_p._get_state_data(data_row, species_map, dropped)
+        R_mat = DRG_p._point_build_R_mat(net, reactions, species_map, env, state_data)
 
-    state_results = {}
-    for e in eps_list:
-        A_mat = DRG_p._build_A_mat(R_mat, e)
-        reached = set(DRG_p._dfs(A_mat, source_indices))
+        for e in eps_list:
+            A_mat = DRG_p._build_A_mat(R_mat, e)
+            reached = set(DRG_p._dfs(A_mat, source_indices))
+            found_ids = set()
+            
+            for rxn in reactions:
+                id = rxn["id"]
+                
+                if id in chunk_results[e]:
+                    continue
 
-        found_ids = {rxn["id"] for rxn in reactions
-                     if set(rxn["stoichiometric"].keys()).issubset(reached)}
+                if set(rxn["stoichiometric"].keys()).issubset(reached):
+                    found_ids.add(id)
 
-        state_results[e] = found_ids
+            chunk_results[e].update(found_ids)
 
-    return state_results
+    return chunk_results
 
 
 class DRG_p:
@@ -83,24 +91,21 @@ class DRG_p:
         eps_list = [eps] if scalar_eps else list(eps)
 
         species_map = net.species_map
-        chunk_size = int(np.ceil(len(cluster)/16))
+
+        cpu = os.cpu_count()
+        chunk_size = int(np.ceil(len(cluster)/cpu))
+
+        chunks = [cluster[i:i + chunk_size] for i in range(0, len(cluster), chunk_size)]
 
         with ProcessPoolExecutor(initializer=_init_worker,
                                   initargs=(net, species_map, sources, eps_list, dropped)) as executor:
-            out = executor.map(_state_reduce_worker, cluster, chunksize = chunk_size)
-
-            t1 = time.perf_counter()
-            out = list(out)
-            t2 = time.perf_counter()
-            print(f"Unpack: {t2 -t1} seconds")
+            out = executor.map(_state_reduce_chunk_worker, chunks)
             found_ids = {e: set() for e in eps_list}
 
-            start = time.perf_counter()
-            for state_result in out:
+       
+            for chunk_result in out:
                 for e in eps_list:
-                    found_ids[e].update(state_result[e])
-            end = time.perf_counter()
-            print(f"Merge: {end-start} seconds")
+                    found_ids[e].update(chunk_result[e])
 
         idx_to_species = {idx: species for species, idx in species_map.items()}
         id_to_rxn = {}
