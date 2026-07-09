@@ -1,3 +1,6 @@
+"""Reduces network for a single cluster, solves reduced network for all fixed environment intervals in the cluster, plot errors
+   Results are all saved in folder {cluster_number}_results
+      subfolders: reduced_networks, reduced_solutions, errors, error_plots"""
 
 import sys
 from pathlib import Path
@@ -138,7 +141,7 @@ if __name__ == '__main__':
         with open(REDUCED_NET_FILE) as f:
             data = json.load(f)
 
-        species = data["species"] #reduced
+        species = data["species"] 
         reactions = data["reactions"]
         species_map = {s: i for i, s in enumerate(species)}
 
