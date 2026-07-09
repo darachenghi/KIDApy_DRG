@@ -8,7 +8,6 @@ import numpy as np
 import json
 import matplotlib.pyplot as plt
 import pandas as pd
-import time
 
 from parser import Network
 from DRG_Par import DRG_p
@@ -24,7 +23,6 @@ REPO_ROOT = HERE.parent
 NETWORK_PATH    = REPO_ROOT/ "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
 CLUSTER_DIR = Path("/work/10864/arjunveejay/mysharedirectory/clusters_params_only")
 
-start = time.perf_counter()
 #LOADS NETWORK
 net = Network(grains = True)
 net.load_from_disk(str(NETWORK_PATH))
@@ -233,12 +231,9 @@ def _plot_errors(data, ylabel, title, filename):
     fig.savefig(PLOTS_DIR / filename)
     plt.close(fig)
 
-_plot_errors(max_rel_errors, "Max Relative Error", "Max Relative Error over Intervals", "max_rel_error")
-_plot_errors(max_max_errors, "Max Error", "Max Error over Intervals", "max_max_error")
-_plot_errors(avg_rel_errors, "Average Relative Error", "Average Relative Error over Intervals", "avg_rel_error")
-_plot_errors(avg_max_errors, "Average Error", "Average Error over Intervals", "avg_max_error")
+_plot_errors(max_rel_errors, "Max Relative Error", "Max Relative Error", "max_rel_error")
+_plot_errors(max_max_errors, "Max Max Error", "Max Max Error", "max_max_error")
+_plot_errors(avg_rel_errors, "Average Relative Error", "Average Relative Error", "avg_rel_error")
+_plot_errors(avg_max_errors, "Average Max Error", "Average Max Error", "avg_max_error")
 
 print(f"Saved error plots to {PLOTS_DIR}")
-
-end = time.perf_counter()
-print(f"Time: {end-start} seconds")
