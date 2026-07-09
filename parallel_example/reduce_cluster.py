@@ -169,7 +169,6 @@ if __name__ == '__main__':
 
         if failed:
             failed_msg = f"eps={e}: {len(failed)}/{n_intervals} intervals failed: {sorted(failed)}"
-            print(failed_msg)
             with open(SAVE_DIR / "failed_intervals.txt", "a") as f:
                 f.write(failed_msg + "\n")
 
