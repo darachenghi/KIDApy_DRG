@@ -8,6 +8,7 @@ import numpy as np
 import json
 import matplotlib.pyplot as plt
 import pandas as pd
+import time
 
 from parser import Network
 from DRG_Par import DRG_p
@@ -23,6 +24,7 @@ REPO_ROOT = HERE.parent
 NETWORK_PATH    = REPO_ROOT/ "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
 CLUSTER_DIR = Path("/work/10864/arjunveejay/mysharedirectory/clusters_params_only")
 
+start = time.perf_counter()
 #LOADS NETWORK
 net = Network(grains = True)
 net.load_from_disk(str(NETWORK_PATH))
@@ -45,7 +47,6 @@ RED_NET_DIR =  SAVE_DIR/ "reduced_networks" #Where the reduced networks for each
 RED_NET_DIR.mkdir(parents=True, exist_ok=True)
 
 cluster = np.load(CLUSTER_PATH)
-print(f"\nCluster: {cluster}")
 drg = DRG_p()
 drg.reduce_net(net, cluster, sources, eps, dropped, savedir=RED_NET_DIR) 
 
@@ -115,7 +116,7 @@ def solve_interval(idx, start, end):
 
         for s in sources:
             true_sol = chunk[:,cluster_species_map[s]+7]
-            red_sol = y[:,species_map[s]]
+            red_sol = y[species_map[s],:]
             res = np.abs(true_sol - red_sol)
             rel_errors[s] = ((np.linalg.norm(res,2))/np.linalg.norm(true_sol, 2))
             max_errors[s] = (np.linalg.norm(res,np.inf))
@@ -207,7 +208,7 @@ avg_rel_errors = {s: [] for s in sources}
 avg_max_errors = {s: [] for s in sources}
 
 for e in eps:
-    error_file = ERROR_DIR / f"errors_eps{str(e).replace('.', 'p')}"
+    error_file = ERROR_DIR / f"errors_eps{str(e).replace('.', 'p')}.csv"
     df = pd.read_csv(error_file)
 
     for s in sources:
@@ -238,3 +239,6 @@ _plot_errors(avg_rel_errors, "Average Relative Error", "Average Relative Error o
 _plot_errors(avg_max_errors, "Average Error", "Average Error over Intervals", "avg_max_error")
 
 print(f"Saved error plots to {PLOTS_DIR}")
+
+end = time.perf_counter()
+print(f"Time: {end-start} seconds")
