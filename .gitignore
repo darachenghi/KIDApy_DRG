@@ -14,3 +14,4 @@ DRG_Example/reduced_networks
 cluster_example/test.py
 parallel_example/test.py
 parallel_example/plotting.py
+parallel_example/0025_results/failed_intervals.txt
