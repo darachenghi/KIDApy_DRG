@@ -119,8 +119,9 @@ def solve_interval(idx, start, end):
             true_sol = chunk[:,cluster_species_map[s]+7]
             red_sol = y[species_map[s],:]
             res = np.abs(true_sol - red_sol)
+            res_norm = res / true_sol
             rel_errors[s] = ((np.linalg.norm(res,2))/np.linalg.norm(true_sol, 2))
-            max_errors[s] = (np.linalg.norm(res,np.inf))
+            max_errors[s] = (np.max(res_norm))
 
     except RuntimeError:
         solve_failed = True
