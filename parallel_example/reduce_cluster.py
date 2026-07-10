@@ -37,7 +37,7 @@ net._get_stoich(dropped) #adds stoichiometric coefficient dictionary to each rea
 sources = ['CO', 'C+', 'O+', 'O', 'e-']
 eps = [0.001, 0.005, 0.01, 0.05, 0.1, 0.2]
 
-cluster_name = "0000"
+cluster_name = "0003"
 
 CLUSTER_PATH = CLUSTER_DIR/f"cluster_{cluster_name}.npy"
 
@@ -119,7 +119,7 @@ def solve_interval(idx, start, end):
             true_sol = chunk[:,cluster_species_map[s]+7]
             red_sol = y[species_map[s],:]
             res = np.abs(true_sol - red_sol)
-            res_norm = res / true_sol
+            res_norm = np.divide(res, np.abs(true_sol),out=np.zeros_like(res, dtype=float),where=true_sol != 0,)
             rel_errors[s] = ((np.linalg.norm(res,2))/np.linalg.norm(true_sol, 2))
             max_errors[s] = (np.max(res_norm))
 
