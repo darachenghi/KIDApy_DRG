@@ -34,7 +34,7 @@ eps = 0.001
 sources = ['CO', 'C+', 'O+', 'O', 'e-']
 
 cluster_num = "0025"
-failed_int = 0
+failed_int = 53
 
 CLUSTER_PATH = CLUSTER_DIR/f"cluster_{cluster_num}.npy"
 cluster = np.load(CLUSTER_PATH)
