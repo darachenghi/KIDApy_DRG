@@ -17,8 +17,8 @@ from solver import QuadraticSolver
 
 HERE = Path(__file__).resolve().parent
 NETWORK_PATH    = HERE/ "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
-RED_NET_DIR = HERE/"reduced_networks_0025"
-CLUSTER_DIR = HERE.parent/"clusters_params_only"
+RED_NET_DIR = HERE/"parallel_example"/"0025_results"/"reduced_networks"
+CLUSTER_DIR = HERE/"clusters_params_only"
 SAVE_DIR = HERE/"reduced_solutions"
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -75,6 +75,13 @@ asb = assembly(grains=True)
 A, B = asb.get_operators(reactions, species_map, rates)
 
 t_eval = cluster_interval[:, 1]
+#shift time so the interval starts at 0: absolute cluster times (~1e12 s) have
+#a float spacing coarser than the initial step the stiff system needs, which
+#makes the solver fail with "required step size less than spacing between numbers".
+#The ODE is autonomous (rates depend only on the fixed interval environment),
+#so shifting is exact; absolute times are restored after the solve.
+t0 = t_eval[0]
+t_eval_shifted = t_eval - t0
 
 solver = QuadraticSolver()
 t, y = solver.solve(A, B,
@@ -82,8 +89,9 @@ t, y = solver.solve(A, B,
                     atol=ATOL,
                     rtol=RTOL,
                     method="BDF",
-                    t_eval=t_eval,
-                    t_span=(t_eval[0], t_eval[-1]))
+                    t_eval=t_eval_shifted,
+                    t_span=(t_eval_shifted[0], t_eval_shifted[-1]))
+t = t + t0  #restore absolute time
 
 out_root = str(SAVE_DIR / f"reduced_sol_eps{str(eps).replace('.', 'p')}")
 solver = QuadraticSolver()

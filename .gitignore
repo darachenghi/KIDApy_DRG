@@ -15,3 +15,6 @@ cluster_example/test.py
 parallel_example/test.py
 parallel_example/plotting.py
 parallel_example/0025_results/failed_intervals.txt
+parallel_example/*_results
+parallel_example/logs
+clusters_params_only
