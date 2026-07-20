@@ -384,6 +384,7 @@ class QuadraticSolverTracer:
         verbose: bool = False,
         log_cols=None,
         t_eval=None,
+        equilibrate = True
     ) -> Tuple[np.ndarray, np.ndarray]:
         """
         Integrate the time-dependent system
@@ -445,21 +446,23 @@ class QuadraticSolverTracer:
             raise ValueError("pt must contain at least one trajectory point")
 
         x0 = np.asarray(x0, dtype=np.float64).copy()
-        x_floor = min_scale * atol if use_scaling else atol
-        q = QuadraticSolver()
 
-        A0, B0 = get_tensors(self._to_env(pt[0]))
-        _, y_eq = q.solve(
-            A0,
-            B0,
-            (0.0, 3600 * 24 * 365 * 1e4),
-            x0,
-            method=method,
-            atol=x_floor,
-            rtol=rtol,
-            scale=None,
-        )
-        x0 = y_eq[:, -1]
+        if equilibrate:
+            x0 = np.asarray(x0, dtype=np.float64).copy()
+            x_floor = min_scale * atol if use_scaling else atol
+            q = QuadraticSolver()
+            A0, B0 = get_tensors(self._to_env(pt[0]))
+            _, y_eq = q.solve(
+                A0,
+                B0,
+                (0.0, 3600 * 24 * 365 * 1e4),
+                x0,
+                method=method,
+                atol=x_floor,
+                rtol=rtol,
+                scale=None,
+            )
+            x0 = y_eq[:, -1]
 
         M = pt.shape[0]
         if M == 1:
