@@ -25,9 +25,9 @@ REPO_ROOT = HERE.parent
 
 NETWORK_PATH = REPO_ROOT/ "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
 ABUNDANCES_PATH = REPO_ROOT/ "networks" / "kida.uva.2024" / "abundances.in"
-REDUCED_NETWORK_DIR = REPO_ROOT.parent/"DRG_DATA"/"global_reduced_networks"
-FEAT_PATH =  "./feature_matrix.npy"
-SAVE_DIR = HERE/"results"
+REDUCED_NETWORK_DIR = REPO_ROOT.parent/"global_reduced_networks"
+FEAT_PATH =  "/scratch/10864/arjunveejay/KIDApy_DRG/parallel_example/results/feature_matrix.npy"
+SAVE_DIR = HERE/"test_results"
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
 YEAR = 3600 * 24 * 365.25
@@ -54,7 +54,6 @@ net = Network(grains = True)
 net.load_from_disk(str(NETWORK_PATH))
 tracer_species_map = net.species_map #indexing of species in tracer, for plotting true solutions
 
-sample_size = 200
 n_tracers = number_tracers(FEAT_PATH)
 tracer_positions = [i for i in range(n_tracers)]
 

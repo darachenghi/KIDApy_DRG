@@ -446,11 +446,10 @@ class QuadraticSolverTracer:
             raise ValueError("pt must contain at least one trajectory point")
 
         x0 = np.asarray(x0, dtype=np.float64).copy()
+        x_floor = min_scale * atol if use_scaling else atol
+        q = QuadraticSolver()
 
         if equilibrate:
-            x0 = np.asarray(x0, dtype=np.float64).copy()
-            x_floor = min_scale * atol if use_scaling else atol
-            q = QuadraticSolver()
             A0, B0 = get_tensors(self._to_env(pt[0]))
             _, y_eq = q.solve(
                 A0,

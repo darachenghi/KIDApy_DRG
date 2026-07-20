@@ -23,8 +23,8 @@ REPO_ROOT = HERE.parent
 
 NETWORK_PATH = REPO_ROOT/ "networks" / "kida.uva.2024" / "gas_reactions_kida.uva.2024.in"
 ABUNDANCES_PATH = REPO_ROOT/ "networks" / "kida.uva.2024" / "abundances.in"
-REDUCED_NETWORK_DIR = REPO_ROOT.parent/"DRG_DATA"/"global_reduced_networks"
-FEAT_PATH =  "./feature_matrix.npy"
+REDUCED_NETWORK_DIR = REPO_ROOT.parent/"global_reduced_networks"
+FEAT_PATH =  "/scratch/10864/arjunveejay/KIDApy_DRG/parallel_example/results/feature_matrix.npy"
 
 YEAR = 3600 * 24 * 365.25
 ATOL = 1e-20
@@ -186,12 +186,12 @@ if __name__ == "__main__":
     net.load_from_disk(str(NETWORK_PATH))
     tracer_species_map = net.species_map #indexing of species in tracer, for plotting true solutions
 
-    sample_size = 200
+    sample_size = 100
     n_tracers = number_tracers(FEAT_PATH)
     rng = np.random.default_rng()
     tracer_positions = sorted(rng.choice(n_tracers, size=min(sample_size, n_tracers), replace=False).tolist())
 
-    save_tracer_pos = str(HERE)
+    save_tracer_pos = str(HERE/"sample_positions")
     np.savetxt(save_tracer_pos,tracer_positions)
 
     failed = []
