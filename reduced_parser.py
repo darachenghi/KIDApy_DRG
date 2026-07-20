@@ -151,7 +151,6 @@ class reduced_network:
         """
         if not os.path.exists(filepath):
             raise FileNotFoundError(f"Reactions file not found: '{filepath}'")
-        print(f"Reading: {filepath}")
         with open(filepath) as fh:
             data = json.load(fh)
             self.reactions = data["reactions"]
