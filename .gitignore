@@ -1,11 +1,13 @@
 *.pyc
 *.npy
 *.csv
+!global_errors/*.csv
 *comparison.txt
 .venv/
 DRG_Example/drg_pipeline.ipynb
 *.png
 *.json
+!global_reduced_networks/*.json
 DRG_Example/test.py
 DRG_Example/kida_reduced_solved
 DRG_Example/Full_networks
