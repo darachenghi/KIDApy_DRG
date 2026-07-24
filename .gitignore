@@ -23,3 +23,9 @@ clusters_params_only
 *.npz
 tracer_example/sample_positions
 tracer_example/plotting.ipynb
+tracer_example/tracer_error_band.py
+tracer_example/tracer_predict.py
+parallel_example/stitch_global.py
+global_reduced_networks/reduced_net_eps0.06.json
+parallel_example/reduce_single_eps.py
+parallel_example/reduce_global.slurm

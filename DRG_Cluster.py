@@ -63,6 +63,11 @@ class DRG_c:
         species_map = net.species_map
         n_cluster = int(cluster.shape[0]) if cluster.ndim > 1 else 1
 
+        # all temperature-range variants of a reaction share one id; keep every variant of a retained reaction so the parser can select the correct branch by temperature at run time (_get_reactions only returns the in-range variant per state, so append that alone would drop the rest).
+        variants_by_id = {}
+        for rxn in net.reactions:
+            variants_by_id.setdefault(rxn["id"], []).append(rxn)
+
         for j in range(n_cluster):
             data_row = cluster[j] if n_cluster > 1 else cluster
             reactions, env = self._get_reactions(net, data_row)
@@ -87,7 +92,7 @@ class DRG_c:
 
                     if found_idx.issubset(reached):
                         r["seen"].add(rxn_id)
-                        r["rxns"].append(rxn)
+                        r["rxns"].extend(variants_by_id[rxn_id])
                         r["species"].update(idx_to_species[idx] for idx in found_idx)
 
         if scalar_eps:

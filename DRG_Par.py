@@ -108,13 +108,17 @@ class DRG_p:
                     found_ids[e].update(chunk_result[e])
 
         idx_to_species = {idx: species for species, idx in species_map.items()}
-        id_to_rxn = {}
+
+        # all temperature-range variants of a reaction share one id; keep every variant of each retained reaction so the parser can select the correct branch by temperature at run time.
+        variants_by_id = {}
         for rxn in net.reactions:
-            id_to_rxn.setdefault(rxn["id"], rxn)
+            variants_by_id.setdefault(rxn["id"], []).append(rxn)
 
         self.results = {}
         for e in eps_list:
-            rxns = [id_to_rxn[rxn_id] for rxn_id in found_ids[e]]
+            rxns = []
+            for rxn_id in found_ids[e]:
+                rxns.extend(variants_by_id[rxn_id])
             species = set()
             for rxn in rxns:
                 species.update(idx_to_species[idx] for idx in rxn["stoichiometric"].keys())

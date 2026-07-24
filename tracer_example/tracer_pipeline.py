@@ -73,14 +73,18 @@ def _solve_tracer(pos, tracer_species_map, mm, n_species, sol_dir):
        epsilon, saving each solution to sol_dir. Returns the true (t, y) for downstream
        error/plot steps, or ok=False with a message if the tracer is empty or a solve fails'''
 
-    t, y, params = read_tracer_trajectory(mm, pos, n_species, return_params=True)
-    t, y, params = remove_duplicates(t, y, params)
+    t, y, params_raw = read_tracer_trajectory(mm, pos, n_species, return_params=True)
 
     if y.shape[1] == 0:
         return False, f"Tracer {pos} is empty block", None, None
 
-    params = params[::PARAMS_STRIDE]
-    dt_hydro = (t[1] - t[0]) * PARAMS_STRIDE
+    
+    pt = params_raw[::PARAMS_STRIDE]
+    dt_hydro = t[PARAMS_STRIDE] - t[0]
+    params = np.vstack([pt, pt[-1]])
+
+    # Deduplicate the fine trajectory used for initial conditions, t_eval, and the true-solution comparison.
+    t, y, _ = remove_duplicates(t, y, params_raw)
 
     for e in eps:
         try:
