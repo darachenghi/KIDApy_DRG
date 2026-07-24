@@ -154,8 +154,8 @@ def process_cluster(cluster_name):
     RED_NET_DIR = SAVE_DIR / "reduced_networks"
     SOLVED_DIR = SAVE_DIR / "reduced_solutions"
     ERROR_DIR = SAVE_DIR / "errors"
-    PLOTS_DIR = SAVE_DIR / "error_plots"
-    for d in (SAVE_DIR, RED_NET_DIR, SOLVED_DIR, ERROR_DIR, PLOTS_DIR):
+    #PLOTS_DIR = SAVE_DIR / "error_plots"
+    for d in (SAVE_DIR, RED_NET_DIR, SOLVED_DIR, ERROR_DIR):
         d.mkdir(parents=True, exist_ok=True)
 
     ########################################### REDUCE NETWORK ###########################################
@@ -329,14 +329,14 @@ def process_cluster(cluster_name):
         ax.set_ylabel(ylabel)
         ax.set_title(f"Cluster {cluster_name}: {title}")
         ax.legend()
-        fig.savefig(PLOTS_DIR / filename)
+        #fig.savefig(PLOTS_DIR / filename)
         plt.close(fig)
 
-    _plot_errors(max_rel_errors, "Max Relative Error", "Max Relative Error", "max_rel_error", ref=full_max_rel)
-    _plot_errors(max_max_errors, "Max Max Error", "Max Max Error", "max_max_error", ref=full_max_max)
-    _plot_errors(avg_rel_errors, "Average Relative Error", "Average Relative Error", "avg_rel_error", ref=full_avg_rel)
-    _plot_errors(avg_max_errors, "Average Max Error", "Average Max Error", "avg_max_error", ref=full_avg_max)
-    print(f"Saved error plots to {PLOTS_DIR}", flush=True)
+   # _plot_errors(max_rel_errors, "Max Relative Error", "Max Relative Error", "max_rel_error", ref=full_max_rel)
+   # _plot_errors(max_max_errors, "Max Max Error", "Max Max Error", "max_max_error", ref=full_max_max)
+   # _plot_errors(avg_rel_errors, "Average Relative Error", "Average Relative Error", "avg_rel_error", ref=full_avg_rel)
+    #_plot_errors(avg_max_errors, "Average Max Error", "Average Max Error", "avg_max_error", ref=full_avg_max)
+    #print(f"Saved error plots to {PLOTS_DIR}", flush=True)
 
     ########################################### REDUCED NETWORK SIZE vs EPSILON ###########################################
     n_species_by_eps = []
@@ -363,12 +363,12 @@ def process_cluster(cluster_name):
         ax.set_xlabel("Epsilon")
         ax.set_ylabel(ylabel)
         ax.set_title(f"Cluster {cluster_name}: {title}")
-        fig.savefig(PLOTS_DIR / filename)
+        #fig.savefig(PLOTS_DIR / filename)
         plt.close(fig)
 
-    _plot_size(n_species_by_eps, "Number of Species", "Number of Species vs Epsilon", "n_species_vs_eps")
-    _plot_size(n_reactions_by_eps, "Number of Reactions", "Number of Reactions vs Epsilon", "n_reactions_vs_eps")
-    print(f"Saved reduced-network size plots to {PLOTS_DIR}", flush=True)
+   # _plot_size(n_species_by_eps, "Number of Species", "Number of Species vs Epsilon", "n_species_vs_eps")
+   # _plot_size(n_reactions_by_eps, "Number of Reactions", "Number of Reactions vs Epsilon", "n_reactions_vs_eps")
+    #print(f"Saved reduced-network size plots to {PLOTS_DIR}", flush=True)
 
     ########################################### MASTER SUMMARY ###########################################
     summary_rows = []

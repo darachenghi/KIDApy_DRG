@@ -25,7 +25,7 @@
 #SBATCH -A AST24021
 
 ####SBATCH --mail-type=all
-####SBATCH --mail-user=arjunveejay@utexas.edu
+####SBATCH --mail-user=dc53555@eid.utexas.edu
 
 set -euo pipefail
 mkdir -p logs
@@ -33,7 +33,7 @@ mkdir -p logs
 cd "$SLURM_SUBMIT_DIR"
 
 # --- environment: activate the venv that has numpy/scipy/matplotlib/pandas/networkx ---
-source /scratch/10864/arjunveejay/cosmicai/bin/activate
+source /scratch/11648/daracheng4787/myenv/bin/activate 
 
 # Keep math libs single-threaded per worker so the process pool (not BLAS) owns the cores.
 export OMP_NUM_THREADS=1
