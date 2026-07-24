@@ -1,14 +1,24 @@
 import sys
 from pathlib import Path
 import json
+from parser import Network
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 HERE = Path(__file__).resolve().parent
-RESULTS_DIR = Path("/scratch/10864/arjunveejay/KIDApy_DRG/parallel_example/results")
-SAVE_DIR = HERE/"global_reduced_networks"
+RESULTS_DIR = HERE/"parallel_example"/"results"
+SAVE_DIR = HERE/"global_reduced_networks_2"
 SAVE_DIR.mkdir(parents = True, exist_ok= True)
+FULL_NET_DIR = HERE/"networks"/"kida.uva.2024"/"gas_reactions_kida.uva.2024.in"
 
+net = Network(grains=True)
+net.load_from_disk(FULL_NET_DIR)
+net.drop_passive_species()
+
+varients_by_id = {}
+for rxn in net.reactions:
+    varients_by_id.setdefault(rxn["id", []]).append(rxn)
+    
 cluster_names = [f"{num:04}" for num in range(128)]
 eps = [1e-4, 2e-4, 5e-4,
        1e-3, 2e-3, 5e-3,
@@ -31,7 +41,7 @@ def global_reduce(eps,cluster_names,results_dir, save_dir):
                     r_id = rxn["id"]
                     if r_id in found_ids:
                         continue
-                    glob_reactions.append(rxn)
+                    glob_reactions.extend(varients_by_id[r_id])
                     found_ids.add(r_id)
         
         glob_species = sorted(glob_species)
